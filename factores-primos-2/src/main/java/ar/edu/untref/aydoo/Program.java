@@ -7,12 +7,12 @@ public class Program{
     	try{
             programa.buscarPrimos(Integer.parseInt(arg[0]));
         } catch (Exception e) {
-            procesarErrores(e);
+            impresionDeMensaje("El numero ingresado no es valido");
         }
     }
     
-    public static void procesarErrores(Exception e){
-        System.out.print("El numero ingresado no es valido");
+    public static void impresionDeMensaje(String textoAImprimir){
+        System.out.print(textoAImprimir);
     }
     
     public void buscarPrimos(int numeroIngresado){
@@ -20,13 +20,13 @@ public class Program{
     	while (!esPrimo(numeroIngresado)){
             if (numeroIngresado % divisorCandidato == 0){
     		numeroIngresado = numeroIngresado/divisorCandidato;
-                System.out.print(divisorCandidato + " ");
+                impresionDeMensaje(String.valueOf(divisorCandidato) + " ");
             } else {
     		divisorCandidato++;
     		while (!esPrimo(divisorCandidato)) divisorCandidato++;
             }
     	}
-        System.out.print(numeroIngresado + " ");
+        impresionDeMensaje(String.valueOf(numeroIngresado) + " ");
     }
     
     public boolean esPrimo(int numeroIngresado){
