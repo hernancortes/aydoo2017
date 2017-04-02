@@ -66,4 +66,36 @@ public class ProgramTest
         Assert.assertNotEquals(listaTest,nuevoProg.buscarPrimos(360));
     }
     
+    @Test
+    public void ingresoFormatoQuietEnMayusculasYLuegoDeValidarSeraConvertidoAMinusculas(){
+        Program nuevoProg = new Program();
+        String[] listaArgumentosTest = new String[2];
+        listaArgumentosTest[0] = "360";
+        listaArgumentosTest[1] = "--format=QUIET";
+        String resultadoEsperado = "--format=quiet";
+        String resultado = nuevoProg.validarTipoDeFormato(listaArgumentosTest);
+        Assert.assertEquals(resultadoEsperado, resultado);
+    }
+    
+    @Test
+    public void ingresoFormatoPrettyEnMayusculasYMinusculasYLuegoDeValidarSeraConvertidoAMinusculas(){
+        Program nuevoProg = new Program();
+        String[] listaArgumentosTest = new String[2];
+        listaArgumentosTest[0] = "360";
+        listaArgumentosTest[1] = "--format=PreTTy";
+        String resultadoEsperado = "--format=pretty";
+        String resultado = nuevoProg.validarTipoDeFormato(listaArgumentosTest);
+        Assert.assertEquals(resultadoEsperado, resultado);
+    }
+        
+    @Test
+    public void noIngresoFormatoEntoncesLuegoDeValidarDevolveraFormatoPretty(){
+        Program nuevoProg = new Program();
+        String[] listaArgumentosTest = new String[1];
+        listaArgumentosTest[0] = "360";
+        String resultadoEsperado = "--format=pretty";
+        String resultado = nuevoProg.validarTipoDeFormato(listaArgumentosTest);
+        Assert.assertEquals(resultadoEsperado, resultado);
+    }
+    
 }

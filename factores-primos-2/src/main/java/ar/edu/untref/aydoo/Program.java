@@ -11,17 +11,20 @@ public class Program{
     public static final void main(String[] arg) throws Exception{
         Program programa = new Program();
     	try{
-            String formatoParaImprimir;
-            //este if verifica que si el usuario no ingreso tipo de formato, el formato no se pase como argumento nulo
-            if (arg.length < DOSARGUMENTOS) formatoParaImprimir = "--format=pretty";
-            else formatoParaImprimir = arg[1];
-            
-            programa.imprimirResultadoConFormato(Integer.parseInt(arg[0]), programa.buscarPrimos(Integer.parseInt(arg[0])), formatoParaImprimir);
+            programa.imprimirResultadoConFormato(Integer.parseInt(arg[0]), programa.buscarPrimos(Integer.parseInt(arg[0])), validarTipoDeFormato(arg));
         } catch (Exception e) {
             impresionDeMensaje("El numero ingresado no es valido");
         }
     }
     
+    public static String validarTipoDeFormato(String[] arg){
+        String formatoParaImprimir;
+        //este if verifica que si el usuario no ingreso tipo de formato, el formato no se pase como argumento nulo
+        if (arg.length < DOSARGUMENTOS) formatoParaImprimir = "--format=pretty";
+        else formatoParaImprimir = arg[1].toLowerCase();
+        return formatoParaImprimir;
+    }
+            
     public static void impresionDeMensaje(String textoAImprimir){
         System.out.print(textoAImprimir);
     }
@@ -29,7 +32,6 @@ public class Program{
     public ArrayList<Integer> buscarPrimos(int numeroIngresado){
     	int divisorCandidato = 2;
         ArrayList<Integer> listaDeDivisoresPrimos = new ArrayList<>();
-        
     	while (!esPrimo(numeroIngresado)){
             if (numeroIngresado % divisorCandidato == 0){
     		numeroIngresado = numeroIngresado/divisorCandidato;
