@@ -7,7 +7,7 @@ import org.junit.Assert;
 public class ProgramTest 
 {
     @Test
-    public void probarNoEsPrimo()
+    public void ingresoNumeroOchoyPrueboQueNoEsPrimo()
     {
         Program nuevoProg = new Program();
         boolean resultado = nuevoProg.esPrimo(8);
@@ -16,7 +16,7 @@ public class ProgramTest
     }
     
     @Test
-    public void probarSiEsPrimo()
+    public void ingresoNumeroDosYPrueboQueSiEsPrimo()
     {
         Program nuevoProg = new Program();
         boolean resultado = nuevoProg.esPrimo(2);
