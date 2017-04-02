@@ -2,6 +2,7 @@ package ar.edu.untref.aydoo;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.ListIterator;
 
 public class Program{
     
@@ -12,7 +13,7 @@ public class Program{
     	try{
             String formatoParaImprimir;
             //este if verifica que si el usuario no ingreso tipo de formato, el formato no se pase como argumento nulo
-            if (arg.length < DOSARGUMENTOS) formatoParaImprimir = "error";
+            if (arg.length < DOSARGUMENTOS) formatoParaImprimir = "--format=pretty";
             else formatoParaImprimir = arg[1];
             
             programa.imprimirResultadoConFormato(Integer.parseInt(arg[0]), programa.buscarPrimos(Integer.parseInt(arg[0])), formatoParaImprimir);
@@ -76,18 +77,12 @@ public class Program{
     public void imprimirConFormatoPretty(int numeroIngresado, ArrayList<Integer> listaDeDivisoresPrimos){
         impresionDeMensaje("Factores primos " + numeroIngresado + ": ");
     	Iterator<Integer> iterador = listaDeDivisoresPrimos.iterator();
-    	while(iterador.hasNext()){
-            Integer numeroAEscribir = iterador.next();
-            impresionDeMensaje(String.valueOf(numeroAEscribir));
-            impresionDeMensaje(" ");
-            if(!(iterador.hasNext())){
-                impresionDeMensaje("\n\n");	
-            }
-    	}
+    	while(iterador.hasNext()) impresionDeMensaje(String.valueOf(iterador.next()) + " ");
     }
     
     public void imprimirConFormatoQuiet(ArrayList<Integer> listaDeDivisoresPrimos){
-        impresionDeMensaje("Resultado con formato Quiet");
+    	ListIterator iterador = listaDeDivisoresPrimos.listIterator(listaDeDivisoresPrimos.size());
+        while(iterador.hasPrevious()) impresionDeMensaje(String.valueOf(iterador.previous())+ "\n");
     }
     
 }
