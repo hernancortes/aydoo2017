@@ -38,10 +38,19 @@ public class IntegracionTest{
         suscripcionesDeJuan.AgregarRevistaOPeriodico(elGrafico);
         suscripcionesDeJuan.AgregarRevistaOPeriodico(barcelona);
         suscripcionesDeJuan.setPrecio(suscripcionesDeJuan.getMontoACobrarPorSuscripciones());
-        compraDeAgosto = new CompraMensual();
-        compraDeEnero = new CompraMensual();
+        compraDeAgosto = new CompraMensual("agosto");
+        compraDeEnero = new CompraMensual("enero");
         juan.agregarCompraMensual(compraDeAgosto);
         maria.agregarCompraMensual(compraDeEnero);
     }
 
+    @Test
+    public void juanCompraLibroHobbitEnAgosto() {
+        nuevaLibreria.comprar(juan, elHobbit, compraDeAgosto);
+        double resultadoEsperado = 1.0;
+        double resultado = nuevaLibreria.calcularMontoACobrar(compraDeAgosto, juan);
+        
+        Assert.assertEquals(resultadoEsperado, resultado, 0.1);
+    }
+    
 }
