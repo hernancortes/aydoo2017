@@ -22,7 +22,13 @@ public class CompraMensual{
     }
 
     public double calcularGastoMensual(){
-        return 1.0;
+        double total = 0;
+        Iterator<Producto> iterador = compras.iterator();
+        while (iterador.hasNext()){
+            Producto productoActual = iterador.next();
+            total += productoActual.getPrecio();
+        }
+        return total;
     }
 
 }

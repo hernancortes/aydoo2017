@@ -1,12 +1,15 @@
 package ar.edu.untref.aydoo;
 
 public class Producto{
+    public static final double MINIMOVALORDEUNARTICULO = 0.1;
+    public static final double PORCENTAJEDEIVA = 0.21;
     private String nombre;
     private double precio;
 
     public Producto(String nombre, double precio){
         this.nombre = nombre;
-        this.precio = this.validarPrecio(precio);
+        this.precio = precio;
+        //this.precio = this.validarPrecio(precio);
     }
 
     public String getNombre(){
@@ -26,11 +29,11 @@ public class Producto{
     }
 
     public void aplicarIva(){
-        this.precio = this.precio * 1.21;
+        this.precio = this.precio + (this.precio * PORCENTAJEDEIVA);
     }
 
     private double validarPrecio(double precio){
-        if (precio < 0) throw new Error("El precio ingresado es incorrecto");
+        if (precio < MINIMOVALORDEUNARTICULO) throw new Error("El precio ingresado es invalido");
         return precio;
     }
 

@@ -23,8 +23,6 @@ public class IntegracionTest{
         nuevaLibreria = new Libreria("Nueva Libreria");
         juan = new Cliente("Juan Apellido", "20.123.123", "Direccion 123");
         maria = new Cliente("Maria Apellido", "20.456.456", "Direccion 456");
-        nuevaLibreria.agregarCliente(juan);
-        nuevaLibreria.agregarCliente(maria);
         elHobbit = new Libro("El Hobbit", 50.0);
         lapicera = new ArticuloDeLibreria("Lapicera", 5.0);
         lapicera.aplicarIva();
@@ -42,6 +40,8 @@ public class IntegracionTest{
         compraDeEnero = new CompraMensual("enero");
         juan.agregarCompraMensual(compraDeAgosto);
         maria.agregarCompraMensual(compraDeEnero);
+        nuevaLibreria.agregarCliente(juan);
+        nuevaLibreria.agregarCliente(maria);
     }
 
     @Test

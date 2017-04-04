@@ -1,6 +1,8 @@
 package ar.edu.untref.aydoo;
 
 public class RevistaOPeriodico extends Producto{
+    public static final double PORCENTAJEDEDESCUENTOPORSUSCRIPCIONANUAL = 0.2;
+    public static final double CANTIDADDEMESESDELANIO = 12;
     private int frecuenciaDePublicacionAlMes;
 
     public RevistaOPeriodico(String nombre, double precio, int frecuenciaDePublicacionAlMes){
@@ -21,13 +23,13 @@ public class RevistaOPeriodico extends Producto{
     }
 
     public double getPrecioDeSuscripcionAnual(){
-        double precio = ((this.getPrecio() * this.frecuenciaDePublicacionAlMes) * 12);
-        double descuento = ((precio * 20) / 100);
+        double precio = ((this.getPrecio() * this.frecuenciaDePublicacionAlMes) * CANTIDADDEMESESDELANIO);
+        double descuento = precio * PORCENTAJEDEDESCUENTOPORSUSCRIPCIONANUAL;
         return precio - descuento;
     }
 
     public double getPrecioMensualConSuscripcionAnual(){
-        return (this.getPrecioDeSuscripcionAnual() / 12);
+        return (this.getPrecioDeSuscripcionAnual() / CANTIDADDEMESESDELANIO);
     }
 
 }

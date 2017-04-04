@@ -19,7 +19,7 @@ public class Cliente{
 
     public String getNombre(){
         return this.nombre;
-    }
+    }   
 
     public String getDni(){
         return this.dni;
@@ -33,15 +33,24 @@ public class Cliente{
         this.compras.add(mes);
     }  
 
-    public void comprar(CompraMensual mes, Producto producto) {
+    public void comprar(CompraMensual mes, Producto producto){
         if(!compras.contains(mes)) throw new Error("Mes Inexistente");
         Iterator<CompraMensual> iterador = compras.iterator();
-        while (iterador.hasNext()) {
+        while (iterador.hasNext()){
             CompraMensual mesActual = iterador.next();
-            if (mesActual.getNombre().equals(mes.getNombre())) {
-                mesActual.AgregarCompra(producto);
-            }
+            if (mesActual.getNombre().equals(mes.getNombre())) mesActual.AgregarCompra(producto);
         }
     }
+    
+    public double calcularGastoMensual(CompraMensual mes){
+        if(!compras.contains(mes)) throw new Error("Mes no ingresado");
+        double total = 0;
+        Iterator<CompraMensual> iterador = compras.iterator();
+        while (iterador.hasNext()){
+            CompraMensual mesActual = iterador.next();
+            if (mesActual.getNombre().equals(mes.getNombre())) total += mesActual.calcularGastoMensual();
+        }
+        return total;
+	}
     
 }

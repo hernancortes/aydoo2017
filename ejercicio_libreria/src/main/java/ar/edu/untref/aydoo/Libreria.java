@@ -26,9 +26,7 @@ public class Libreria{
         Iterator<Cliente> iterador = clientes.iterator();
         while (iterador.hasNext()){
             Cliente clienteActual = iterador.next();
-            if (cliente.getNombre().equals(clienteActual.getNombre())) {
-                    clienteActual.comprar(mes, producto);
-            }
+            if (cliente.getNombre().equals(clienteActual.getNombre())) clienteActual.comprar(mes, producto);
         }
     }
     
