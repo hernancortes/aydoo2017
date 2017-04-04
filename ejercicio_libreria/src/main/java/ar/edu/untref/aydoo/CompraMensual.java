@@ -17,7 +17,7 @@ public class CompraMensual{
 	return this.nombre;
     }
     
-    public void AgregarCompra(Producto producto){
+    public void agregarCompra(Producto producto){
         this.compras.add(producto);
     }
 

@@ -19,7 +19,7 @@ public class Cliente{
 
     public String getNombre(){
         return this.nombre;
-    }   
+    }
 
     public String getDni(){
         return this.dni;
@@ -38,7 +38,7 @@ public class Cliente{
         Iterator<CompraMensual> iterador = compras.iterator();
         while (iterador.hasNext()){
             CompraMensual mesIterado = iterador.next();
-            if (mesIterado.getNombre().equals(mesIngresado.getNombre())) mesIterado.AgregarCompra(productoIngresado);
+            if (mesIterado.getNombre().equals(mesIngresado.getNombre())) mesIterado.agregarCompra(productoIngresado);
         }
     }
     
