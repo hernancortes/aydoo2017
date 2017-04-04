@@ -10,7 +10,7 @@ public class Libreria{
     
     public Libreria(String nombreDeLibreria){
         this.nombreDeLibreria = nombreDeLibreria;
-        this.clientes = new LinkedList<Cliente>();
+        this.clientes = new LinkedList<>();
     }
 
     public String getNombre(){
@@ -21,16 +21,23 @@ public class Libreria{
         this.clientes.add(clienteAAgregar);
     }
     
-    public void comprar(Cliente cliente, Producto producto, CompraMensual mes){
-        if(!clientes.contains(cliente)) throw new Error("Cliente Inexistente");
+    public void comprar(Cliente clienteIngresado, Producto productoIngresado, CompraMensual mesIngresado){
+        if(!clientes.contains(clienteIngresado)) throw new Error("Cliente Inexistente");
         Iterator<Cliente> iterador = clientes.iterator();
         while (iterador.hasNext()){
-            Cliente clienteActual = iterador.next();
-            if (cliente.getNombre().equals(clienteActual.getNombre())) clienteActual.comprar(mes, producto);
+            Cliente clienteIterado = iterador.next();
+            if (clienteIngresado.getNombre().equals(clienteIterado.getNombre())) clienteIterado.comprar(mesIngresado, productoIngresado);
         }
     }
     
-    public double calcularMontoACobrar(CompraMensual mes, Cliente cliente) {
-        return 1.0;
+    public double calcularMontoACobrar(CompraMensual mesIngresado, Cliente clienteIngresado){
+        if(!clientes.contains(clienteIngresado)) throw new Error("El cliente no existe");
+        double montoTotal = 0;
+        Iterator<Cliente> iterador = clientes.iterator();
+        while (iterador.hasNext()){
+            Cliente clienteIterado = iterador.next();
+            if (clienteIngresado.getNombre().equals(clienteIterado.getNombre())) montoTotal = clienteIterado.calcularGastoMensual(mesIngresado);
+        }
+        return montoTotal;
     }
 }

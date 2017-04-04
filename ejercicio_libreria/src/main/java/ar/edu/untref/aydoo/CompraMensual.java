@@ -10,7 +10,7 @@ public class CompraMensual{
     
     public CompraMensual(String nombre){
         this.nombre = nombre;
-        this.compras = new LinkedList<Producto>();
+        this.compras = new LinkedList<>();
     }
     
     public String getNombre(){
@@ -25,8 +25,8 @@ public class CompraMensual{
         double total = 0;
         Iterator<Producto> iterador = compras.iterator();
         while (iterador.hasNext()){
-            Producto productoActual = iterador.next();
-            total += productoActual.getPrecio();
+            Producto productoIterado = iterador.next();
+            total += productoIterado.getPrecio();
         }
         return total;
     }

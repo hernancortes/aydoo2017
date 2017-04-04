@@ -14,7 +14,7 @@ public class Cliente{
         this.nombre = nombre;
         this.dni = dni;
         this.direccion = direccion;
-        this.compras = new LinkedList<CompraMensual>();
+        this.compras = new LinkedList<>();
     }
 
     public String getNombre(){
@@ -33,22 +33,22 @@ public class Cliente{
         this.compras.add(mes);
     }  
 
-    public void comprar(CompraMensual mes, Producto producto){
-        if(!compras.contains(mes)) throw new Error("Mes Inexistente");
+    public void comprar(CompraMensual mesIngresado, Producto productoIngresado){
+        if(!compras.contains(mesIngresado)) throw new Error("Mes Inexistente");
         Iterator<CompraMensual> iterador = compras.iterator();
         while (iterador.hasNext()){
-            CompraMensual mesActual = iterador.next();
-            if (mesActual.getNombre().equals(mes.getNombre())) mesActual.AgregarCompra(producto);
+            CompraMensual mesIterado = iterador.next();
+            if (mesIterado.getNombre().equals(mesIngresado.getNombre())) mesIterado.AgregarCompra(productoIngresado);
         }
     }
     
-    public double calcularGastoMensual(CompraMensual mes){
-        if(!compras.contains(mes)) throw new Error("Mes no ingresado");
+    public double calcularGastoMensual(CompraMensual mesIngresado){
+        if(!compras.contains(mesIngresado)) throw new Error("Mes Inexistente");
         double total = 0;
         Iterator<CompraMensual> iterador = compras.iterator();
         while (iterador.hasNext()){
-            CompraMensual mesActual = iterador.next();
-            if (mesActual.getNombre().equals(mes.getNombre())) total += mesActual.calcularGastoMensual();
+            CompraMensual mesIterado = iterador.next();
+            if (mesIterado.getNombre().equals(mesIngresado.getNombre())) total += mesIterado.calcularGastoMensual();
         }
         return total;
 	}

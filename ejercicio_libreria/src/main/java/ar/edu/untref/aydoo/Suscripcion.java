@@ -20,8 +20,8 @@ public class Suscripcion extends Producto{
         double total = 0;
         Iterator<RevistaOPeriodico> iterador = productos.iterator();
         while (iterador.hasNext()){
-            RevistaOPeriodico revistaOPeriodicoActual = iterador.next();
-            total += revistaOPeriodicoActual.getPrecioMensualConSuscripcionAnual();
+            RevistaOPeriodico revistaOPeriodicoIterado = iterador.next();
+            total += revistaOPeriodicoIterado.getPrecioMensualConSuscripcionAnual();
         }
         return total;
     }
