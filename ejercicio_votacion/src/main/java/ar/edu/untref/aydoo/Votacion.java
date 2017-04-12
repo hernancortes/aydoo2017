@@ -3,10 +3,10 @@ package ar.edu.untref.aydoo;
 import java.util.HashMap;
 
 public class Votacion {
-    private HashMap<String, Provincia> provincias = new HashMap<>();
-    private HashMap<String, Candidato> candidatos = new HashMap<>();
+    private static HashMap<String, Provincia> provincias = new HashMap<>();
+    private static HashMap<String, Candidato> candidatos = new HashMap<>();
 
-    public void setVoto(String nombreDeCandidato, String nombreDeProvincia) throws Exception {
+    public static void setVoto(String nombreDeCandidato, String nombreDeProvincia) throws Exception {
         try{
             provincias.get(nombreDeProvincia).setVoto(candidatos.get(nombreDeCandidato));
         } catch (Exception e) {
@@ -14,7 +14,7 @@ public class Votacion {
         }
     }
 
-    public void error(Exception e) {
+    public static void error(Exception e) {
         System.out.print(e);
     }
 
@@ -26,6 +26,21 @@ public class Votacion {
         candidatos.put(nombreDeCandidato, new Candidato(nombreDeCandidato, nombreDePartido));
     }
 
+    public static boolean existeProvincia(String nombreDeProvincia) {
+        if (provincias.containsKey(nombreDeProvincia)) 
+            return true;
+        else
+            return false;
+    }
+    
+    public static boolean existeCandidato(String nombreDeCandidato) {
+        if (candidatos.containsKey(nombreDeCandidato)) 
+            return true;
+        else
+            return false;
+    }
+    
+    
     public String getCandidatoGanador(HashMap<String, Integer> cantidadDeVotos) throws Exception {
         String nombreDeCandidatoGanador = "";
         int cantidadDeVotosDeCandidatoGanador = 0;	

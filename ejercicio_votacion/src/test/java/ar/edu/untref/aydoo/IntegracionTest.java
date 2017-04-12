@@ -38,6 +38,38 @@ public class IntegracionTest {
         nuevaVotacion.setCandidato("Martin", "Partido M");
         nuevaVotacion.setCandidato("Mauro", "Partido M");
         
+        Voto voto1 = new Voto("Juan", "Buenos Aires");
+        Voto voto2 = new Voto("Juan", "Buenos Aires");
+        Voto voto3 = new Voto("Juan", "Buenos Aires");
+        Voto voto4 = new Voto("Juan", "Buenos Aires");
+        Voto voto5 = new Voto("Juan", "Buenos Aires");
+        Voto voto6 = new Voto("Juan", "Buenos Aires");
+        
+        Voto voto7 = new Voto("Jose", "Jujuy");
+        Voto voto8 = new Voto("Jose", "Jujuy");
+        Voto voto9= new Voto("Jose", "Jujuy");
+        Voto voto10 = new Voto("Jose", "Jujuy");
+        
+        Voto voto11 = new Voto("Martin", "Jujuy");
+        Voto voto12 = new Voto("Martin", "Jujuy");
+        Voto voto13 = new Voto("Martin", "Jujuy");
+        Voto voto14 = new Voto("Martin", "Jujuy");
+        Voto voto15 = new Voto("Martin", "Jujuy");
+        Voto voto16 = new Voto("Martin", "Jujuy");
+        Voto voto17 = new Voto("Martin", "Jujuy");
+        
+        Voto voto18 = new Voto("Mauro", "Buenos Aires");
+        
+        Voto voto19 = new Voto("Juan", "Salta");
+        Voto voto20 = new Voto("Juan", "Salta");
+        Voto voto21 = new Voto("Juan", "Salta");
+        Voto voto22 = new Voto("Juan", "Salta");
+        Voto voto23 = new Voto("Juan", "Salta");
+        
+        Voto voto24 = new Voto("Mauro", "Salta");
+        Voto voto25 = new Voto("Mauro", "Salta");
+        
+        /*
         nuevaVotacion.setVoto("Juan", "Buenos Aires");
         nuevaVotacion.setVoto("Juan", "Buenos Aires");
         nuevaVotacion.setVoto("Juan", "Buenos Aires");
@@ -68,6 +100,7 @@ public class IntegracionTest {
         
         nuevaVotacion.setVoto("Mauro", "Salta");
         nuevaVotacion.setVoto("Mauro", "Salta");
+                */
     }
 
     @Test
@@ -80,17 +113,17 @@ public class IntegracionTest {
         Assert.assertNotEquals("Martin", nuevaVotacion.getCandidatoGanadorPais());
     }
     
-       @Test
+    @Test
     public void elPartidoConMasVotosEnJujuyEsM() throws Exception {
         Assert.assertEquals("Partido M", nuevaVotacion.getPartidoGanadorProvincia("Jujuy"));
     }
     
-           @Test
+    @Test
     public void elPartidoConMasVotosEnBuenosAiresEsJ() throws Exception {
         Assert.assertEquals("Partido J", nuevaVotacion.getPartidoGanadorProvincia("Buenos Aires"));
     }
     
-           @Test
+    @Test
     public void elPartidoConMasVotosEnSaltaEsJ() throws Exception {
         Assert.assertEquals("Partido J", nuevaVotacion.getPartidoGanadorProvincia("Salta"));
     }
@@ -98,6 +131,16 @@ public class IntegracionTest {
     @Test
     public void elPartidoConMasVotosEnSaltaNoEsM() throws Exception {
         Assert.assertNotEquals("Partido M", nuevaVotacion.getPartidoGanadorProvincia("Salta"));
+    }
+    
+    @Test (expected = Error.class)
+    public void ingresoVotoConCandidatoNoRegistradoParaLaVotacion() throws Exception {
+        Voto voto26 = new Voto("Pepito", "Corrientes");
+    }
+    
+    @Test (expected = Error.class)
+    public void ingresoVotoConProvinciaInexistenteONoRegistradaParaLaVotacion() throws Exception {
+        Voto voto27 = new Voto("Juan", "Uruguay");
     }
     
 }
