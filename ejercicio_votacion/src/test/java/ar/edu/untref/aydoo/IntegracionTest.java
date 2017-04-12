@@ -68,39 +68,6 @@ public class IntegracionTest {
         
         Voto voto24 = new Voto("Mauro", "Salta");
         Voto voto25 = new Voto("Mauro", "Salta");
-        
-        /*
-        nuevaVotacion.setVoto("Juan", "Buenos Aires");
-        nuevaVotacion.setVoto("Juan", "Buenos Aires");
-        nuevaVotacion.setVoto("Juan", "Buenos Aires");
-        nuevaVotacion.setVoto("Juan", "Buenos Aires");
-        nuevaVotacion.setVoto("Juan", "Buenos Aires");
-        nuevaVotacion.setVoto("Juan", "Buenos Aires");
-        
-        nuevaVotacion.setVoto("Jose", "Jujuy");
-        nuevaVotacion.setVoto("Jose", "Jujuy");
-        nuevaVotacion.setVoto("Jose", "Jujuy");
-        nuevaVotacion.setVoto("Jose", "Jujuy");
-        
-        nuevaVotacion.setVoto("Martin", "Jujuy");
-        nuevaVotacion.setVoto("Martin", "Jujuy");
-        nuevaVotacion.setVoto("Martin", "Jujuy");
-        nuevaVotacion.setVoto("Martin", "Jujuy");
-        nuevaVotacion.setVoto("Martin", "Jujuy");
-        nuevaVotacion.setVoto("Martin", "Jujuy");
-        nuevaVotacion.setVoto("Martin", "Jujuy");
-        
-        nuevaVotacion.setVoto("Mauro", "Buenos Aires");
-        
-        nuevaVotacion.setVoto("Juan", "Salta");
-        nuevaVotacion.setVoto("Juan", "Salta");
-        nuevaVotacion.setVoto("Juan", "Salta");
-        nuevaVotacion.setVoto("Juan", "Salta");
-        nuevaVotacion.setVoto("Juan", "Salta");
-        
-        nuevaVotacion.setVoto("Mauro", "Salta");
-        nuevaVotacion.setVoto("Mauro", "Salta");
-                */
     }
 
     @Test
