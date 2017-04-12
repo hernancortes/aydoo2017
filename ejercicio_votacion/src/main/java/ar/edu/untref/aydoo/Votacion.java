@@ -41,21 +41,21 @@ public class Votacion {
     }
     
     
-    public String getCandidatoGanador(HashMap<String, Integer> cantidadDeVotos) throws Exception {
-        String nombreDeCandidatoGanador = "";
-        int cantidadDeVotosDeCandidatoGanador = 0;	
+    public String getGanador(HashMap<String, Integer> cantidadDeVotos) throws Exception {
+        String nombreDeGanador = "";
+        int cantidadDeVotosDeGanador = 0;	
         try{
             for (String nuevaClave : cantidadDeVotos.keySet()) {
                 int nuevaCantidadDeVotos = cantidadDeVotos.get(nuevaClave);
-                if (nuevaCantidadDeVotos > cantidadDeVotosDeCandidatoGanador) {
-                    nombreDeCandidatoGanador = nuevaClave;
-                    cantidadDeVotosDeCandidatoGanador = nuevaCantidadDeVotos;
+                if (nuevaCantidadDeVotos > cantidadDeVotosDeGanador) {
+                    nombreDeGanador = nuevaClave;
+                    cantidadDeVotosDeGanador = nuevaCantidadDeVotos;
                 }
             }   
         } catch (Exception e){
             error(e);
         } finally {
-            return nombreDeCandidatoGanador;
+            return nombreDeGanador;
         }
     }
 
@@ -74,7 +74,7 @@ public class Votacion {
                     }
                 }
             }
-            return getCandidatoGanador(votosTotales);
+            return getGanador(votosTotales);
         } catch (Exception e){
             error(e);
             return "";
@@ -93,7 +93,7 @@ public class Votacion {
                     cantidadDeVotosPorPartido.put(partido, cantidadDeVotosPorPartido.get(partido) + votos.get(candidato));
                 }
             }
-            return getCandidatoGanador(cantidadDeVotosPorPartido);
+            return getGanador(cantidadDeVotosPorPartido);
         } catch (Exception e){
             error(e);
             return "";
