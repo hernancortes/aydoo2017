@@ -1,5 +1,6 @@
 package ar.edu.untref.aydoo;
 
+//Tipo de Objeto: Value Object
 public class Producto{
     public static final double PORCENTAJEDEIVA = 0.21;
     private String nombre;

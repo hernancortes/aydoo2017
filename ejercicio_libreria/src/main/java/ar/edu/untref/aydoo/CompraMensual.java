@@ -4,7 +4,8 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
-public class CompraMensual{
+//Tipo de Objeto: Entity
+public class CompraMensual{ 
     private String nombre;
     private List<Producto> compras;
     

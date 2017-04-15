@@ -4,6 +4,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
+//Tipo de Objeto: Entity
 public class Cliente{
     private String nombre;
     private String dni;

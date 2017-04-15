@@ -4,7 +4,8 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Libreria{
+//Tipo de Objeto: Entity
+public class Libreria{    
     private String nombreDeLibreria;
     private List<Cliente> clientes;
     

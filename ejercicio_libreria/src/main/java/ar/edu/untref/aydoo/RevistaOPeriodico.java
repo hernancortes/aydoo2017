@@ -1,5 +1,6 @@
 package ar.edu.untref.aydoo;
 
+//Tipo de Objeto: Value Object
 public class RevistaOPeriodico extends Producto{
     public static final double PORCENTAJEDEDESCUENTOPORSUSCRIPCIONANUAL = 0.2;
     public static final double CANTIDADDEMESESDELANIO = 12;
