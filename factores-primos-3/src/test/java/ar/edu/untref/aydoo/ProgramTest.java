@@ -1,5 +1,6 @@
 package ar.edu.untref.aydoo;
 
+import static ar.edu.untref.aydoo.Program.CRLF;
 import java.util.ArrayList;
 import org.junit.Test;
 import org.junit.Assert;
@@ -117,6 +118,88 @@ public class ProgramTest
         listaArgumentosTest[2] = "--sort=des";
         String resultadoEsperado = "--sort=des";
         String resultado = nuevoProg.validarTipoDeOrdenamiento(listaArgumentosTest);
+        Assert.assertEquals(resultadoEsperado, resultado);
+    }
+    
+    @Test
+    public void ingresoArgumentosYEspecificoSalidaAArchivoConMayusculasYMinusculasEntoncesLuegoDeValidarDevolveraElArgumentoDeSalidaIngresadoEnMinusculas(){
+        Program nuevoProg = new Program();
+        String[] listaArgumentosTest = new String[3];
+        listaArgumentosTest[0] = "360";
+        listaArgumentosTest[1] = "--format=quiet";
+        listaArgumentosTest[2] = "--outPUT-fiLe=1.txt";
+        String resultadoEsperado = "--output-file=1.txt";
+        String resultado = nuevoProg.validarTipoDeSalidaPorPantallaOArchivo(listaArgumentosTest);
+        Assert.assertEquals(resultadoEsperado, resultado);
+    }
+    
+    @Test
+    public void ingresoArgumentosYEspecificoSalidaAArchivoSinNombreEntoncesLuegoDeValidarDevolveraElArgumentoDeSalidaSinNombre(){
+        Program nuevoProg = new Program();
+        String[] listaArgumentosTest = new String[3];
+        listaArgumentosTest[0] = "360";
+        listaArgumentosTest[1] = "--format=quiet";
+        listaArgumentosTest[2] = "--output-file=";
+        String resultadoEsperado = "--output-file=";
+        String resultado = nuevoProg.validarTipoDeSalidaPorPantallaOArchivo(listaArgumentosTest);
+        Assert.assertEquals(resultadoEsperado, resultado);
+    }
+    
+    @Test
+    public void ingresoArgumentosYEspecificoOutputSinElSignoIgualEntoncesLuegoDeValidarDevolveraSalidaAArchivoVacio(){
+        Program nuevoProg = new Program();
+        String[] listaArgumentosTest = new String[3];
+        listaArgumentosTest[0] = "360";
+        listaArgumentosTest[1] = "--format=quiet";
+        listaArgumentosTest[2] = "--output-file";
+        String resultadoEsperado = "";
+        String resultado = nuevoProg.validarTipoDeSalidaPorPantallaOArchivo(listaArgumentosTest);
+        Assert.assertEquals(resultadoEsperado, resultado);
+    }
+    
+    @Test
+    public void ingresoArgumentosYNoEspecificoSalidaAArchivoEntoncesLuegoDeValidarDevolveraStringSalidaAArchivoVacio(){
+        Program nuevoProg = new Program();
+        String[] listaArgumentosTest = new String[3];
+        listaArgumentosTest[0] = "360";
+        listaArgumentosTest[1] = "--format=quiet";
+        listaArgumentosTest[2] = "--sort=des";
+        String resultadoEsperado = "";
+        String resultado = nuevoProg.validarTipoDeSalidaPorPantallaOArchivo(listaArgumentosTest);
+        Assert.assertEquals(resultadoEsperado, resultado);
+    }
+    
+    @Test
+    public void ingresoNumeroYResultadoConFormatoPrettyDebeDevolverStringCorrecto(){
+        Program nuevoProg = new Program();
+        String[] listaArgumentosTest = new String[2];
+        listaArgumentosTest[0] = "360";
+        listaArgumentosTest[1] = "--format=pretty";
+        String resultadoEsperado = "Factores primos 360: 2 2 2 3 3 5 ";
+        String resultado = nuevoProg.resultadoConFormatoPretty(Integer.parseInt(listaArgumentosTest[0]), nuevoProg.buscarPrimos(Integer.parseInt(listaArgumentosTest[0])));
+        Assert.assertEquals(resultadoEsperado, resultado);
+    }
+    
+    @Test
+    public void ingresoNumeroYNoIngresoTipoDeOrdenamientoResultadoConFormatoQuietDebeDevolverStringCorrectoYOrdenamientoAscPredeterminado(){
+        Program nuevoProg = new Program();
+        String[] listaArgumentosTest = new String[2];
+        listaArgumentosTest[0] = "360";
+        listaArgumentosTest[1] = "--format=quiet";
+        String resultadoEsperado = "2"+ CRLF + "2" + CRLF + "2" + CRLF + "3" + CRLF + "3" + CRLF + "5" + CRLF;
+        String resultado = nuevoProg.resultadoConFormatoQuiet(nuevoProg.buscarPrimos(Integer.parseInt(listaArgumentosTest[0])), nuevoProg.validarTipoDeOrdenamiento(listaArgumentosTest));
+        Assert.assertEquals(resultadoEsperado, resultado);
+    }
+    
+    @Test
+    public void ingresoNumeroYEIngresoTipoDeOrdenamientoDescResultadoConFormatoQuietDebeDevolverStringCorrectoYOrdenamientoDescendente(){
+        Program nuevoProg = new Program();
+        String[] listaArgumentosTest = new String[2];
+        listaArgumentosTest[0] = "360";
+        listaArgumentosTest[1] = "--format=qUiet";
+        listaArgumentosTest[1] = "--sort=Des";
+        String resultadoEsperado = "5"+ CRLF + "3" + CRLF + "3" + CRLF + "2" + CRLF + "2" + CRLF + "2" + CRLF;
+        String resultado = nuevoProg.resultadoConFormatoQuiet(nuevoProg.buscarPrimos(Integer.parseInt(listaArgumentosTest[0])), nuevoProg.validarTipoDeOrdenamiento(listaArgumentosTest));
         Assert.assertEquals(resultadoEsperado, resultado);
     }
     
