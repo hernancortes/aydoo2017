@@ -98,4 +98,26 @@ public class ProgramTest
         Assert.assertEquals(resultadoEsperado, resultado);
     }
     
+    @Test
+    public void ingresoArgumentosYNoEspecificoElOrdenEntoncesLuegoDeValidarDevolveraOrdenAscPredeterminado(){
+        Program nuevoProg = new Program();
+        String[] listaArgumentosTest = new String[1];
+        listaArgumentosTest[0] = "360";
+        String resultadoEsperado = "--sort=asc";
+        String resultado = nuevoProg.validarTipoDeOrdenamiento(listaArgumentosTest);
+        Assert.assertEquals(resultadoEsperado, resultado);
+    }
+    
+    @Test
+    public void ingresoArgumentosYEspecificoElOrdenDescendenteEntoncesLuegoDeValidarDevolveraOrdenDescendente(){
+        Program nuevoProg = new Program();
+        String[] listaArgumentosTest = new String[3];
+        listaArgumentosTest[0] = "360";
+        listaArgumentosTest[1] = "--format=quiet";
+        listaArgumentosTest[2] = "--sort=des";
+        String resultadoEsperado = "--sort=des";
+        String resultado = nuevoProg.validarTipoDeOrdenamiento(listaArgumentosTest);
+        Assert.assertEquals(resultadoEsperado, resultado);
+    }
+    
 }

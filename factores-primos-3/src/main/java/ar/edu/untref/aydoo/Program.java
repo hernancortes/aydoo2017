@@ -6,12 +6,10 @@ import java.util.ListIterator;
 
 public class Program{
     
-    public static final int DOSARGUMENTOS = 2;  // defino MAGIC NUMBER
-
     public static final void main(String[] arg) throws Exception{
         Program programa = new Program();
     	try{
-            programa.imprimirResultadoConFormato(Integer.parseInt(arg[0]), programa.buscarPrimos(Integer.parseInt(arg[0])), validarTipoDeFormato(arg));
+            programa.imprimirResultadoConFormato(Integer.parseInt(arg[0]), programa.buscarPrimos(Integer.parseInt(arg[0])), validarTipoDeFormato(arg), validarTipoDeOrdenamiento(arg));
         } catch (Exception e) {
             impresionAPantalla("El numero ingresado no es valido");
         }
@@ -20,15 +18,23 @@ public class Program{
     public static String validarTipoDeFormato(String[] arg){
         String formatoParaImprimir = "--format=pretty";
         //busca si entre los parametros ingresados se pide formatQuiet, caso contrario mostrara formatPretty
-        for (int i=0; i<arg.length; i++){
-            if ("--format=quiet".equals(arg[i].toLowerCase())){
+        for (String arg1 : arg) {
+            if ("--format=quiet".equals(arg1.toLowerCase())) {
                 formatoParaImprimir = "--format=quiet";
             }
         }
-        //este if verifica que si el usuario no ingreso tipo de formato, el formato no se pase como argumento nulo
-        //if (arg.length < DOSARGUMENTOS) formatoParaImprimir = "--format=pretty";
-        //else formatoParaImprimir = arg[1].toLowerCase();
         return formatoParaImprimir;
+    }
+    
+    public static String validarTipoDeOrdenamiento(String[] arg){
+        String ordenamientoElegido = "--sort=asc";
+        //busca si entre los parametros ingresados se pide sortDesc, caso contrario mostrara sortAsc
+        for (String arg1 : arg) {
+            if ("--sort=des".equals(arg1.toLowerCase())) {
+                ordenamientoElegido = "--sort=des";
+            }
+        }
+        return ordenamientoElegido;
     }
             
     public static void impresionAPantalla(String textoAImprimir){
@@ -69,13 +75,13 @@ public class Program{
         }
     }
     
-    public void imprimirResultadoConFormato(int numeroIngresado, ArrayList<Integer> listaDeDivisoresPrimos, String formatoDeImpresionIngresado){
+    public void imprimirResultadoConFormato(int numeroIngresado, ArrayList<Integer> listaDeDivisoresPrimos, String formatoDeImpresionIngresado, String tipoDeOrdenamientoElegido){
         switch (formatoDeImpresionIngresado){
             case "--format=pretty":
                 imprimirConFormatoPretty(numeroIngresado, listaDeDivisoresPrimos);
                 break;
             case "--format=quiet":
-                imprimirConFormatoQuiet(listaDeDivisoresPrimos);
+                imprimirConFormatoQuiet(listaDeDivisoresPrimos, tipoDeOrdenamientoElegido);
                 break;
             default:
                 impresionAPantalla("Formato no aceptado. Las opciones posibles son: pretty o quiet.");
@@ -88,9 +94,13 @@ public class Program{
     	while(iterador.hasNext()) impresionAPantalla(String.valueOf(iterador.next()) + " ");
     }
     
-    public void imprimirConFormatoQuiet(ArrayList<Integer> listaDeDivisoresPrimos){
-    	ListIterator iterador = listaDeDivisoresPrimos.listIterator(listaDeDivisoresPrimos.size());
-        while(iterador.hasPrevious()) impresionAPantalla(String.valueOf(iterador.previous())+ "\n");
+    public void imprimirConFormatoQuiet(ArrayList<Integer> listaDeDivisoresPrimos, String tipoDeOrdenamientoElegido){
+    	if ("--sort=asc".equals(tipoDeOrdenamientoElegido)){
+            ListIterator iterador = listaDeDivisoresPrimos.listIterator(0);
+            while(iterador.hasNext()) impresionAPantalla(String.valueOf(iterador.next())+ "\n");                           
+        } else {
+            ListIterator iterador = listaDeDivisoresPrimos.listIterator(listaDeDivisoresPrimos.size());
+            while(iterador.hasPrevious()) impresionAPantalla(String.valueOf(iterador.previous())+ "\n");                   
+        }
     }
-    
 }

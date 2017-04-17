@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="9" failures="0" name="ar.edu.untref.aydoo.ProgramTest" time="0.061" errors="0" skipped="0">
+<testsuite tests="11" failures="0" name="ar.edu.untref.aydoo.ProgramTest" time="0.06" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files (x86)\Java\jdk1.8.0_60\jre\bin"/>
@@ -65,11 +65,13 @@
   </properties>
   <testcase classname="ar.edu.untref.aydoo.ProgramTest" name="ingresoFormatoPrettyEnMayusculasYMinusculasYLuegoDeValidarSeraConvertidoAMinusculas" time="0.005"/>
   <testcase classname="ar.edu.untref.aydoo.ProgramTest" name="ingresoListaTestConNumeroDosYTresYComparoConBuscarPrimosDeNumeroDos" time="0"/>
+  <testcase classname="ar.edu.untref.aydoo.ProgramTest" name="ingresoArgumentosYEspecificoElOrdenDescendenteEntoncesLuegoDeValidarDevolveraOrdenDescendente" time="0"/>
   <testcase classname="ar.edu.untref.aydoo.ProgramTest" name="noIngresoFormatoEntoncesLuegoDeValidarDevolveraFormatoPretty" time="0"/>
+  <testcase classname="ar.edu.untref.aydoo.ProgramTest" name="ingresoArgumentosYNoEspecificoElOrdenEntoncesLuegoDeValidarDevolveraOrdenAscPredeterminado" time="0"/>
   <testcase classname="ar.edu.untref.aydoo.ProgramTest" name="ingresoListaTestConNumerosPrimosDe360YComparoConBuscarPrimosDe360" time="0"/>
   <testcase classname="ar.edu.untref.aydoo.ProgramTest" name="ingresoListaTestConNumerosPrimosDe360YUnoDeEllosErroneoYComparoConBuscarPrimosDe360" time="0"/>
   <testcase classname="ar.edu.untref.aydoo.ProgramTest" name="ingresoListaTestConNumeroDosYComparoConBuscarPrimosDeNumeroDos" time="0"/>
-  <testcase classname="ar.edu.untref.aydoo.ProgramTest" name="ingresoNumeroDosYPrueboQueSiEsPrimo" time="0.001"/>
+  <testcase classname="ar.edu.untref.aydoo.ProgramTest" name="ingresoNumeroDosYPrueboQueSiEsPrimo" time="0"/>
   <testcase classname="ar.edu.untref.aydoo.ProgramTest" name="ingresoFormatoQuietEnMayusculasYLuegoDeValidarSeraConvertidoAMinusculas" time="0"/>
   <testcase classname="ar.edu.untref.aydoo.ProgramTest" name="ingresoNumeroOchoyPrueboQueNoEsPrimo" time="0"/>
 </testsuite>
