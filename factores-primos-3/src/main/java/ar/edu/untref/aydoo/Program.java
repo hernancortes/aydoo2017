@@ -13,19 +13,25 @@ public class Program{
     	try{
             programa.imprimirResultadoConFormato(Integer.parseInt(arg[0]), programa.buscarPrimos(Integer.parseInt(arg[0])), validarTipoDeFormato(arg));
         } catch (Exception e) {
-            impresionDeMensaje("El numero ingresado no es valido");
+            impresionAPantalla("El numero ingresado no es valido");
         }
     }
     
     public static String validarTipoDeFormato(String[] arg){
-        String formatoParaImprimir;
+        String formatoParaImprimir = "--format=pretty";
+        //busca si entre los parametros ingresados se pide formatQuiet, caso contrario mostrara formatPretty
+        for (int i=0; i<arg.length; i++){
+            if ("--format=quiet".equals(arg[i].toLowerCase())){
+                formatoParaImprimir = "--format=quiet";
+            }
+        }
         //este if verifica que si el usuario no ingreso tipo de formato, el formato no se pase como argumento nulo
-        if (arg.length < DOSARGUMENTOS) formatoParaImprimir = "--format=pretty";
-        else formatoParaImprimir = arg[1].toLowerCase();
+        //if (arg.length < DOSARGUMENTOS) formatoParaImprimir = "--format=pretty";
+        //else formatoParaImprimir = arg[1].toLowerCase();
         return formatoParaImprimir;
     }
             
-    public static void impresionDeMensaje(String textoAImprimir){
+    public static void impresionAPantalla(String textoAImprimir){
         System.out.print(textoAImprimir);
     }
     
@@ -72,19 +78,19 @@ public class Program{
                 imprimirConFormatoQuiet(listaDeDivisoresPrimos);
                 break;
             default:
-                impresionDeMensaje("Formato no aceptado. Las opciones posibles son: pretty o quiet.");
+                impresionAPantalla("Formato no aceptado. Las opciones posibles son: pretty o quiet.");
         }
     }
     
     public void imprimirConFormatoPretty(int numeroIngresado, ArrayList<Integer> listaDeDivisoresPrimos){
-        impresionDeMensaje("Factores primos " + numeroIngresado + ": ");
+        impresionAPantalla("Factores primos " + numeroIngresado + ": ");
     	Iterator<Integer> iterador = listaDeDivisoresPrimos.iterator();
-    	while(iterador.hasNext()) impresionDeMensaje(String.valueOf(iterador.next()) + " ");
+    	while(iterador.hasNext()) impresionAPantalla(String.valueOf(iterador.next()) + " ");
     }
     
     public void imprimirConFormatoQuiet(ArrayList<Integer> listaDeDivisoresPrimos){
     	ListIterator iterador = listaDeDivisoresPrimos.listIterator(listaDeDivisoresPrimos.size());
-        while(iterador.hasPrevious()) impresionDeMensaje(String.valueOf(iterador.previous())+ "\n");
+        while(iterador.hasPrevious()) impresionAPantalla(String.valueOf(iterador.previous())+ "\n");
     }
     
 }
