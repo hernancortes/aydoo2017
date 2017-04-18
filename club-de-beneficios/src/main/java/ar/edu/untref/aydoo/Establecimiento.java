@@ -5,11 +5,10 @@ import java.util.List;
 
 public class Establecimiento {
 
-    private List<Sucursal> sucursales = new ArrayList<Sucursal>();
-    private List<Beneficio> beneficios = new ArrayList<Beneficio>();
+    private List<Sucursal> sucursales = new ArrayList<>();
+    private List<Beneficio> beneficios = new ArrayList<>();
 
     public void agregarSucursal(Sucursal sucursal) {
-        
         this.sucursales.add(sucursal);
         sucursal.asignarEstablecimiento(this);
     }
@@ -19,15 +18,11 @@ public class Establecimiento {
     }
 
     public boolean tieneBeneficio(Tarjeta tarjeta) {
-        
         boolean tiene = false;
-        
-        for(int i = 0 ; i < this.beneficios.size() && !tiene ; i++) {
-            
+        for (int i = 0; i < this.beneficios.size() && !tiene; i++) {
             Beneficio beneficio = this.beneficios.get(i);
             tiene = beneficio.obtenerTarjeta().equals(tarjeta);
         }
-        
         return tiene;
     }
 

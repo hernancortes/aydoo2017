@@ -10,12 +10,11 @@ public class Beneficio {
         this.valor = valor;
     }
     
-    public Tarjeta obtenerTarjeta(){
+    public Tarjeta obtenerTarjeta() {
         return this.tarjeta;
     }
 
     public int obtenerValorBeneficio() {
-
         return this.valor;
     }
 

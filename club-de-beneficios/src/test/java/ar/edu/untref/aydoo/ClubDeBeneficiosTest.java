@@ -15,9 +15,7 @@ public class ClubDeBeneficiosTest {
 
     @Test
     public void devuelveJuanComoUnicoBeneficiadoEnElMes() {
-        
         Beneficio beneficio = new Beneficio(Tarjeta.CLASSIC, 10);
-        
         Operacion operacion = new Operacion(beneficio, 1000);
         
         juan.getOperaciones().add(operacion);

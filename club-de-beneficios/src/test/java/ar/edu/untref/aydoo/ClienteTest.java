@@ -15,15 +15,12 @@ public class ClienteTest {
     
     @Test
     public void siElClienteNoRealizaOperacionesEntoncesNoAhorraNada() {
-       
         Assert.assertEquals(0, juan.calcularAhorro(), 0.005);
     }
     
     @Test
     public void siElClienteRealizaUnaOperacionDeMilPesosConDescuentoDe10PorcientoEntoncesAhorro100() {
-        
         Beneficio beneficio = new Beneficio(Tarjeta.CLASSIC, 10);
-        
         Operacion operacion = new Operacion(beneficio, 1000);
         
         juan.getOperaciones().add(operacion);
@@ -32,10 +29,8 @@ public class ClienteTest {
     }
     
     @Test
-    public void siElClienteRealizaUnaOperacionDeUnPesoConDescuentoDe50PorcientoEntoncesAhorro1() {
-        
+    public void siElClienteRealizaUnaOperacionDeUnPesoConDescuentoDe50PorcientoEntoncesAhorro1() {      
         Beneficio beneficio = new Beneficio(Tarjeta.CLASSIC, 50);
-        
         Operacion operacion = new Operacion(beneficio, 1);
         
         juan.getOperaciones().add(operacion);

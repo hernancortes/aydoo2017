@@ -6,7 +6,7 @@ import java.util.List;
 public class Cliente {
 
     private Tarjeta tarjeta;
-    private List<Operacion> operaciones = new ArrayList<Operacion>();
+    private List<Operacion> operaciones = new ArrayList<>();
 
     public Cliente(Tarjeta tarjeta) {
         this.tarjeta = tarjeta;
@@ -17,18 +17,14 @@ public class Cliente {
     }
 
     public Tarjeta obtenerTarjeta() {
-
         return this.tarjeta;
     }
 
     public double calcularAhorro() {
-
         double ahorro = 0;
-        
-        for(Operacion operacion : operaciones){
+        for (Operacion operacion : operaciones) {
             ahorro = ahorro + operacion.obtenerImporte();
         }
-        
         return ahorro;
     }
     
