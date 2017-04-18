@@ -6,21 +6,21 @@ import org.junit.Test;
 
 public class ClubDeBeneficiosTest {
 
-    private Cliente juan;
+    private Cliente carlos;
 
     @Before
     public void inicializar() {
-        this.juan = new Cliente(Tarjeta.CLASSIC);
+        this.carlos = new Cliente("Carlos", "carlos@gmail.com", Tarjeta.CLASSIC);
     }
 
     @Test
-    public void devuelveJuanComoUnicoBeneficiadoEnElMes() {
+    public void devuelveCarlosComoUnicoBeneficiadoEnElMes() {
         Beneficio beneficio = new Beneficio(Tarjeta.CLASSIC, 10);
         Operacion operacion = new Operacion(beneficio, 1000);
         
-        juan.getOperaciones().add(operacion);
+        carlos.getOperaciones().add(operacion);
         
-        Assert.assertEquals(900, juan.calcularAhorro(), 0.005);
+        Assert.assertEquals(900, carlos.getAhorro(), 0.005);
     }
 
 }

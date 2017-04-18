@@ -5,22 +5,34 @@ import java.util.List;
 
 public class Cliente {
 
+    private String nombreYApellido;
+    private String email;
     private Tarjeta tarjeta;
     private List<Operacion> operaciones = new ArrayList<>();
 
-    public Cliente(Tarjeta tarjeta) {
+    public Cliente(String nombreYApellido, String email, Tarjeta tarjeta) {
+        this.nombreYApellido = nombreYApellido;
+        this.email = email;
         this.tarjeta = tarjeta;
     }
 
+    public String getNombreYApellido() {
+        return this.nombreYApellido;
+    }
+    
+    public String getEmail() {
+        return this.email;
+    }
+    
+    public Tarjeta getTarjeta() {
+        return this.tarjeta;
+    }
+    
     public List<Operacion> getOperaciones() {
         return this.operaciones;
     }
 
-    public Tarjeta obtenerTarjeta() {
-        return this.tarjeta;
-    }
-
-    public double calcularAhorro() {
+    public double getAhorro() {
         double ahorro = 0;
         for (Operacion operacion : operaciones) {
             ahorro = ahorro + operacion.obtenerImporte();
@@ -28,7 +40,7 @@ public class Cliente {
         return ahorro;
     }
     
-    public void registrarOperacion(Operacion operacion) {
+    public void setOperacion(Operacion operacion) {
         this.operaciones.add(operacion);
     }
 

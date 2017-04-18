@@ -10,34 +10,34 @@ public class SucursalTest {
 
     @Ignore
     @Test
-    public void siJuanCompraEnLaSucursalBLaOperacionSeRegistraEnLaSucursalYEnJuan() throws Exception {
-        Cliente juan = new Cliente(Tarjeta.PREMIUM);
-        Establecimiento heladeria = new Establecimiento();
+    public void siCarlosCompraEnLaSucursalBLaOperacionSeRegistraEnLaSucursalYEnCarlos() throws Exception {
+        Cliente carlos = new Cliente("Carlos", "carlos@gmail.com", Tarjeta.PREMIUM);
+        Establecimiento heladeriaA = new Establecimiento("Heladeria A");
         Beneficio beneficio = new Beneficio(Tarjeta.PREMIUM, 20);
-        Sucursal heladeriaSucursal1 = new Sucursal();
-        heladeria.agregarSucursal(heladeriaSucursal1);
-        heladeria.agregarBeneficio(beneficio);
+        Sucursal sucursalHeladeriaA_S1 = new Sucursal("Heladeria A - Sucursal S1", heladeriaA);
+        heladeriaA.agregarSucursal(sucursalHeladeriaA_S1);
+        heladeriaA.agregarBeneficio(beneficio);
         
-        heladeriaSucursal1.comprar(juan, 100);
-        List<Operacion> operacionesDeJuan = juan.getOperaciones();
-        List<Operacion> operacionesDeSucursal1 = heladeriaSucursal1.getOperaciones();
+        sucursalHeladeriaA_S1.comprar(carlos, 100);
+        List<Operacion> operacionesDeCarlos = carlos.getOperaciones();
+        List<Operacion> operacionesDeSucursal1 = sucursalHeladeriaA_S1.getOperaciones();
 
-        Assert.assertEquals(operacionesDeJuan.size(), 1);
-        Assert.assertEquals(operacionesDeSucursal1.size(), 1);
-        Assert.assertEquals(operacionesDeJuan.get(0), operacionesDeSucursal1.get(0));
+        Assert.assertEquals(1, operacionesDeCarlos.size());
+        Assert.assertEquals(1, operacionesDeSucursal1.size());
+        Assert.assertEquals(operacionesDeCarlos.get(0), operacionesDeSucursal1.get(0));
     }
     
     @Test(expected = Exception.class)
-    public void siJuanTieneTarjetaClassicPeroLaSucursalSoloManejaTarjetaPremiumEntoncesHayUnaExcepcion() throws Exception {
-        Cliente juan = new Cliente(Tarjeta.CLASSIC);
-        Establecimiento heladeria = new Establecimiento();
-        Sucursal heladeriaSucursal1 = new Sucursal();
+    public void siCarlosTieneTarjetaClassicPeroLaSucursalSoloManejaTarjetaPremiumEntoncesHayUnaExcepcion() throws Exception {
+        Cliente carlos = new Cliente("Carlos", "carlos@gmail.com", Tarjeta.CLASSIC);
+        Establecimiento heladeriaA = new Establecimiento("Heladeria A");
+        Sucursal sucursalHeladeriaA_S1 = new Sucursal("Heladeria A - Sucursal S1", heladeriaA);
         Beneficio beneficioTarjetaPremium = new Beneficio(Tarjeta.PREMIUM, 20);
         
-        heladeria.agregarSucursal(heladeriaSucursal1);
-        heladeria.agregarBeneficio(beneficioTarjetaPremium);
+        heladeriaA.agregarSucursal(sucursalHeladeriaA_S1);
+        heladeriaA.agregarBeneficio(beneficioTarjetaPremium);
 
-        heladeriaSucursal1.comprar(juan, 100);
+        sucursalHeladeriaA_S1.comprar(carlos, 100);
     }
 
 }

@@ -6,16 +6,18 @@ import org.junit.Test;
 
 public class ClienteTest {
 
+    private Cliente carlos;
     private Cliente juan;
 
     @Before
     public void inicializar() {
-        this.juan = new Cliente(Tarjeta.CLASSIC);
+        this.carlos = new Cliente("Carlos", "carlos@gmail.com", Tarjeta.CLASSIC);
+        this.juan = new Cliente("Juan", "juan@gmail.com", Tarjeta.PREMIUM);
     }
     
     @Test
     public void siElClienteNoRealizaOperacionesEntoncesNoAhorraNada() {
-        Assert.assertEquals(0, juan.calcularAhorro(), 0.005);
+        Assert.assertEquals(0, carlos.getAhorro(), 0.005);
     }
     
     @Test
@@ -23,18 +25,20 @@ public class ClienteTest {
         Beneficio beneficio = new Beneficio(Tarjeta.CLASSIC, 10);
         Operacion operacion = new Operacion(beneficio, 1000);
         
-        juan.getOperaciones().add(operacion);
+        carlos.getOperaciones().add(operacion);
+        double resultadoEsperado = 900.0;
         
-        Assert.assertEquals(900, juan.calcularAhorro(), 0.005);
+        Assert.assertEquals(resultadoEsperado, carlos.getAhorro(), 0.005);
     }
     
     @Test
-    public void siElClienteRealizaUnaOperacionDeUnPesoConDescuentoDe50PorcientoEntoncesAhorro1() {      
-        Beneficio beneficio = new Beneficio(Tarjeta.CLASSIC, 50);
+    public void siElClienteRealizaUnaOperacionDeUnPesoConDescuentoDe50PorcientoEntoncesAhorroCincuentaCentavos() {      
+        Beneficio beneficio = new Beneficio(Tarjeta.PREMIUM, 50);
         Operacion operacion = new Operacion(beneficio, 1);
         
         juan.getOperaciones().add(operacion);
+        double resultadoEsperado = 0.5;
         
-        Assert.assertEquals(0.5, juan.calcularAhorro(), 0.005);
+        Assert.assertEquals(resultadoEsperado, juan.getAhorro(), 0.005);
     }
 }
