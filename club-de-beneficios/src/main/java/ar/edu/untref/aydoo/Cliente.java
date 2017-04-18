@@ -32,10 +32,10 @@ public class Cliente {
         return this.operaciones;
     }
 
-    public double getAhorro() {
+    public double getAhorro() throws Exception {
         double ahorro = 0;
         for (Operacion operacion : operaciones) {
-            ahorro = ahorro + operacion.obtenerImporte();
+            ahorro = ahorro + operacion.getMontoTotalConDescuentos();
         }
         return ahorro;
     }

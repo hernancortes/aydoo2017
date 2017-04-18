@@ -30,7 +30,7 @@ public class Establecimiento {
         boolean tiene = false;
         for (int i = 0; i < this.beneficios.size() && !tiene; i++) {
             Beneficio beneficio = this.beneficios.get(i);
-            tiene = beneficio.obtenerTarjeta().equals(tarjeta);
+            tiene = beneficio.getTarjeta().equals(tarjeta);
         }
         return tiene;
     }

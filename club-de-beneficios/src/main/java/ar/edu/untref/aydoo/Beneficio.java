@@ -1,21 +1,24 @@
 package ar.edu.untref.aydoo;
 
-public class Beneficio {
+import java.util.List;
 
-    private Tarjeta tarjeta;
-    private int valor;
+public abstract class Beneficio {
 
-    public Beneficio(Tarjeta tarjeta, int valor) {
-        this.tarjeta = tarjeta;
-        this.valor = valor;
+    private TipoDeBeneficio tipoDeBeneficio;
+    Tarjeta tarjeta;
+
+    public TipoDeBeneficio getTipoDeBeneficio() {
+        return tipoDeBeneficio;
     }
-    
-    public Tarjeta obtenerTarjeta() {
+
+    public void setTipoDeBeneficio(TipoDeBeneficio tipoDeBeneficio) {
+        this.tipoDeBeneficio = tipoDeBeneficio;
+    }
+
+    public Tarjeta getTarjeta() {
         return this.tarjeta;
     }
 
-    public int obtenerValorBeneficio() {
-        return this.valor;
-    }
+    public abstract Double calcularAhorro(List<Producto> productos) throws Exception;
 
 }

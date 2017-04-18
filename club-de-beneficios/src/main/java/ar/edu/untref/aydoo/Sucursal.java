@@ -18,6 +18,7 @@ public class Sucursal {
         return this.operaciones;
     }
 
+    /*
     public void comprar(Cliente cliente, int importeOriginal) throws Exception {
         if (this.establecimiento.tieneBeneficio(cliente.getTarjeta())) {
             //TODO: Hay que obtener el Beneficio para crear la Operacion.
@@ -27,7 +28,7 @@ public class Sucursal {
         } else {
             throw new Exception("No hay beneficio para esa tarjeta en este establecimiento");
         }
-    }
+    }*/
 
     public void asignarEstablecimiento(Establecimiento establecimiento) {
         this.establecimiento = establecimiento;

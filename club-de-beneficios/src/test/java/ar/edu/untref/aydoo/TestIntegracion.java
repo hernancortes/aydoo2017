@@ -1,5 +1,7 @@
 package ar.edu.untref.aydoo;
 
+import java.util.ArrayList;
+import java.util.List;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -22,6 +24,8 @@ public class TestIntegracion {
     private Producto libroElCantarDelCid;
     private Integer mes;
     private Integer anio;
+    private BeneficioDescuento beneficio50PorCientoDeDescuento;
+    //private BeneficioDosPorUno beneficioDosPorUno;
 
     @Before
     public void inicializar() {
@@ -47,7 +51,18 @@ public class TestIntegracion {
         heladeriaA.agregarSucursal(sucursalHeladeriaA_S2);
         restoranB.agregarSucursal(sucursalRestoranB_S3);
         libreriaElAltillo.agregarSucursal(sucursalLibreriaElAltillo_S4);
-        
+        beneficio50PorCientoDeDescuento = new BeneficioDescuento(Tarjeta.PREMIUM, 50);
+        //beneficioDosPorUno = new BeneficioDosPorUno();
     }
     
+    @Test
+	public void juanCompraUnKiloDeHeladoQueVale100ConBeneficioDe50PorCientoDeDescuentoElMontoAPagarDeberiaSerDe50Pesos() throws Exception{
+            List<Producto> productosAComprar = new ArrayList<>();
+            productosAComprar.add(kiloDeHelado);
+            Operacion nuevaOperacion = new Operacion(beneficio50PorCientoDeDescuento, sucursalHeladeriaA_S1, productosAComprar, juan, 4, 2017);		
+            double resultadoEsperado = 100 - (100 * 0.5);
+
+            Assert.assertEquals(resultadoEsperado, nuevaOperacion.getMontoTotalConDescuentos(), 0.005);
+	}
+        
 }
