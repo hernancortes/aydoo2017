@@ -5,6 +5,7 @@ import java.util.List;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.Ignore;
 
 public class TestIntegracion {
     
@@ -25,6 +26,7 @@ public class TestIntegracion {
     private Integer mes;
     private Integer anio;
     private BeneficioDescuento beneficio50PorCientoDeDescuento;
+    //TO-DO agregar clase beneficioDOSPORUNO
     //private BeneficioDosPorUno beneficioDosPorUno;
 
     @Before
@@ -45,6 +47,8 @@ public class TestIntegracion {
         libroElCantarDelCid = new Producto("1 libro El Cantar del Cid", 150);
         mes = 4;
         anio = 2017;
+        nuevoClub.agregarCliente(carlos);
+        nuevoClub.agregarCliente(juan);
         nuevoClub.agregarEstablecimiento(this.restoranB);
         nuevoClub.agregarEstablecimiento(this.heladeriaA);
         heladeriaA.agregarSucursal(sucursalHeladeriaA_S1);
@@ -56,13 +60,39 @@ public class TestIntegracion {
     }
     
     @Test
-	public void juanCompraUnKiloDeHeladoQueVale100ConBeneficioDe50PorCientoDeDescuentoElMontoAPagarDeberiaSerDe50Pesos() throws Exception{
-            List<Producto> productosAComprar = new ArrayList<>();
-            productosAComprar.add(kiloDeHelado);
-            Operacion nuevaOperacion = new Operacion(beneficio50PorCientoDeDescuento, sucursalHeladeriaA_S1, productosAComprar, juan, 4, 2017);		
-            double resultadoEsperado = 100 - (100 * 0.5);
+    public void juanCompraUnKiloDeHeladoQueVale100ConBeneficioDe50PorCientoDeDescuentoElMontoAPagarDeberiaSerDe50Pesos() throws Exception{
+        List<Producto> productosAComprar = new ArrayList<>();
+        productosAComprar.add(kiloDeHelado);
+        Operacion nuevaOperacion = new Operacion(beneficio50PorCientoDeDescuento, sucursalHeladeriaA_S1, productosAComprar, juan, 4, 2017);
+        double resultadoEsperado = 100 - (100 * 0.5);
 
-            Assert.assertEquals(resultadoEsperado, nuevaOperacion.getMontoTotalConDescuentos(), 0.005);
-	}
+        Assert.assertEquals(resultadoEsperado, nuevaOperacion.getMontoTotalConDescuentos(), 0.005);
+    }
+        
+    @Test (expected = Error.class)
+    public void intentoCrearUnBeneficioConUnDescuentoMenorAlMinimoEstipuladoDevuelveError() throws Exception {
+        BeneficioDescuento beneficioDeDosPorciento = new BeneficioDescuento(Tarjeta.CLASSIC, 2);
+    }
+    
+    @Ignore
+    @Test
+    public void pidoReporteDeAhorroClienteConUnaCompraDe100Con25DeDescuentoDeberiaDevolverAhorroDe25Pesos() throws Exception {
+        BeneficioDescuento beneficio = new BeneficioDescuento(Tarjeta.CLASSIC, 25);
+        heladeriaA.agregarBeneficio(Tarjeta.CLASSIC, beneficio);
+        //this.establecimientoMadero.agregarProducto(this.productoZap);
+        juan.comprar(sucursalHeladeriaA_S1, kiloDeHelado, 3, 2017);
+        //cliente.comprarProducto(this.sucursalMadero, this.productoZap, mes, anio);
+
+        List<Producto> productosAComprar = new ArrayList<>();
+        productosAComprar.add(kiloDeHelado);
+        Operacion nuevaOperacion = new Operacion(beneficio50PorCientoDeDescuento, sucursalHeladeriaA_S1, productosAComprar, juan, 4, 2017);
+        
+        double montoAhorrado = 100 * 0.25;
+        String respuestaEsperada = "Puerto Madero|zapatillas nike|100.0|" + montoAhorrado;
+        //String informacionObtenida = club.obtenerInformacionDeReporteDeAhorroDeCliente(cliente, mes, anio).get(0); 
+        String respuesta = nuevoClub.obtenerReporteDeAhorros().get(0);
+
+        Assert.assertEquals(respuestaEsperada, respuesta);
+    }
         
 }

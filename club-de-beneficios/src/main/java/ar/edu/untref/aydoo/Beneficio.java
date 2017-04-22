@@ -5,7 +5,7 @@ import java.util.List;
 public abstract class Beneficio {
 
     private TipoDeBeneficio tipoDeBeneficio;
-    Tarjeta tarjeta;
+    private Tarjeta tarjeta;
 
     public TipoDeBeneficio getTipoDeBeneficio() {
         return tipoDeBeneficio;
@@ -15,6 +15,10 @@ public abstract class Beneficio {
         this.tipoDeBeneficio = tipoDeBeneficio;
     }
 
+    public void setTarjeta(Tarjeta tarjeta) {
+        this.tarjeta = tarjeta;
+    }
+    
     public Tarjeta getTarjeta() {
         return this.tarjeta;
     }

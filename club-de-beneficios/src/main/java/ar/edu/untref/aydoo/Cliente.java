@@ -33,7 +33,7 @@ public class Cliente {
     }
 
     public double getAhorro() throws Exception {
-        double ahorro = 0;
+        double ahorro = 0.0;
         for (Operacion operacion : operaciones) {
             ahorro = ahorro + operacion.getMontoTotalConDescuentos();
         }
@@ -43,5 +43,34 @@ public class Cliente {
     public void setOperacion(Operacion operacion) {
         this.operaciones.add(operacion);
     }
+    
+    //COMIENZA POLIMORFISMO DE METODO COMPRAR
+    //compra de una lista de productos
+    public void comprar(Beneficio beneficio, Sucursal sucursal, List<Producto> productos, int mes, int anio) {
+	sucursal.setCompra(beneficio, sucursal, productos, this, mes, anio);
+    }
+    //compra de un solo producto con descuento
+    public void comprar(Sucursal sucursal, Producto producto, int mes, int anio) {
+        Beneficio beneficio;
+        List<Producto> productos = new ArrayList<>();
+        productos.add(producto);
+        beneficio = this.getBeneficioDeEstablecimiento(sucursal, TipoDeBeneficio.DESCUENTO);
+        this.comprar(beneficio, sucursal, productos, mes, anio);
+    }
+    //compra de un solo producto con 2x1
+    public void comprar(Sucursal sucursal, Producto producto1, Producto producto2, int mes, int anio) {
+        Beneficio beneficio;
+        List<Producto> productos = new ArrayList<>();
+        productos.add(producto1);
+        productos.add(producto2);
+        beneficio = this.getBeneficioDeEstablecimiento(sucursal, TipoDeBeneficio.DOSPORUNO);
+        this.comprar(beneficio, sucursal, productos, mes, anio);
+    }
 
+    private Beneficio getBeneficioDeEstablecimiento(Sucursal sucursal, TipoDeBeneficio tipoDeBeneficio) {
+        //Beneficio beneficio = sucursal.obtenerBeneficio(this.getTarjeta(), tipo);
+        Beneficio beneficio = sucursal.getEstablecimiento().tieneBeneficio(this.getTarjeta(), tipoDeBeneficio);
+        return beneficio;
+    }
+        
 }
