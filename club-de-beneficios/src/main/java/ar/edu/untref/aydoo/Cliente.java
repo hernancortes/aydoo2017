@@ -16,11 +16,12 @@ public class Cliente {
         this.tarjeta = tarjeta;
     }
 
-    /*
+    
     public String getNombreYApellido() {
         return this.nombreYApellido;
     }
     
+    /*
     public String getEmail() {
         return this.email;
     }
@@ -38,7 +39,10 @@ public class Cliente {
         String ahorro = "";
         for (Operacion operacion : operaciones) {
             if (operacion.getMes() == mes && operacion.getAnio() == anio){
-                ahorro = operacion.getNombreDeEstablecimiento() + " | " +
+                if ("".equals(ahorro)) {
+                    ahorro = "*** Resumen de Ahorro Mensual Para " + this.getNombreYApellido() + " *** ";
+                }
+                ahorro = ahorro + operacion.getNombreDeEstablecimiento() + " | " +
                         operacion.getListaDeProductosConFormatoParaReporteMensual() + "" +
                         operacion.getMontoTotalSinDescuentos() + " | " +
                         operacion.getMontoAhorrado() + " ||| "; 

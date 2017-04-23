@@ -69,6 +69,14 @@ public class TestIntegracion {
         anio = 2017;
         nuevoClub.agregarCliente(carlos);
         nuevoClub.agregarCliente(juan);
+        nuevoClub.agregarCliente(nuevoCliente1);
+        nuevoClub.agregarCliente(nuevoCliente2);
+        nuevoClub.agregarCliente(nuevoCliente3);
+        nuevoClub.agregarCliente(nuevoCliente4);
+        nuevoClub.agregarCliente(nuevoCliente5);
+        nuevoClub.agregarCliente(nuevoCliente6);
+        nuevoClub.agregarCliente(nuevoCliente7);
+        nuevoClub.agregarCliente(nuevoCliente8);
         nuevoClub.agregarEstablecimiento(this.restoranB);
         nuevoClub.agregarEstablecimiento(this.heladeriaA);
         nuevoClub.agregarSucursal(sucursalHeladeriaA_S1, heladeriaA);
@@ -124,6 +132,30 @@ public class TestIntegracion {
         List<Sucursal> resultadoEsperado = new ArrayList<>();
         resultadoEsperado.add(sucursalHeladeriaA_S1);
         List<Sucursal> resultado = nuevoClub.obtenerSucursalQueMasClientesAtendio(1, 2017);
+        
+        Assert.assertEquals(resultadoEsperado, resultado);    
+    }
+    
+    @Test
+    public void carlosRealizaCompraEnHeladeriaYRestoranEntoncesDebeRecibirReporteDeAhorros() throws Exception {
+        productosAComprarEnHeladeria.add(kiloDeHelado);
+        productosAComprarEnRestoran.add(menuEjecutivo);
+        Operacion nuevaOperacionClassicEnHeladeria1 = new Operacion (carlos, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalHeladeriaA_S1, productosAComprarEnHeladeria, 1, 2017);
+        Operacion nuevaOperacionClassicEnHeladeria2 = new Operacion (nuevoCliente1, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalHeladeriaA_S1, productosAComprarEnHeladeria, 1, 2017);
+        Operacion nuevaOperacionClassicEnHeladeria3 = new Operacion (nuevoCliente2, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalHeladeriaA_S1, productosAComprarEnHeladeria, 1, 2017);
+        Operacion nuevaOperacionClassicEnHeladeria4 = new Operacion (nuevoCliente3, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalHeladeriaA_S1, productosAComprarEnHeladeria, 1, 2017);
+        Operacion nuevaOperacionPremiumEnHeladeria1 = new Operacion (juan, Tarjeta.PREMIUM, beneficioPremiumDescuento20PorCiento, sucursalHeladeriaA_S1, productosAComprarEnHeladeria, 1, 2017);
+        Operacion nuevaOperacionPremiumEnHeladeria2 = new Operacion (nuevoCliente5, Tarjeta.PREMIUM, beneficioPremiumDescuento20PorCiento, sucursalHeladeriaA_S1, productosAComprarEnHeladeria, 1, 2017);
+        Operacion nuevaOperacionPremiumEnHeladeria3 = new Operacion (nuevoCliente6, Tarjeta.PREMIUM, beneficioPremiumDescuento20PorCiento, sucursalHeladeriaA_S1, productosAComprarEnHeladeria, 1, 2017);
+        Operacion nuevaOperacionClassicEnRestoran1 = new Operacion (carlos, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalRestoranB_S3, productosAComprarEnRestoran, 1, 2017);
+        Operacion nuevaOperacionClassicEnRestoran2 = new Operacion (nuevoCliente1, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalRestoranB_S3, productosAComprarEnRestoran, 1, 2017);
+        Operacion nuevaOperacionClassicEnRestoran3 = new Operacion (nuevoCliente1, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalRestoranB_S3, productosAComprarEnRestoran, 1, 2017);
+        Operacion nuevaOperacionClassicEnRestoran4 = new Operacion (nuevoCliente2, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalRestoranB_S3, productosAComprarEnRestoran, 1, 2017);
+        Operacion nuevaOperacionClassicEnRestoran5 = new Operacion (nuevoCliente3, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalRestoranB_S3, productosAComprarEnRestoran, 1, 2017);
+        Operacion nuevaOperacionClassicEnRestoran6 = new Operacion (nuevoCliente3, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalRestoranB_S3, productosAComprarEnRestoran, 1, 2017);
+        //List<String> resultadoEsperado = new ArrayList<>();
+        String resultadoEsperado = "*** Resumen de Ahorro Mensual Para Carlos *** Heladeria A | 1 kilo de helado | 100.0 | 19.0 ||| Restoran B | 1 menu ejecutivo | 200.0 | 19.0 ||| ";
+        String resultado = nuevoClub.obtenerReporteDeAhorros(1, 2017).get(0);
         
         Assert.assertEquals(resultadoEsperado, resultado);    
     }
