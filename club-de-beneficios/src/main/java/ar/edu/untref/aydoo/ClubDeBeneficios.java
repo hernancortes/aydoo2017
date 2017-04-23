@@ -36,12 +36,14 @@ public class ClubDeBeneficios {
     }
     
     //TO-DO: poder pasar como parametro el mes y el año buscado para el reporte
-    public Establecimiento obtenerEstablecimientoAFelicitar() {
-        return this.establecimientos.get(0);
+    public List<Establecimiento> obtenerEstablecimientoAFelicitar() {
+        List<Establecimiento> reporte = new ArrayList<>();
+        return reporte;
     }
     
     //TO-DO: poder pasar como parametro el mes y el año buscado para el reporte
-    public Sucursal obtenerSucursalQueMasClientesAtendio() {
-        return this.sucursales.get(0);
+    public List<Sucursal> obtenerSucursalQueMasClientesAtendio() {
+        List<Sucursal> reporte = new ArrayList<>();
+        return reporte;
     }
 }

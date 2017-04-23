@@ -37,7 +37,19 @@ public class ClubDeBeneficiosTest {
         Assert.assertEquals(resultadoEsperado, resultado);
     }
     
+    @Test
+    public void pidoEstablecimientoAFelicitarSinOperacionesEntoncesObtengoListaVacia(){
+        List<Establecimiento> resultadoEsperado = new ArrayList<>();
+        List<Establecimiento> resultado = nuevoClub.obtenerEstablecimientoAFelicitar();
+        Assert.assertEquals(resultadoEsperado,resultado);
+    }
     
+    @Test
+    public void pidoSucursalQueMasVendioSinOperacionesEntoncesObtengoListaVacia(){
+        List<Sucursal> resultadoEsperado = new ArrayList<>();
+        List<Sucursal> resultado = nuevoClub.obtenerSucursalQueMasClientesAtendio();
+        Assert.assertEquals(resultadoEsperado,resultado);
+    }
     
     /*
     @Test
