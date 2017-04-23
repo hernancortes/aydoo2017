@@ -80,4 +80,13 @@ public class ClubDeBeneficiosTest {
         Assert.assertEquals(resultadoEsperado, resultado);
     }
 
+    @Test
+    public void hagoUnaCompraEnHeladeriaYPidoSucursalQueMasVendioEnUnAnioDondeNoHayComprasEntoncesReporteDevuelveListaVacia() throws Exception {               
+        Operacion nuevaOperacion = new Operacion (carlos, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalHeladeriaA_S1, productosAComprar, 4, 2017);
+        List<Sucursal> resultadoEsperado = new ArrayList<>();
+        List<Sucursal> resultado = nuevoClub.obtenerSucursalQueMasClientesAtendio(4, 2010);
+        
+        Assert.assertEquals(resultadoEsperado, resultado);
+    }
+    
 }

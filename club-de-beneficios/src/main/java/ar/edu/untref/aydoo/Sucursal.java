@@ -33,7 +33,9 @@ public class Sucursal {
     public int getCantidadDeClientesAtendidosPorSucursal(int mes, int anio) {
         int cantidadDeClientesAtendidos = 0;
         for (Operacion operacion : this.operaciones) {
-            cantidadDeClientesAtendidos++;
+            if (operacion.getMes() == mes && operacion.getAnio() == anio){
+                cantidadDeClientesAtendidos++;
+            }
         }
         return cantidadDeClientesAtendidos;
     }
