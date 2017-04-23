@@ -5,13 +5,20 @@ import java.util.List;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.Ignore;
 
 public class TestIntegracion {
     
     private ClubDeBeneficios nuevoClub;
     private Cliente carlos;
     private Cliente juan;
+    private Cliente nuevoCliente1;
+    private Cliente nuevoCliente2;
+    private Cliente nuevoCliente3;
+    private Cliente nuevoCliente4;
+    private Cliente nuevoCliente5;
+    private Cliente nuevoCliente6;
+    private Cliente nuevoCliente7;
+    private Cliente nuevoCliente8;
     private Establecimiento heladeriaA;
     private Establecimiento restoranB;
     private Establecimiento libreriaElAltillo;
@@ -26,6 +33,11 @@ public class TestIntegracion {
     private Integer mes;
     private Integer anio;
     private BeneficioDescuento beneficio50PorCientoDeDescuento;
+    private Beneficio beneficioClassicDescuento10PorCiento;
+    private Beneficio beneficioClassicDescuento20PorCiento;
+    private Beneficio beneficioPremiumDescuento20PorCiento;
+    List<Producto> productosAComprarEnHeladeria = new ArrayList<>();
+    List<Producto> productosAComprarEnRestoran = new ArrayList<>();
     //TO-DO agregar clase beneficioDOSPORUNO
     //private BeneficioDosPorUno beneficioDosPorUno;
 
@@ -34,6 +46,14 @@ public class TestIntegracion {
         nuevoClub = new ClubDeBeneficios();
         carlos = new Cliente("Carlos", "carlos@gmail.com", Tarjeta.CLASSIC);
         juan = new Cliente("Juan", "juan@gmail.com", Tarjeta.PREMIUM);
+        nuevoCliente1 = new Cliente("nuevoCliente1", "nuevoCliente1@gmail.com", Tarjeta.CLASSIC);
+        nuevoCliente2 = new Cliente("nuevoCliente2", "nuevoCliente2@gmail.com", Tarjeta.CLASSIC);
+        nuevoCliente3 = new Cliente("nuevoCliente3", "nuevoCliente3@gmail.com", Tarjeta.CLASSIC);
+        nuevoCliente4 = new Cliente("nuevoCliente4", "nuevoCliente4@gmail.com", Tarjeta.CLASSIC);
+        nuevoCliente5 = new Cliente("nuevoCliente5", "nuevoCliente1@gmail.com", Tarjeta.PREMIUM);
+        nuevoCliente6 = new Cliente("nuevoCliente6", "nuevoCliente1@gmail.com", Tarjeta.PREMIUM);
+        nuevoCliente7 = new Cliente("nuevoCliente7", "nuevoCliente1@gmail.com", Tarjeta.PREMIUM);
+        nuevoCliente8 = new Cliente("nuevoCliente8", "nuevoCliente1@gmail.com", Tarjeta.PREMIUM);
         heladeriaA = new Establecimiento("Heladeria A");
         restoranB = new Establecimiento("Restoran B");
         libreriaElAltillo = new Establecimiento("Libreria El Altillo");
@@ -51,12 +71,37 @@ public class TestIntegracion {
         nuevoClub.agregarCliente(juan);
         nuevoClub.agregarEstablecimiento(this.restoranB);
         nuevoClub.agregarEstablecimiento(this.heladeriaA);
-        heladeriaA.agregarSucursal(sucursalHeladeriaA_S1);
-        heladeriaA.agregarSucursal(sucursalHeladeriaA_S2);
-        restoranB.agregarSucursal(sucursalRestoranB_S3);
-        libreriaElAltillo.agregarSucursal(sucursalLibreriaElAltillo_S4);
+        nuevoClub.agregarSucursal(sucursalHeladeriaA_S1, heladeriaA);
+        nuevoClub.agregarSucursal(sucursalHeladeriaA_S2, heladeriaA);
+        nuevoClub.agregarSucursal(sucursalRestoranB_S3, restoranB);
+        nuevoClub.agregarSucursal(sucursalLibreriaElAltillo_S4, libreriaElAltillo);
+        BeneficioDescuento beneficioClassicDescuento10PorCiento = new BeneficioDescuento(Tarjeta.CLASSIC, 10);
         beneficio50PorCientoDeDescuento = new BeneficioDescuento(Tarjeta.PREMIUM, 50);
         //beneficioDosPorUno = new BeneficioDosPorUno();
+    }
+    
+    @Test
+    public void realizoSieteComprasEnHeladeriaAYSeisEnRestoranBEntoncesEstablecimientoAFelicitarDebeSerHeladeriaA() throws Exception {
+        productosAComprarEnHeladeria.add(kiloDeHelado);
+        productosAComprarEnRestoran.add(menuEjecutivo);
+        Operacion nuevaOperacionClassicEnHeladeria1 = new Operacion (carlos, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalHeladeriaA_S1, productosAComprarEnHeladeria, 1, 2017);
+        Operacion nuevaOperacionClassicEnHeladeria2 = new Operacion (nuevoCliente1, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalHeladeriaA_S1, productosAComprarEnHeladeria, 1, 2017);
+        Operacion nuevaOperacionClassicEnHeladeria3 = new Operacion (nuevoCliente2, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalHeladeriaA_S1, productosAComprarEnHeladeria, 1, 2017);
+        Operacion nuevaOperacionClassicEnHeladeria4 = new Operacion (nuevoCliente3, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalHeladeriaA_S1, productosAComprarEnHeladeria, 1, 2017);
+        Operacion nuevaOperacionPremiumEnHeladeria1 = new Operacion (juan, Tarjeta.PREMIUM, beneficioPremiumDescuento20PorCiento, sucursalHeladeriaA_S1, productosAComprarEnHeladeria, 1, 2017);
+        Operacion nuevaOperacionPremiumEnHeladeria2 = new Operacion (nuevoCliente5, Tarjeta.PREMIUM, beneficioPremiumDescuento20PorCiento, sucursalHeladeriaA_S1, productosAComprarEnHeladeria, 1, 2017);
+        Operacion nuevaOperacionPremiumEnHeladeria3 = new Operacion (nuevoCliente6, Tarjeta.PREMIUM, beneficioPremiumDescuento20PorCiento, sucursalHeladeriaA_S1, productosAComprarEnHeladeria, 1, 2017);
+        Operacion nuevaOperacionClassicEnRestoran1 = new Operacion (carlos, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalRestoranB_S3, productosAComprarEnRestoran, 1, 2017);
+        Operacion nuevaOperacionClassicEnRestoran2 = new Operacion (nuevoCliente1, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalRestoranB_S3, productosAComprarEnRestoran, 1, 2017);
+        Operacion nuevaOperacionClassicEnRestoran3 = new Operacion (nuevoCliente1, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalRestoranB_S3, productosAComprarEnRestoran, 1, 2017);
+        Operacion nuevaOperacionClassicEnRestoran4 = new Operacion (nuevoCliente2, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalRestoranB_S3, productosAComprarEnRestoran, 1, 2017);
+        Operacion nuevaOperacionClassicEnRestoran5 = new Operacion (nuevoCliente3, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalRestoranB_S3, productosAComprarEnRestoran, 1, 2017);
+        Operacion nuevaOperacionClassicEnRestoran6 = new Operacion (nuevoCliente3, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalRestoranB_S3, productosAComprarEnRestoran, 1, 2017);
+        List<Establecimiento> resultadoEsperado = new ArrayList<>();
+        resultadoEsperado.add(heladeriaA);
+        List<Establecimiento> resultado = nuevoClub.obtenerEstablecimientoAFelicitar(1, 2017);
+        
+        Assert.assertEquals(resultadoEsperado, resultado);    
     }
     
     /*
@@ -74,26 +119,5 @@ public class TestIntegracion {
     public void intentoCrearUnBeneficioConUnDescuentoMenorAlMinimoEstipuladoDevuelveError() throws Exception {
         BeneficioDescuento beneficioDeDosPorciento = new BeneficioDescuento(Tarjeta.CLASSIC, 2);
     }
-    
-    /*
-    @Test
-    public void pidoReporteDeAhorroClienteConUnaCompraDe100Con25DeDescuentoDeberiaDevolverAhorroDe25Pesos() throws Exception {
-        BeneficioDescuento beneficio = new BeneficioDescuento(Tarjeta.CLASSIC, 25);
-        heladeriaA.agregarBeneficio(Tarjeta.CLASSIC, beneficio);
-        //this.establecimientoMadero.agregarProducto(this.productoZap);
-        juan.comprar(sucursalHeladeriaA_S1, kiloDeHelado, 3, 2017);
-        //cliente.comprarProducto(this.sucursalMadero, this.productoZap, mes, anio);
-
-        List<Producto> productosAComprar = new ArrayList<>();
-        productosAComprar.add(kiloDeHelado);
-        Operacion nuevaOperacion = new Operacion(beneficio50PorCientoDeDescuento, sucursalHeladeriaA_S1, productosAComprar, juan, 4, 2017);
-        
-        double montoAhorrado = 100 * 0.25;
-        String respuestaEsperada = "Puerto Madero|zapatillas nike|100.0|" + montoAhorrado;
-        //String informacionObtenida = club.obtenerInformacionDeReporteDeAhorroDeCliente(cliente, mes, anio).get(0); 
-        String respuesta = nuevoClub.obtenerReporteDeAhorros().get(0);
-
-        Assert.assertEquals(respuestaEsperada, respuesta);
-    }*/
         
 }
