@@ -36,12 +36,31 @@ public class ClubDeBeneficios {
     //TO-DO: poder pasar como parametro el mes y el año buscado para el reporte
     public List<Establecimiento> obtenerEstablecimientoAFelicitar() {
         List<Establecimiento> reporte = new ArrayList<>();
+        for (Establecimiento establecimiento : this.establecimientos) {
+            /* MODIFICAR
+            if (cliente.getAhorro(mes, anio) != "") {
+                reporte.add(cliente.getAhorro(mes, anio));
+            }*/
+        }
         return reporte;
     }
     
     //TO-DO: poder pasar como parametro el mes y el año buscado para el reporte
-    public List<Sucursal> obtenerSucursalQueMasClientesAtendio() {
+    public List<Sucursal> obtenerSucursalQueMasClientesAtendio(int mes, int anio) {
         List<Sucursal> reporte = new ArrayList<>();
+        int cantidadMaximaDeClientesAtendidos = 0;
+        for (Sucursal sucursal : this.sucursales) {
+            if (sucursal.getCantidadDeClientesAtendidosPorSucursal(mes, anio) > cantidadMaximaDeClientesAtendidos) {
+                cantidadMaximaDeClientesAtendidos = sucursal.getCantidadDeClientesAtendidosPorSucursal(mes, anio);
+            }
+        }
+        if (cantidadMaximaDeClientesAtendidos != 0) {
+            for (Sucursal sucursal : this.sucursales) {
+            if (sucursal.getCantidadDeClientesAtendidosPorSucursal(mes, anio) == cantidadMaximaDeClientesAtendidos) {
+                reporte.add(sucursal);
+            }
+        }
+        }
         return reporte;
     }
 }

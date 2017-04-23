@@ -5,7 +5,6 @@ import java.util.List;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.Ignore;
 
 public class ClubDeBeneficiosTest {
 
@@ -48,7 +47,7 @@ public class ClubDeBeneficiosTest {
     @Test
     public void pidoSucursalQueMasVendioSinOperacionesEntoncesObtengoListaVacia() {
         List<Sucursal> resultadoEsperado = new ArrayList<>();
-        List<Sucursal> resultado = nuevoClub.obtenerSucursalQueMasClientesAtendio();
+        List<Sucursal> resultado = nuevoClub.obtenerSucursalQueMasClientesAtendio(4, 2017);
         Assert.assertEquals(resultadoEsperado,resultado);
     }
     
@@ -71,5 +70,14 @@ public class ClubDeBeneficiosTest {
         Assert.assertEquals(resultadoEsperado, resultado);
     }
     
+    @Test
+    public void hagoUnaCompraEnHeladeriaYPidoSucursalQueMasVendioEntoncesReporteDevuelveListaConSucursalDeLaHeladeria() throws Exception {               
+        Operacion nuevaOperacion = new Operacion (carlos, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalHeladeriaA_S1, productosAComprar, 4, 2017);
+        List<Sucursal> resultadoEsperado = new ArrayList<>();
+        resultadoEsperado.add(sucursalHeladeriaA_S1);
+        List<Sucursal> resultado = nuevoClub.obtenerSucursalQueMasClientesAtendio(4, 2017);
+        
+        Assert.assertEquals(resultadoEsperado, resultado);
+    }
 
 }

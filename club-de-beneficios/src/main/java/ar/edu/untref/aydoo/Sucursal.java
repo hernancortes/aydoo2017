@@ -30,6 +30,13 @@ public class Sucursal {
         this.operaciones.add(operacion);
     }
     
+    public int getCantidadDeClientesAtendidosPorSucursal(int mes, int anio) {
+        int cantidadDeClientesAtendidos = 0;
+        for (Operacion operacion : this.operaciones) {
+            cantidadDeClientesAtendidos++;
+        }
+        return cantidadDeClientesAtendidos;
+    }
     /*
     public void setCompra(Beneficio beneficio, Sucursal sucursal, List<Producto> productos, Cliente cliente, int mes, int anio) {
         Operacion nuevaOperacion = new Operacion(beneficio, sucursal, productos, cliente, mes, anio);

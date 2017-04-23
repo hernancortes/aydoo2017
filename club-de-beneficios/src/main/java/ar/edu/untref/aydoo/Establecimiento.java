@@ -7,6 +7,7 @@ public class Establecimiento {
 
     private String nombre;
     private List<Sucursal> sucursales = new ArrayList<>();
+    
     private List<Beneficio> beneficios = new ArrayList<>();
     private List<Beneficio> CLASSICbeneficiosDescuento = new ArrayList<>();
     private List<Beneficio> CLASSICbeneficiosDosPorUno = new ArrayList<>();
@@ -26,6 +27,14 @@ public class Establecimiento {
         sucursal.setEstablecimiento(this);
     }
 
+    public String getEstablecimientoQueDioMasBeneficios(int mes, int anio) throws Exception {
+        String ahorro = "";
+        for (Sucursal sucursal : sucursales) {
+            /**/
+        }
+        return ahorro;
+    }
+    
     public void agregarBeneficio(Tarjeta tarjeta, Beneficio beneficio) {
         if (tarjeta.equals(Tarjeta.CLASSIC) && beneficio.getTipoDeBeneficio().equals(TipoDeBeneficio.DESCUENTO)) {
             this.CLASSICbeneficiosDescuento.add(beneficio);
