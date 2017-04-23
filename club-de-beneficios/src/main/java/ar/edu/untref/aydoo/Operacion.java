@@ -35,27 +35,16 @@ public class Operacion {
         this.montoAhorrado = this.getMontoAhorrado();
     }
     
-    public double getMontoTotalConDescuentos() throws Exception {
-            return this.getMontoTotalSinDescuentos() - this.getMontoAhorrado();
-    }
-    
     public double getMontoTotalSinDescuentos() {
-        double montoTotalSinDescuentos = 29.0;
-        /*
+        double montoTotalSinDescuentos = 0.0;
         for (Producto productos : this.getProductos()) {
             montoTotalSinDescuentos += productos.getPrecio();
-        }*/
+        }
         return montoTotalSinDescuentos;
     }
     
     public List<Producto> getProductos() {
         return productos;
-    }
-    
-    public double getMontoAhorrado() throws Exception {
-        double montoAhorrado = 19.0;
-        //double montoAhorrado = this.beneficio.calcularAhorro(this.productos);
-        return montoAhorrado;
     }
     
     public int getMes(){
@@ -78,4 +67,16 @@ public class Operacion {
         return listaDeProductosConFormatoParaReporteMensual;
     }
     
+    //TO-DO VER QUE ESTE METODO DEVUELVA VALOR CORRECTO
+    public double getMontoTotalConDescuentos() throws Exception {
+            return this.getMontoTotalSinDescuentos() - this.getMontoAhorrado();
+    }
+    
+    //TO-DO VER QUE ESTE METODO DEVUELVA VALOR CORRECTO
+    public double getMontoAhorrado() throws Exception {
+        double montoAhorrado = 19.0;
+        //double montoAhorrado = this.beneficio.calcularAhorro(this.productos);
+        return montoAhorrado;
+    }
+        
 }

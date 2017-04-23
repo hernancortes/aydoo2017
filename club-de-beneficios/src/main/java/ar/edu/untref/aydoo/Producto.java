@@ -3,7 +3,7 @@ package ar.edu.untref.aydoo;
 public class Producto {
 
     private String nombre;
-    private Double precio;
+    private double precio;
 
     public Producto(String nombre, double precio) {
             this.nombre = nombre;
