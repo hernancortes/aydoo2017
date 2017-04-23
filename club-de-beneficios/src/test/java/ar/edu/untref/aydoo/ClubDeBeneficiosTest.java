@@ -56,7 +56,7 @@ public class ClubDeBeneficiosTest {
     public void hagoUnaOperacionConDescuentoYPidoReporteDeClientesQueObtuvieronAhorroEntoncesObtengoUnSoloElementoEnLaListaDeReporte() throws Exception {               
         Operacion nuevaOperacion = new Operacion (carlos, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalHeladeriaA_S1, productosAComprar, 4, 2017);
         List<String> resultadoEsperado = new ArrayList<>();
-        resultadoEsperado.add("10.0");
+        resultadoEsperado.add("Heladeria A | 1 kilo de helado | 29.0 | 19.0 ||| ");
         List<String> resultado = nuevoClub.obtenerReporteDeAhorros(4, 2017);
         
         Assert.assertEquals(resultadoEsperado, resultado);

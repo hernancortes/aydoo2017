@@ -8,6 +8,7 @@ public class Operacion {
     private final Tarjeta tarjeta;
     private final Beneficio beneficio;
     private final Sucursal sucursal;
+    private final Establecimiento establecimiento;
     private final List<Producto> productos;
     private final int mes;
     private final int anio;
@@ -28,6 +29,7 @@ public class Operacion {
         this.anio = anio;
         cliente.setOperacion(this);
         sucursal.setOperacion(this);
+        this.establecimiento = sucursal.getEstablecimiento();
         this.precioOriginal = this.getMontoTotalSinDescuentos();
         this.precioFinal = this.getMontoTotalConDescuentos();
         this.montoAhorrado = this.getMontoAhorrado();
@@ -62,6 +64,18 @@ public class Operacion {
     
     public int getAnio(){
         return this.anio;
+    }
+    
+    public String getEstablecimiento(){
+        return this.establecimiento.getNombre();
+    }
+    
+    public String getListaDeProductosConFormatoParaReporteMensual() {
+        String listaDeProductosConFormatoParaReporteMensual = "";
+        for (Producto producto : productos) {
+            listaDeProductosConFormatoParaReporteMensual = listaDeProductosConFormatoParaReporteMensual + producto.getNombre() + " | ";
+        }
+        return listaDeProductosConFormatoParaReporteMensual;
     }
     
 }
