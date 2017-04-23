@@ -39,9 +39,5 @@ public class Sucursal {
         }
         return cantidadDeClientesAtendidos;
     }
-    /*
-    public void setCompra(Beneficio beneficio, Sucursal sucursal, List<Producto> productos, Cliente cliente, int mes, int anio) {
-        Operacion nuevaOperacion = new Operacion(beneficio, sucursal, productos, cliente, mes, anio);
-    }*/
 
 }
