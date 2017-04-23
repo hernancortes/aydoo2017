@@ -24,7 +24,7 @@ public class ClubDeBeneficiosTest {
         sucursalHeladeriaA_S1 = new Sucursal("Heladeria A - Sucursal S1", heladeriaA);
         nuevoClub.agregarCliente(carlos);
         nuevoClub.agregarEstablecimiento(heladeriaA);
-        nuevoClub.agregarSucursal(sucursalHeladeriaA_S1);
+        nuevoClub.agregarSucursal(sucursalHeladeriaA_S1, heladeriaA);
         BeneficioDescuento beneficioClassicDescuento10PorCiento = new BeneficioDescuento(Tarjeta.CLASSIC, 10);
         kiloDeHelado = new Producto("1 kilo de helado", 100);
         productosAComprar.add(kiloDeHelado);
@@ -38,9 +38,9 @@ public class ClubDeBeneficiosTest {
     }
     
     @Test
-    public void pidoEstablecimientoAFelicitarSinOperacionesEntoncesObtengoListaVacia() {
+    public void pidoEstablecimientoAFelicitarSinOperacionesEntoncesObtengoListaVacia() throws Exception {
         List<Establecimiento> resultadoEsperado = new ArrayList<>();
-        List<Establecimiento> resultado = nuevoClub.obtenerEstablecimientoAFelicitar();
+        List<Establecimiento> resultado = nuevoClub.obtenerEstablecimientoAFelicitar(4, 2017);
         Assert.assertEquals(resultadoEsperado,resultado);
     }
     
@@ -85,6 +85,16 @@ public class ClubDeBeneficiosTest {
         Operacion nuevaOperacion = new Operacion (carlos, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalHeladeriaA_S1, productosAComprar, 4, 2017);
         List<Sucursal> resultadoEsperado = new ArrayList<>();
         List<Sucursal> resultado = nuevoClub.obtenerSucursalQueMasClientesAtendio(4, 2010);
+        
+        Assert.assertEquals(resultadoEsperado, resultado);
+    }
+    
+    @Test
+    public void hagoUnaCompraEnHeladeriaYPidoEstablecimientoAFelicitarEntoncesReporteDevuelveHeladeria() throws Exception {               
+        Operacion nuevaOperacion = new Operacion (carlos, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalHeladeriaA_S1, productosAComprar, 4, 2017);
+        List<Establecimiento> resultadoEsperado = new ArrayList<>();
+        resultadoEsperado.add(heladeriaA);
+        List<Establecimiento> resultado = nuevoClub.obtenerEstablecimientoAFelicitar(4, 2017);
         
         Assert.assertEquals(resultadoEsperado, resultado);
     }

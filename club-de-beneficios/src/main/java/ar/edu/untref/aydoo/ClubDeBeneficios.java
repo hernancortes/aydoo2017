@@ -17,8 +17,9 @@ public class ClubDeBeneficios {
         this.establecimientos.add(establecimiento);
     }
     
-    public void agregarSucursal(Sucursal sucursal) {
+    public void agregarSucursal(Sucursal sucursal, Establecimiento establecimiento) {
         this.sucursales.add(sucursal);
+        establecimiento.agregarSucursal(sucursal);
     }
     
     public List<String> obtenerReporteDeAhorros(int mes, int anio) throws Exception {
@@ -27,25 +28,28 @@ public class ClubDeBeneficios {
             if (cliente.getAhorro(mes, anio) != "") {
                 reporte.add(cliente.getAhorro(mes, anio));
             }
-            //beneficio = this.CLASSICbeneficiosDescuento.get(i);
-            //tiene = beneficio.getTarjeta().equals(tarjeta);
         }
         return reporte;
     }
     
-    //TO-DO: poder pasar como parametro el mes y el año buscado para el reporte
-    public List<Establecimiento> obtenerEstablecimientoAFelicitar() {
+    public List<Establecimiento> obtenerEstablecimientoAFelicitar(int mes, int anio) throws Exception {
         List<Establecimiento> reporte = new ArrayList<>();
+        int cantidadMaximaDeBeneficiosOtorgadaEnElMes = 0;
         for (Establecimiento establecimiento : this.establecimientos) {
-            /* MODIFICAR
-            if (cliente.getAhorro(mes, anio) != "") {
-                reporte.add(cliente.getAhorro(mes, anio));
-            }*/
+            if (establecimiento.getCantidadMaximaDeBeneficiosOtorgadaEnElMes(mes, anio) > cantidadMaximaDeBeneficiosOtorgadaEnElMes) {
+                cantidadMaximaDeBeneficiosOtorgadaEnElMes = establecimiento.getCantidadMaximaDeBeneficiosOtorgadaEnElMes(mes, anio);
+            }
+        }
+        if (cantidadMaximaDeBeneficiosOtorgadaEnElMes != 0) {
+            for (Establecimiento establecimiento : this.establecimientos) {
+                if (establecimiento.getEstablecimientosConSiguienteCantidadDeBeneficiosOtorgada(mes, anio, cantidadMaximaDeBeneficiosOtorgadaEnElMes) != null) {
+                    reporte.add(establecimiento);
+                }
+            }
         }
         return reporte;
     }
     
-    //TO-DO: poder pasar como parametro el mes y el año buscado para el reporte
     public List<Sucursal> obtenerSucursalQueMasClientesAtendio(int mes, int anio) {
         List<Sucursal> reporte = new ArrayList<>();
         int cantidadMaximaDeClientesAtendidos = 0;

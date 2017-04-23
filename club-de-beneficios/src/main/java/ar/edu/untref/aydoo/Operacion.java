@@ -55,7 +55,7 @@ public class Operacion {
         return this.anio;
     }
     
-    public String getEstablecimiento(){
+    public String getNombreDeEstablecimiento(){
         return this.establecimiento.getNombre();
     }
     

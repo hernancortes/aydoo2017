@@ -38,7 +38,7 @@ public class Cliente {
         String ahorro = "";
         for (Operacion operacion : operaciones) {
             if (operacion.getMes() == mes && operacion.getAnio() == anio){
-                ahorro = operacion.getEstablecimiento() + " | " +
+                ahorro = operacion.getNombreDeEstablecimiento() + " | " +
                         operacion.getListaDeProductosConFormatoParaReporteMensual() + "" +
                         operacion.getMontoTotalSinDescuentos() + " | " +
                         operacion.getMontoAhorrado() + " ||| "; 

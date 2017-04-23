@@ -27,12 +27,25 @@ public class Establecimiento {
         sucursal.setEstablecimiento(this);
     }
 
-    public String getEstablecimientoQueDioMasBeneficios(int mes, int anio) throws Exception {
-        String ahorro = "";
+    public int getCantidadMaximaDeBeneficiosOtorgadaEnElMes(int mes, int anio) throws Exception {
+        int cantidadDeBeneficiosDeEstablecimiento = 0;
         for (Sucursal sucursal : sucursales) {
-            /**/
+            cantidadDeBeneficiosDeEstablecimiento = cantidadDeBeneficiosDeEstablecimiento + sucursal.getCantidadDeClientesAtendidosPorSucursal(mes, anio);
         }
-        return ahorro;
+        return cantidadDeBeneficiosDeEstablecimiento;
+    }
+    
+    public Establecimiento getEstablecimientosConSiguienteCantidadDeBeneficiosOtorgada(int mes, int anio, int cantDeBeneficiosRequerida) throws Exception {
+        int cantidadDeBeneficiosRequerida = cantDeBeneficiosRequerida;
+        int cantidadDeBeneficiosDeEstablecimiento = 0;
+        Establecimiento establecimiento = null;
+        for (Sucursal sucursal : sucursales) {
+            cantidadDeBeneficiosDeEstablecimiento = cantidadDeBeneficiosDeEstablecimiento + sucursal.getCantidadDeClientesAtendidosPorSucursal(mes, anio);
+        }
+        if (cantidadDeBeneficiosDeEstablecimiento == cantidadDeBeneficiosRequerida) {
+            establecimiento = this;
+        }
+        return establecimiento;
     }
     
     public void agregarBeneficio(Tarjeta tarjeta, Beneficio beneficio) {
