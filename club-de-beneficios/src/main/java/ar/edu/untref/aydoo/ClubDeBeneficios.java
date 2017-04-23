@@ -8,31 +8,39 @@ public class ClubDeBeneficios {
     private List<Cliente> clientes = new ArrayList<>();
     private List<Establecimiento> establecimientos = new ArrayList<>();
     private List<Sucursal> sucursales = new ArrayList<>();
-    
-    public void agregarEstablecimiento(Establecimiento establecimiento) {
-        this.establecimientos.add(establecimiento);
-    }
 
     public void agregarCliente(Cliente cliente) {
         this.clientes.add(cliente);
     }
     
-    public List<String> obtenerReporteDeAhorros() throws Exception {
+    public void agregarEstablecimiento(Establecimiento establecimiento) {
+        this.establecimientos.add(establecimiento);
+    }
+    
+    public void agregarSucursal(Sucursal sucursal) {
+        this.sucursales.add(sucursal);
+    }
+    
+    //TO-DO: poder pasar como parametro el mes y el año buscado para el reporte
+    public List<String> obtenerReporteDeAhorros() {
         List<String> reporte = new ArrayList<>();
+        /*
         for (int i = 0; i < this.clientes.size(); i++) {
             if (clientes.get(i).getAhorro() > 0.0) {
                 reporte.add("" + clientes.get(i).getAhorro());
             }
             //beneficio = this.CLASSICbeneficiosDescuento.get(i);
             //tiene = beneficio.getTarjeta().equals(tarjeta);
-        }
+        }*/
         return reporte;
     }
     
+    //TO-DO: poder pasar como parametro el mes y el año buscado para el reporte
     public Establecimiento obtenerEstablecimientoAFelicitar() {
         return this.establecimientos.get(0);
     }
     
+    //TO-DO: poder pasar como parametro el mes y el año buscado para el reporte
     public Sucursal obtenerSucursalQueMasClientesAtendio() {
         return this.sucursales.get(0);
     }
