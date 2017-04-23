@@ -26,8 +26,13 @@ public class Sucursal {
         this.establecimiento = establecimiento;
     }
     
+    public void setOperacion(Operacion operacion) {
+        this.operaciones.add(operacion);
+    }
+    
+    /*
     public void setCompra(Beneficio beneficio, Sucursal sucursal, List<Producto> productos, Cliente cliente, int mes, int anio) {
         Operacion nuevaOperacion = new Operacion(beneficio, sucursal, productos, cliente, mes, anio);
-    }
+    }*/
 
 }

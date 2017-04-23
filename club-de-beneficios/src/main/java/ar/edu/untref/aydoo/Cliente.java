@@ -32,10 +32,12 @@ public class Cliente {
         return this.operaciones;
     }
 
-    public double getAhorro() throws Exception {
-        double ahorro = 0.0;
+    public String getAhorro(int mes, int anio) throws Exception {
+        String ahorro = "";
         for (Operacion operacion : operaciones) {
-            ahorro = ahorro + operacion.getMontoTotalConDescuentos();
+            if (operacion.getMes() == mes && operacion.getAnio() == anio){
+                ahorro = ahorro + operacion.getMontoTotalConDescuentos();   
+            }
         }
         return ahorro;
     }
@@ -44,6 +46,10 @@ public class Cliente {
         this.operaciones.add(operacion);
     }
     
+    public void comprar(){
+        
+    }
+    /*
     //COMIENZA POLIMORFISMO DE METODO COMPRAR
     //compra de una lista de productos
     public void comprar(Beneficio beneficio, Sucursal sucursal, List<Producto> productos, int mes, int anio) {
@@ -71,6 +77,6 @@ public class Cliente {
         //Beneficio beneficio = sucursal.obtenerBeneficio(this.getTarjeta(), tipo);
         Beneficio beneficio = sucursal.getEstablecimiento().tieneBeneficio(this.getTarjeta(), tipoDeBeneficio);
         return beneficio;
-    }
+    }*/
         
 }

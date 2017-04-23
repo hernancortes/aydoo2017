@@ -59,6 +59,7 @@ public class TestIntegracion {
         //beneficioDosPorUno = new BeneficioDosPorUno();
     }
     
+    /*
     @Test
     public void juanCompraUnKiloDeHeladoQueVale100ConBeneficioDe50PorCientoDeDescuentoElMontoAPagarDeberiaSerDe50Pesos() throws Exception{
         List<Producto> productosAComprar = new ArrayList<>();
@@ -67,14 +68,14 @@ public class TestIntegracion {
         double resultadoEsperado = 100 - (100 * 0.5);
 
         Assert.assertEquals(resultadoEsperado, nuevaOperacion.getMontoTotalConDescuentos(), 0.005);
-    }
+    }*/
         
     @Test (expected = Error.class)
     public void intentoCrearUnBeneficioConUnDescuentoMenorAlMinimoEstipuladoDevuelveError() throws Exception {
         BeneficioDescuento beneficioDeDosPorciento = new BeneficioDescuento(Tarjeta.CLASSIC, 2);
     }
     
-    @Ignore
+    /*
     @Test
     public void pidoReporteDeAhorroClienteConUnaCompraDe100Con25DeDescuentoDeberiaDevolverAhorroDe25Pesos() throws Exception {
         BeneficioDescuento beneficio = new BeneficioDescuento(Tarjeta.CLASSIC, 25);
@@ -93,6 +94,6 @@ public class TestIntegracion {
         String respuesta = nuevoClub.obtenerReporteDeAhorros().get(0);
 
         Assert.assertEquals(respuestaEsperada, respuesta);
-    }
+    }*/
         
 }

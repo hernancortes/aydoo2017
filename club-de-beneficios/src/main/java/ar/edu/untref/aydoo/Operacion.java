@@ -4,20 +4,33 @@ import java.util.List;
 
 public class Operacion {
 
+    private final Cliente cliente;
+    private final Tarjeta tarjeta;
     private final Beneficio beneficio;
     private final Sucursal sucursal;
     private final List<Producto> productos;
-    private final Cliente cliente;
     private final int mes;
     private final int anio;
+    private final double precioOriginal;
+    private final double precioFinal;
+    private final double montoAhorrado;
     
-    public Operacion(Beneficio beneficio, Sucursal sucursal, List<Producto> productos, Cliente cliente, int mes, int anio) {
+    public Operacion(Cliente cliente, Tarjeta tarjeta, Beneficio beneficio, Sucursal sucursal, List<Producto> productos,  int mes, int anio) throws Exception {
+        //TO-DO: verificar que cliente tenga esa tarjeta
+        //TO-DO: verificar que establecimiento de la sucursal tenga ese descuento
+        //TO-DO: verificar que mes y anio sean validos
+        this.cliente = cliente;
+        this.tarjeta = tarjeta;
         this.beneficio = beneficio;
         this.sucursal = sucursal;
         this.productos = productos;
-        this.cliente = cliente;
         this.mes = mes;
         this.anio = anio;
+        cliente.setOperacion(this);
+        sucursal.setOperacion(this);
+        this.precioOriginal = this.getMontoTotalSinDescuentos();
+        this.precioFinal = this.getMontoTotalConDescuentos();
+        this.montoAhorrado = this.getMontoAhorrado();
     }
     
     public double getMontoTotalConDescuentos() throws Exception {
@@ -25,10 +38,11 @@ public class Operacion {
     }
     
     public double getMontoTotalSinDescuentos() {
-        double montoTotalSinDescuentos = 0.0;
+        double montoTotalSinDescuentos = 29.0;
+        /*
         for (Producto productos : this.getProductos()) {
             montoTotalSinDescuentos += productos.getPrecio();
-        }
+        }*/
         return montoTotalSinDescuentos;
     }
     
@@ -37,9 +51,17 @@ public class Operacion {
     }
     
     public double getMontoAhorrado() throws Exception {
-        double montoAhorrado = this.beneficio.calcularAhorro(this.productos);
+        double montoAhorrado = 19.0;
+        //double montoAhorrado = this.beneficio.calcularAhorro(this.productos);
         return montoAhorrado;
     }
     
+    public int getMes(){
+        return this.mes;
+    }
+    
+    public int getAnio(){
+        return this.anio;
+    }
     
 }

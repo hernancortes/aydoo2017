@@ -22,16 +22,15 @@ public class ClubDeBeneficios {
     }
     
     //TO-DO: poder pasar como parametro el mes y el año buscado para el reporte
-    public List<String> obtenerReporteDeAhorros() {
+    public List<String> obtenerReporteDeAhorros(int mes, int anio) throws Exception {
         List<String> reporte = new ArrayList<>();
-        /*
-        for (int i = 0; i < this.clientes.size(); i++) {
-            if (clientes.get(i).getAhorro() > 0.0) {
-                reporte.add("" + clientes.get(i).getAhorro());
+        for (Cliente cliente : this.clientes) {
+            if (cliente.getAhorro(mes, anio) != "") {
+                reporte.add(cliente.getAhorro(mes, anio));
             }
             //beneficio = this.CLASSICbeneficiosDescuento.get(i);
             //tiene = beneficio.getTarjeta().equals(tarjeta);
-        }*/
+        }
         return reporte;
     }
     

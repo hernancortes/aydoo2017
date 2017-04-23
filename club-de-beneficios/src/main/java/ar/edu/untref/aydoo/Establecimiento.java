@@ -7,6 +7,7 @@ public class Establecimiento {
 
     private String nombre;
     private List<Sucursal> sucursales = new ArrayList<>();
+    private List<Beneficio> beneficios = new ArrayList<>();
     private List<Beneficio> CLASSICbeneficiosDescuento = new ArrayList<>();
     private List<Beneficio> CLASSICbeneficiosDosPorUno = new ArrayList<>();
     private List<Beneficio> PREMIUMbeneficiosDescuento = new ArrayList<>();

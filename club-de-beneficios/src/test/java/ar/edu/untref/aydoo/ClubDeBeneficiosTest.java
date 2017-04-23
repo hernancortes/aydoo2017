@@ -13,8 +13,9 @@ public class ClubDeBeneficiosTest {
     private Cliente carlos;
     private Establecimiento heladeriaA;
     private Sucursal sucursalHeladeriaA_S1;
-    //private Producto kiloDeHelado;
-    //List<Producto> productosAComprar = new ArrayList<>();
+    private Beneficio beneficioClassicDescuento10PorCiento;
+    private Producto kiloDeHelado;
+    List<Producto> productosAComprar = new ArrayList<>();
 
     @Before
     public void inicializar() {
@@ -25,36 +26,45 @@ public class ClubDeBeneficiosTest {
         nuevoClub.agregarCliente(carlos);
         nuevoClub.agregarEstablecimiento(heladeriaA);
         nuevoClub.agregarSucursal(sucursalHeladeriaA_S1);
-        
-        //kiloDeHelado = new Producto("1 kilo de helado", 100);
-        //productosAComprar.add(kiloDeHelado);
+        BeneficioDescuento beneficioClassicDescuento10PorCiento = new BeneficioDescuento(Tarjeta.CLASSIC, 10);
+        kiloDeHelado = new Producto("1 kilo de helado", 100);
+        productosAComprar.add(kiloDeHelado);
     }
 
     @Test
-    public void pidoReporteDeAhorroSinComprasEntoncesObtengoReporteDeAhorroVacio(){
+    public void pidoReporteDeAhorroSinComprasEntoncesObtengoReporteDeAhorroVacio() throws Exception {
         List<String> resultadoEsperado = new ArrayList<>();
-        List<String> resultado = nuevoClub.obtenerReporteDeAhorros();
+        List<String> resultado = nuevoClub.obtenerReporteDeAhorros(4, 2017);
         Assert.assertEquals(resultadoEsperado, resultado);
     }
     
     @Test
-    public void pidoEstablecimientoAFelicitarSinOperacionesEntoncesObtengoListaVacia(){
+    public void pidoEstablecimientoAFelicitarSinOperacionesEntoncesObtengoListaVacia() {
         List<Establecimiento> resultadoEsperado = new ArrayList<>();
         List<Establecimiento> resultado = nuevoClub.obtenerEstablecimientoAFelicitar();
         Assert.assertEquals(resultadoEsperado,resultado);
     }
     
     @Test
-    public void pidoSucursalQueMasVendioSinOperacionesEntoncesObtengoListaVacia(){
+    public void pidoSucursalQueMasVendioSinOperacionesEntoncesObtengoListaVacia() {
         List<Sucursal> resultadoEsperado = new ArrayList<>();
         List<Sucursal> resultado = nuevoClub.obtenerSucursalQueMasClientesAtendio();
         Assert.assertEquals(resultadoEsperado,resultado);
     }
     
+    @Test
+    public void hagoUnaOperacionConDescuentoYPidoReporteDeClientesQueObtuvieronAhorroEntoncesObtengoUnSoloElementoEnLaListaDeReporte() throws Exception {               
+        Operacion nuevaOperacion = new Operacion (carlos, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalHeladeriaA_S1, productosAComprar, 4, 2017);
+        List<String> resultadoEsperado = new ArrayList<>();
+        resultadoEsperado.add("10.0");
+        List<String> resultado = nuevoClub.obtenerReporteDeAhorros(4, 2017);
+        
+        Assert.assertEquals(resultadoEsperado, resultado);
+    }
     /*
     @Test
     public void devuelveCarlosComoUnicoBeneficiadoEnElMes() throws Exception {
-        BeneficioDescuento beneficio1 = new BeneficioDescuento(Tarjeta.CLASSIC, 10);
+        
         Operacion operacion = new Operacion(beneficio1, sucursalHeladeriaA_S1, productosAComprar, carlos, 4, 2017);
         
         carlos.getOperaciones().add(operacion);
