@@ -16,6 +16,7 @@ public class Cliente {
         this.tarjeta = tarjeta;
     }
 
+    /*
     public String getNombreYApellido() {
         return this.nombreYApellido;
     }
@@ -31,13 +32,16 @@ public class Cliente {
     public List<Operacion> getOperaciones() {
         return this.operaciones;
     }
-
+*/
+    
     public String getAhorro(int mes, int anio) throws Exception {
         String ahorro = "";
         for (Operacion operacion : operaciones) {
             if (operacion.getMes() == mes && operacion.getAnio() == anio){
-                ahorro = operacion.getEstablecimiento() + " | " + operacion.getListaDeProductosConFormatoParaReporteMensual() + "" + operacion.getMontoTotalSinDescuentos() + " | " + operacion.getMontoAhorrado() + " ||| ";
-//ahorro + operacion.getMontoTotalConDescuentos();   
+                ahorro = operacion.getEstablecimiento() + " | " +
+                        operacion.getListaDeProductosConFormatoParaReporteMensual() + "" +
+                        operacion.getMontoTotalSinDescuentos() + " | " +
+                        operacion.getMontoAhorrado() + " ||| "; 
             }
         }
         return ahorro;
@@ -47,9 +51,6 @@ public class Cliente {
         this.operaciones.add(operacion);
     }
     
-    public void comprar(){
-        
-    }
     /*
     //COMIENZA POLIMORFISMO DE METODO COMPRAR
     //compra de una lista de productos

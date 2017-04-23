@@ -21,7 +21,6 @@ public class ClubDeBeneficios {
         this.sucursales.add(sucursal);
     }
     
-    //TO-DO: poder pasar como parametro el mes y el año buscado para el reporte
     public List<String> obtenerReporteDeAhorros(int mes, int anio) throws Exception {
         List<String> reporte = new ArrayList<>();
         for (Cliente cliente : this.clientes) {
