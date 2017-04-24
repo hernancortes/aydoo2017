@@ -32,10 +32,10 @@ public class TestIntegracion {
     private Producto libroElCantarDelCid;
     private Integer mes;
     private Integer anio;
-    private BeneficioDescuento beneficio50PorCientoDeDescuento;
-    private Beneficio beneficioClassicDescuento10PorCiento;
-    private Beneficio beneficioClassicDescuento20PorCiento;
-    private Beneficio beneficioPremiumDescuento20PorCiento;
+    //private BeneficioDescuento beneficio50PorCientoDeDescuento;
+    private BeneficioDescuento beneficioClassicDescuento10PorCiento;
+    private BeneficioDescuento beneficioClassicDescuento20PorCiento;
+    private BeneficioDescuento beneficioPremiumDescuento20PorCiento;
     List<Producto> productosAComprarEnHeladeria = new ArrayList<>();
     List<Producto> productosAComprarEnRestoran = new ArrayList<>();
     //TO-DO agregar clase beneficioDOSPORUNO
@@ -83,8 +83,10 @@ public class TestIntegracion {
         nuevoClub.agregarSucursal(sucursalHeladeriaA_S2, heladeriaA);
         nuevoClub.agregarSucursal(sucursalRestoranB_S3, restoranB);
         nuevoClub.agregarSucursal(sucursalLibreriaElAltillo_S4, libreriaElAltillo);
-        BeneficioDescuento beneficioClassicDescuento10PorCiento = new BeneficioDescuento(Tarjeta.CLASSIC, 10);
-        beneficio50PorCientoDeDescuento = new BeneficioDescuento(Tarjeta.PREMIUM, 50);
+        beneficioClassicDescuento10PorCiento = new BeneficioDescuento(Tarjeta.CLASSIC, 10);
+        beneficioClassicDescuento20PorCiento = new BeneficioDescuento(Tarjeta.CLASSIC, 20);
+        beneficioPremiumDescuento20PorCiento = new BeneficioDescuento(Tarjeta.PREMIUM, 20);
+        //beneficio50PorCientoDeDescuento = new BeneficioDescuento(Tarjeta.PREMIUM, 50);
         //beneficioDosPorUno = new BeneficioDosPorUno();
     }
     

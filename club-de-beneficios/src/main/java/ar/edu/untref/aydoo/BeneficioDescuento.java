@@ -9,7 +9,7 @@ public class BeneficioDescuento extends Beneficio {
     private static final double PORCENTAJE_DE_DESCUENTO_MINIMO = 5;
 
     public BeneficioDescuento(Tarjeta tarjeta, int porcentajeDeDescuento) {
-        this.setTarjeta(tarjeta);
+        super(tarjeta);
         if (porcentajeDeDescuento >= PORCENTAJE_DE_DESCUENTO_MINIMO) {
             this.porcentajeDeDescuento = porcentajeDeDescuento;
             this.setTipoDeBeneficio(TipoDeBeneficio.DESCUENTO);

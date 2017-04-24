@@ -7,6 +7,10 @@ public abstract class Beneficio {
     private TipoDeBeneficio tipoDeBeneficio;
     private Tarjeta tarjeta;
 
+    public Beneficio(Tarjeta tarjeta) {
+        this.tarjeta = tarjeta;
+    }
+    
     public TipoDeBeneficio getTipoDeBeneficio() {
         return tipoDeBeneficio;
     }

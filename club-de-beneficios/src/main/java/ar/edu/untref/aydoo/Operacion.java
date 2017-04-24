@@ -1,5 +1,6 @@
 package ar.edu.untref.aydoo;
 
+import java.util.Calendar;
 import java.util.List;
 
 public class Operacion {
@@ -17,9 +18,22 @@ public class Operacion {
     private final double montoAhorrado;
     
     public Operacion(Cliente cliente, Tarjeta tarjeta, Beneficio beneficio, Sucursal sucursal, List<Producto> productos,  int mes, int anio) throws Exception {
-        //TO-DO: verificar que cliente tenga esa tarjeta
+        //TO-DO: verificar que cliente tenga esa tarjeta 
+        if (!cliente.getTarjeta().equals(beneficio.getTarjeta())) {
+            throw new Error ("El cliente no posee la tarjeta necesaria para este beneficio");
+        }
+        if (!cliente.getTarjeta().equals(beneficio.getTarjeta())) {
+            throw new Error ("El cliente no posee la tarjeta necesaria para este beneficio");
+        }
+
         //TO-DO: verificar que establecimiento de la sucursal tenga ese descuento
         //TO-DO: verificar que mes y anio sean validos
+        if (mes < Calendar.JANUARY || mes > Calendar.DECEMBER) {
+            throw new Error ("El mes ingresado es inexistente");
+        }
+        if (anio != Calendar.getInstance().get(Calendar.YEAR)) {
+            throw new Error ("El anio ingresado debe ser el anio actual");
+        }
         this.cliente = cliente;
         this.tarjeta = tarjeta;
         this.beneficio = beneficio;

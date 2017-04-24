@@ -21,13 +21,12 @@ public class Cliente {
         return this.nombreYApellido;
     }
     
+    public Tarjeta getTarjeta() {
+        return this.tarjeta;
+    }
     /*
     public String getEmail() {
         return this.email;
-    }
-    
-    public Tarjeta getTarjeta() {
-        return this.tarjeta;
     }
     
     public List<Operacion> getOperaciones() {

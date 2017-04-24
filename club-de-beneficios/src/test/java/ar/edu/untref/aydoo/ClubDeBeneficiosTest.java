@@ -12,7 +12,7 @@ public class ClubDeBeneficiosTest {
     private Cliente carlos;
     private Establecimiento heladeriaA;
     private Sucursal sucursalHeladeriaA_S1;
-    private Beneficio beneficioClassicDescuento10PorCiento;
+    private BeneficioDescuento beneficioClassicDescuento10PorCiento;
     private Producto kiloDeHelado;
     List<Producto> productosAComprar = new ArrayList<>();
 
@@ -25,7 +25,7 @@ public class ClubDeBeneficiosTest {
         nuevoClub.agregarCliente(carlos);
         nuevoClub.agregarEstablecimiento(heladeriaA);
         nuevoClub.agregarSucursal(sucursalHeladeriaA_S1, heladeriaA);
-        BeneficioDescuento beneficioClassicDescuento10PorCiento = new BeneficioDescuento(Tarjeta.CLASSIC, 10);
+        beneficioClassicDescuento10PorCiento = new BeneficioDescuento(Tarjeta.CLASSIC, 10);
         kiloDeHelado = new Producto("1 kilo de helado", 100);
         productosAComprar.add(kiloDeHelado);
     }
