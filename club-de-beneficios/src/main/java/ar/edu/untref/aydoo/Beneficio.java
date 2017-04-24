@@ -29,6 +29,6 @@ public abstract class Beneficio {
         return this.tarjeta;
     }
 
-    public abstract Double calcularAhorro(List<Producto> productos) throws Exception;
+    public abstract double calcularAhorro(double precio) throws Exception;
 
 }

@@ -23,10 +23,9 @@ public class BeneficioDescuento extends Beneficio {
     }
     
     @Override
-    public Double calcularAhorro(List<Producto> productos) {
+    public double calcularAhorro(double precio) {
             double ahorro;
-            double precioDeProducto = productos.get(0).getPrecio();
-            ahorro = precioDeProducto * (this.porcentajeDeDescuento / CIEN_POR_CIENTO);
+            ahorro = precio * (this.porcentajeDeDescuento / CIEN_POR_CIENTO);
             return ahorro;
     }
 

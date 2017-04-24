@@ -77,15 +77,15 @@ public class Operacion {
         return listaDeProductosConFormatoParaReporteMensual;
     }
     
-    //TO-DO VER QUE ESTE METODO DEVUELVA VALOR CORRECTO
     public double getMontoTotalConDescuentos() throws Exception {
             return this.getMontoTotalSinDescuentos() - this.getMontoAhorrado();
     }
     
-    //TO-DO VER QUE ESTE METODO DEVUELVA VALOR CORRECTO
     public double getMontoAhorrado() throws Exception {
-        double montoAhorrado = 19.0;
-        //double montoAhorrado = this.beneficio.calcularAhorro(this.productos);
+        double montoAhorrado = 0.0;
+        if (beneficio.getTipoDeBeneficio().equals(TipoDeBeneficio.DESCUENTO)) {
+            montoAhorrado = this.beneficio.calcularAhorro(this.precioFinal);
+        }
         return montoAhorrado;
     }
         

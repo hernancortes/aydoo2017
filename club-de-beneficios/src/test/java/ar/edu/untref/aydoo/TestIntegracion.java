@@ -32,7 +32,6 @@ public class TestIntegracion {
     private Producto libroElCantarDelCid;
     private Integer mes;
     private Integer anio;
-    //private BeneficioDescuento beneficio50PorCientoDeDescuento;
     private BeneficioDescuento beneficioClassicDescuento10PorCiento;
     private BeneficioDescuento beneficioClassicDescuento20PorCiento;
     private BeneficioDescuento beneficioPremiumDescuento20PorCiento;
@@ -89,7 +88,6 @@ public class TestIntegracion {
         heladeriaA.agregarBeneficio(beneficioClassicDescuento10PorCiento);
         heladeriaA.agregarBeneficio(beneficioPremiumDescuento20PorCiento);
         restoranB.agregarBeneficio(beneficioClassicDescuento10PorCiento);
-        //beneficio50PorCientoDeDescuento = new BeneficioDescuento(Tarjeta.PREMIUM, 50);
         //beneficioDosPorUno = new BeneficioDosPorUno();
     }
     
@@ -158,7 +156,7 @@ public class TestIntegracion {
         Operacion nuevaOperacionClassicEnRestoran4 = new Operacion (nuevoCliente2, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalRestoranB_S3, productosAComprarEnRestoran, 1, 2017);
         Operacion nuevaOperacionClassicEnRestoran5 = new Operacion (nuevoCliente3, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalRestoranB_S3, productosAComprarEnRestoran, 1, 2017);
         Operacion nuevaOperacionClassicEnRestoran6 = new Operacion (nuevoCliente3, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalRestoranB_S3, productosAComprarEnRestoran, 1, 2017);
-        String resultadoEsperado = "*** Resumen de Ahorro Mensual Para Carlos *** Heladeria A | 1 kilo de helado | 100.0 | 19.0 ||| Restoran B | 1 menu ejecutivo | 200.0 | 19.0 ||| ";
+        String resultadoEsperado = "*** Resumen de Ahorro Mensual Para Carlos *** Heladeria A | 1 kilo de helado | 100.0 | 10.0 ||| Restoran B | 1 menu ejecutivo | 200.0 | 20.0 ||| ";
         String resultado = nuevoClub.obtenerReporteDeAhorros(1, 2017).get(0);
         
         Assert.assertEquals(resultadoEsperado, resultado);    
@@ -181,22 +179,11 @@ public class TestIntegracion {
         Operacion nuevaOperacionClassicEnRestoran4 = new Operacion (nuevoCliente2, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalRestoranB_S3, productosAComprarEnRestoran, 1, 2017);
         Operacion nuevaOperacionClassicEnRestoran5 = new Operacion (nuevoCliente3, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalRestoranB_S3, productosAComprarEnRestoran, 1, 2017);
         Operacion nuevaOperacionClassicEnRestoran6 = new Operacion (nuevoCliente3, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalRestoranB_S3, productosAComprarEnRestoran, 1, 2017);
-        String resultadoEsperado = "*** Resumen de Ahorro Mensual Para Juan *** Heladeria A | 1 kilo de helado | 100.0 | 19.0 ||| ";
+        String resultadoEsperado = "*** Resumen de Ahorro Mensual Para Juan *** Heladeria A | 1 kilo de helado | 100.0 | 20.0 ||| ";
         String resultado = nuevoClub.obtenerReporteDeAhorros(1, 2017).get(1);
         
         Assert.assertEquals(resultadoEsperado, resultado);    
     }
-    
-    /*
-    @Test
-    public void juanCompraUnKiloDeHeladoQueVale100ConBeneficioDe50PorCientoDeDescuentoElMontoAPagarDeberiaSerDe50Pesos() throws Exception{
-        List<Producto> productosAComprar = new ArrayList<>();
-        productosAComprar.add(kiloDeHelado);
-        Operacion nuevaOperacion = new Operacion(beneficio50PorCientoDeDescuento, sucursalHeladeriaA_S1, productosAComprar, juan, 4, 2017);
-        double resultadoEsperado = 100 - (100 * 0.5);
-
-        Assert.assertEquals(resultadoEsperado, nuevaOperacion.getMontoTotalConDescuentos(), 0.005);
-    }*/
         
     @Test (expected = Error.class)
     public void intentoCrearUnBeneficioConUnDescuentoMenorAlMinimoEstipuladoDevuelveError() throws Exception {
