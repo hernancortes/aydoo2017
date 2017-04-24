@@ -8,18 +8,14 @@ public class BeneficioDescuento extends Beneficio {
     private static final double CIEN_POR_CIENTO = 100.0;
     private static final double PORCENTAJE_DE_DESCUENTO_MINIMO = 5;
 
-    public BeneficioDescuento(Tarjeta tarjeta, int porcentajeDeDescuento) {
-        super(tarjeta);
+    public BeneficioDescuento(Tarjeta tarjeta, TipoDeBeneficio tipoDeBeneficio, int porcentajeDeDescuento) {
+        super(tarjeta, tipoDeBeneficio);
         if (porcentajeDeDescuento >= PORCENTAJE_DE_DESCUENTO_MINIMO) {
             this.porcentajeDeDescuento = porcentajeDeDescuento;
             this.setTipoDeBeneficio(TipoDeBeneficio.DESCUENTO);
         } else {
             throw new Error ("El porcentaje de descuento ingresado debe ser superior al minimo");
         }
-    }
-    
-    public int getPorcentajeDeDescuento() {
-        return this.porcentajeDeDescuento;
     }
     
     @Override

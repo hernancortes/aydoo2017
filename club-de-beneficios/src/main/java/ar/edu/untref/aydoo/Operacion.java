@@ -30,6 +30,9 @@ public class Operacion {
         if (anio != Calendar.getInstance().get(Calendar.YEAR)) {
             throw new Error ("El anio ingresado debe ser el anio actual");
         }
+        if (productos.size() < 1) {
+            throw new Error ("Debe ingresar al menos 1 producto");
+        }
         this.cliente = cliente;
         this.tarjeta = tarjeta;
         this.beneficio = beneficio;
@@ -85,6 +88,15 @@ public class Operacion {
         double montoAhorrado = 0.0;
         if (beneficio.getTipoDeBeneficio().equals(TipoDeBeneficio.DESCUENTO)) {
             montoAhorrado = this.beneficio.calcularAhorro(this.precioFinal);
+        }
+        if (beneficio.getTipoDeBeneficio().equals(TipoDeBeneficio.DOSPORUNO)) {
+            if (productos.size() != 2) {
+                throw new Error ("Debe ingresar 2 productos para poder realizar este descuento");
+            }
+            montoAhorrado = productos.get(0).getPrecio();
+            if (montoAhorrado > productos.get(1).getPrecio()) {
+                montoAhorrado = productos.get(1).getPrecio();
+            }
         }
         return montoAhorrado;
     }

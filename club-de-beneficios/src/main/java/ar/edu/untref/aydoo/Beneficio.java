@@ -7,10 +7,11 @@ public abstract class Beneficio {
 
     private TipoDeBeneficio tipoDeBeneficio;
     private Tarjeta tarjeta;
-    private List<Establecimiento> establecimientos = new ArrayList<>();
+    //private List<Establecimiento> establecimientos = new ArrayList<>();
     
-    public Beneficio(Tarjeta tarjeta) {
+    public Beneficio(Tarjeta tarjeta, TipoDeBeneficio tipoDeBeneficio) {
         this.tarjeta = tarjeta;
+        this.tipoDeBeneficio = tipoDeBeneficio;
     }
     
     public TipoDeBeneficio getTipoDeBeneficio() {
@@ -21,10 +22,6 @@ public abstract class Beneficio {
         this.tipoDeBeneficio = tipoDeBeneficio;
     }
 
-    public void setTarjeta(Tarjeta tarjeta) {
-        this.tarjeta = tarjeta;
-    }
-    
     public Tarjeta getTarjeta() {
         return this.tarjeta;
     }

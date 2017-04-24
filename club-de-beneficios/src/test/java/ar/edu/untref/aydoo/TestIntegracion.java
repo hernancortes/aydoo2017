@@ -11,6 +11,7 @@ public class TestIntegracion {
     private ClubDeBeneficios nuevoClub;
     private Cliente carlos;
     private Cliente juan;
+    private Cliente mateo;
     private Cliente nuevoCliente1;
     private Cliente nuevoCliente2;
     private Cliente nuevoCliente3;
@@ -30,21 +31,23 @@ public class TestIntegracion {
     private Producto menuEjecutivo;
     private Producto libroMartinFierro;
     private Producto libroElCantarDelCid;
-    private Integer mes;
-    private Integer anio;
+    private Producto libroLaSantaBiblia;
+    private int mes;
+    private int anio;
     private BeneficioDescuento beneficioClassicDescuento10PorCiento;
     private BeneficioDescuento beneficioClassicDescuento20PorCiento;
     private BeneficioDescuento beneficioPremiumDescuento20PorCiento;
-    List<Producto> productosAComprarEnHeladeria = new ArrayList<>();
-    List<Producto> productosAComprarEnRestoran = new ArrayList<>();
-    //TO-DO agregar clase beneficioDOSPORUNO
-    //private BeneficioDosPorUno beneficioDosPorUno;
+    private List<Producto> productosAComprarEnHeladeria = new ArrayList<>();
+    private List<Producto> productosAComprarEnRestoran = new ArrayList<>();
+    private List<Producto> productosAComprarEnLibreria = new ArrayList<>();
+    private BeneficioDosPorUno beneficioDosPorUnoClassic;
 
     @Before
     public void inicializar() {
         nuevoClub = new ClubDeBeneficios();
         carlos = new Cliente("Carlos", "carlos@gmail.com", Tarjeta.CLASSIC);
         juan = new Cliente("Juan", "juan@gmail.com", Tarjeta.PREMIUM);
+        mateo = new Cliente("Mateo", "mateo@gmail.com", Tarjeta.CLASSIC);        
         nuevoCliente1 = new Cliente("nuevoCliente1", "nuevoCliente1@gmail.com", Tarjeta.CLASSIC);
         nuevoCliente2 = new Cliente("nuevoCliente2", "nuevoCliente2@gmail.com", Tarjeta.CLASSIC);
         nuevoCliente3 = new Cliente("nuevoCliente3", "nuevoCliente3@gmail.com", Tarjeta.CLASSIC);
@@ -62,12 +65,14 @@ public class TestIntegracion {
         sucursalLibreriaElAltillo_S4 = new Sucursal("Libreria El Altillo - Sucursal S4", libreriaElAltillo);
         kiloDeHelado = new Producto("1 kilo de helado", 100);
         menuEjecutivo = new Producto("1 menu ejecutivo", 200);
-        libroMartinFierro = new Producto("1 libro Martin Fierro", 300);
-        libroElCantarDelCid = new Producto("1 libro El Cantar del Cid", 150);
+        libroMartinFierro = new Producto("1 libro Martin Fierro", 100);
+        libroElCantarDelCid = new Producto("1 libro El Cantar del Cid", 80);
+        libroLaSantaBiblia = new Producto("1 libro La Santa Biblia", 2);
         mes = 4;
         anio = 2017;
         nuevoClub.agregarCliente(carlos);
         nuevoClub.agregarCliente(juan);
+        nuevoClub.agregarCliente(mateo);
         nuevoClub.agregarCliente(nuevoCliente1);
         nuevoClub.agregarCliente(nuevoCliente2);
         nuevoClub.agregarCliente(nuevoCliente3);
@@ -78,17 +83,19 @@ public class TestIntegracion {
         nuevoClub.agregarCliente(nuevoCliente8);
         nuevoClub.agregarEstablecimiento(this.restoranB);
         nuevoClub.agregarEstablecimiento(this.heladeriaA);
+        nuevoClub.agregarEstablecimiento(this.libreriaElAltillo);
         nuevoClub.agregarSucursal(sucursalHeladeriaA_S1, heladeriaA);
         nuevoClub.agregarSucursal(sucursalHeladeriaA_S2, heladeriaA);
         nuevoClub.agregarSucursal(sucursalRestoranB_S3, restoranB);
         nuevoClub.agregarSucursal(sucursalLibreriaElAltillo_S4, libreriaElAltillo);
-        beneficioClassicDescuento10PorCiento = new BeneficioDescuento(Tarjeta.CLASSIC, 10);
-        beneficioClassicDescuento20PorCiento = new BeneficioDescuento(Tarjeta.CLASSIC, 20);
-        beneficioPremiumDescuento20PorCiento = new BeneficioDescuento(Tarjeta.PREMIUM, 20);
+        beneficioClassicDescuento10PorCiento = new BeneficioDescuento(Tarjeta.CLASSIC, TipoDeBeneficio.DESCUENTO, 10);
+        beneficioClassicDescuento20PorCiento = new BeneficioDescuento(Tarjeta.CLASSIC, TipoDeBeneficio.DESCUENTO, 20);
+        beneficioPremiumDescuento20PorCiento = new BeneficioDescuento(Tarjeta.PREMIUM, TipoDeBeneficio.DESCUENTO, 20);
         heladeriaA.agregarBeneficio(beneficioClassicDescuento10PorCiento);
         heladeriaA.agregarBeneficio(beneficioPremiumDescuento20PorCiento);
         restoranB.agregarBeneficio(beneficioClassicDescuento10PorCiento);
-        //beneficioDosPorUno = new BeneficioDosPorUno();
+        beneficioDosPorUnoClassic = new BeneficioDosPorUno(Tarjeta.CLASSIC, TipoDeBeneficio.DOSPORUNO);
+        libreriaElAltillo.agregarBeneficio(beneficioDosPorUnoClassic);
     }
     
     @Test
@@ -187,7 +194,38 @@ public class TestIntegracion {
         
     @Test (expected = Error.class)
     public void intentoCrearUnBeneficioConUnDescuentoMenorAlMinimoEstipuladoDevuelveError() throws Exception {
-        BeneficioDescuento beneficioDeDosPorciento = new BeneficioDescuento(Tarjeta.CLASSIC, 2);
+        BeneficioDescuento beneficioDeDosPorciento = new BeneficioDescuento(Tarjeta.CLASSIC, TipoDeBeneficio.DESCUENTO, 2);
+    }
+    
+    @Test
+    public void mateoCompraDosPorUnoEnLibreriaEntoncesObtieneReporteMensualConEsaCompra() throws Exception {
+        productosAComprarEnLibreria.add(libroMartinFierro);
+        productosAComprarEnLibreria.add(libroElCantarDelCid);
+        Operacion nuevaOperacionDosPorUno = new Operacion (mateo, Tarjeta.CLASSIC, beneficioDosPorUnoClassic, sucursalLibreriaElAltillo_S4, productosAComprarEnLibreria, 3, 2017);
+        List<String> resultadoEsperado = new ArrayList<>();
+        resultadoEsperado.add("*** Resumen de Ahorro Mensual Para Mateo *** Libreria El Altillo | 1 libro Martin Fierro | 1 libro El Cantar del Cid | 180.0 | 80.0 ||| ");
+        List<String> resultado = nuevoClub.obtenerReporteDeAhorros(3, 2017);
+        
+        Assert.assertEquals(resultadoEsperado, resultado);
+    }
+    
+    @Test (expected = Error.class)
+    public void intentoComprarConDescuentoDeDosPorUnoIngresandoUnSoloProductoEntoncesObtengoError() throws Exception {
+        productosAComprarEnLibreria.add(libroMartinFierro);
+        Operacion nuevaOperacionDosPorUno = new Operacion (mateo, Tarjeta.CLASSIC, beneficioDosPorUnoClassic, sucursalLibreriaElAltillo_S4, productosAComprarEnLibreria, 3, 2017);
+    }
+    
+    @Test (expected = Error.class)
+    public void intentoComprarConDescuentoDeDosPorUnoIngresandoTresProductosEntoncesObtengoError() throws Exception {
+        productosAComprarEnLibreria.add(libroMartinFierro);
+        productosAComprarEnLibreria.add(libroElCantarDelCid);
+        productosAComprarEnLibreria.add(libroLaSantaBiblia);
+        Operacion nuevaOperacionDosPorUno = new Operacion (mateo, Tarjeta.CLASSIC, beneficioDosPorUnoClassic, sucursalLibreriaElAltillo_S4, productosAComprarEnLibreria, 3, 2017);
+    }
+    
+    @Test (expected = Error.class)
+    public void intentoComprarConDescuentoDeDosPorUnoSinIngresarNingunProductoEntoncesObtengoError() throws Exception {
+        Operacion nuevaOperacionDosPorUno = new Operacion (mateo, Tarjeta.CLASSIC, beneficioDosPorUnoClassic, sucursalLibreriaElAltillo_S4, productosAComprarEnLibreria, 3, 2017);
     }
         
 }
