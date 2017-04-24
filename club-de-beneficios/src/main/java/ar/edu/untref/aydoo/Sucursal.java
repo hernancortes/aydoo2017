@@ -14,9 +14,10 @@ public class Sucursal {
         this.establecimiento = establecimiento;
     }
     
+    /*
     public List<Operacion> getOperaciones() {
         return this.operaciones;
-    }
+    }*/
 
     public Establecimiento getEstablecimiento() {
         return this.establecimiento;

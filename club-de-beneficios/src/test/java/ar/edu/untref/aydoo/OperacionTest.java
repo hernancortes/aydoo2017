@@ -13,6 +13,8 @@ public class OperacionTest {
     private Establecimiento heladeriaA;
     private Sucursal sucursalHeladeriaA_S1;
     private BeneficioDescuento beneficioPremiumDescuento10PorCiento;
+    private BeneficioDescuento beneficioClassicDescuento10PorCiento;
+    private BeneficioDescuento beneficioNoAgregado;
     private Producto kiloDeHelado;
     List<Producto> productosAComprar = new ArrayList<>();
 
@@ -26,6 +28,9 @@ public class OperacionTest {
         nuevoClub.agregarEstablecimiento(heladeriaA);
         nuevoClub.agregarSucursal(sucursalHeladeriaA_S1, heladeriaA);
         beneficioPremiumDescuento10PorCiento = new BeneficioDescuento(Tarjeta.PREMIUM, 10);
+        beneficioNoAgregado = new BeneficioDescuento(Tarjeta.CLASSIC, 10);
+        beneficioClassicDescuento10PorCiento = new BeneficioDescuento(Tarjeta.CLASSIC, 10);
+        heladeriaA.agregarBeneficio(beneficioClassicDescuento10PorCiento);
         kiloDeHelado = new Producto("1 kilo de helado", 100);
         productosAComprar.add(kiloDeHelado);
     }
@@ -37,11 +42,16 @@ public class OperacionTest {
     
     @Test (expected = Error.class)
     public void intentoUnaOperacionIngresandoMesNumero15DebeDevolverError() throws Exception {
-        Operacion nuevaOperacion = new Operacion (carlos, Tarjeta.CLASSIC, beneficioPremiumDescuento10PorCiento, sucursalHeladeriaA_S1, productosAComprar, 15, 2017);
+        Operacion nuevaOperacion = new Operacion (carlos, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalHeladeriaA_S1, productosAComprar, 15, 2017);
     }
     
     @Test (expected = Error.class)
     public void intentoUnaOperacionIngresandoAnio2020DebeDevolverError() throws Exception {
-        Operacion nuevaOperacion = new Operacion (carlos, Tarjeta.CLASSIC, beneficioPremiumDescuento10PorCiento, sucursalHeladeriaA_S1, productosAComprar, 4, 2020);
+        Operacion nuevaOperacion = new Operacion (carlos, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalHeladeriaA_S1, productosAComprar, 4, 2020);
+    }
+    
+    @Test (expected = Error.class)
+    public void intentoComprarConUnBeneficioQueNoEstaAgregadoEnElEstablecimientoEntoncesDevuelveError() throws Exception {
+        Operacion nuevaOperacion = new Operacion (carlos, Tarjeta.CLASSIC, beneficioNoAgregado, sucursalHeladeriaA_S1, productosAComprar, 4, 2017);
     }
 }

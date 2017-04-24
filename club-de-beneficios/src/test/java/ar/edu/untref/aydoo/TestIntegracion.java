@@ -86,6 +86,9 @@ public class TestIntegracion {
         beneficioClassicDescuento10PorCiento = new BeneficioDescuento(Tarjeta.CLASSIC, 10);
         beneficioClassicDescuento20PorCiento = new BeneficioDescuento(Tarjeta.CLASSIC, 20);
         beneficioPremiumDescuento20PorCiento = new BeneficioDescuento(Tarjeta.PREMIUM, 20);
+        heladeriaA.agregarBeneficio(beneficioClassicDescuento10PorCiento);
+        heladeriaA.agregarBeneficio(beneficioPremiumDescuento20PorCiento);
+        restoranB.agregarBeneficio(beneficioClassicDescuento10PorCiento);
         //beneficio50PorCientoDeDescuento = new BeneficioDescuento(Tarjeta.PREMIUM, 50);
         //beneficioDosPorUno = new BeneficioDosPorUno();
     }

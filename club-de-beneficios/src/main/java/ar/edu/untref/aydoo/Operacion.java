@@ -18,16 +18,12 @@ public class Operacion {
     private final double montoAhorrado;
     
     public Operacion(Cliente cliente, Tarjeta tarjeta, Beneficio beneficio, Sucursal sucursal, List<Producto> productos,  int mes, int anio) throws Exception {
-        //TO-DO: verificar que cliente tenga esa tarjeta 
         if (!cliente.getTarjeta().equals(beneficio.getTarjeta())) {
             throw new Error ("El cliente no posee la tarjeta necesaria para este beneficio");
         }
-        if (!cliente.getTarjeta().equals(beneficio.getTarjeta())) {
-            throw new Error ("El cliente no posee la tarjeta necesaria para este beneficio");
+        if (!sucursal.getEstablecimiento().tieneBeneficio(beneficio)) {
+            throw new Error ("El establecimiento no posee el beneficio requerido");
         }
-
-        //TO-DO: verificar que establecimiento de la sucursal tenga ese descuento
-        //TO-DO: verificar que mes y anio sean validos
         if (mes < Calendar.JANUARY || mes > Calendar.DECEMBER) {
             throw new Error ("El mes ingresado es inexistente");
         }

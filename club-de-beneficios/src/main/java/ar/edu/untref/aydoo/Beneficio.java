@@ -1,12 +1,14 @@
 package ar.edu.untref.aydoo;
 
 import java.util.List;
+import java.util.ArrayList;
 
 public abstract class Beneficio {
 
     private TipoDeBeneficio tipoDeBeneficio;
     private Tarjeta tarjeta;
-
+    private List<Establecimiento> establecimientos = new ArrayList<>();
+    
     public Beneficio(Tarjeta tarjeta) {
         this.tarjeta = tarjeta;
     }

@@ -26,6 +26,7 @@ public class ClubDeBeneficiosTest {
         nuevoClub.agregarEstablecimiento(heladeriaA);
         nuevoClub.agregarSucursal(sucursalHeladeriaA_S1, heladeriaA);
         beneficioClassicDescuento10PorCiento = new BeneficioDescuento(Tarjeta.CLASSIC, 10);
+        heladeriaA.agregarBeneficio(beneficioClassicDescuento10PorCiento);
         kiloDeHelado = new Producto("1 kilo de helado", 100);
         productosAComprar.add(kiloDeHelado);
     }
@@ -52,7 +53,7 @@ public class ClubDeBeneficiosTest {
     }
     
     @Test
-    public void hagoUnaOperacionConDescuentoYPidoReporteDeClientesQueObtuvieronAhorroEntoncesObtengoUnSoloElementoEnLaListaDeReporte() throws Exception {               
+    public void hagoUnaOperacionConDescuentoYPidoReporteDeClientesQueObtuvieronAhorroEntoncesObtengoUnSoloElementoEnLaListaDeReporte() throws Exception { 
         Operacion nuevaOperacion = new Operacion (carlos, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalHeladeriaA_S1, productosAComprar, 4, 2017);
         List<String> resultadoEsperado = new ArrayList<>();
         resultadoEsperado.add("*** Resumen de Ahorro Mensual Para Carlos *** Heladeria A | 1 kilo de helado | 100.0 | 19.0 ||| ");
