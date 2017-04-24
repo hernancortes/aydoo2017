@@ -7,7 +7,6 @@ public abstract class Beneficio {
 
     private TipoDeBeneficio tipoDeBeneficio;
     private Tarjeta tarjeta;
-    //private List<Establecimiento> establecimientos = new ArrayList<>();
     
     public Beneficio(Tarjeta tarjeta, TipoDeBeneficio tipoDeBeneficio) {
         this.tarjeta = tarjeta;

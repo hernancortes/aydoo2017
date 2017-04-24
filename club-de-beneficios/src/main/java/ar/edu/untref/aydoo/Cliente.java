@@ -24,15 +24,6 @@ public class Cliente {
     public Tarjeta getTarjeta() {
         return this.tarjeta;
     }
-    /*
-    public String getEmail() {
-        return this.email;
-    }
-    
-    public List<Operacion> getOperaciones() {
-        return this.operaciones;
-    }
-*/
     
     public String getAhorro(int mes, int anio) throws Exception {
         String ahorro = "";

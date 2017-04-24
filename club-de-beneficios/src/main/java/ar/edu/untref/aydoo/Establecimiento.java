@@ -48,20 +48,12 @@ public class Establecimiento {
     }
 
     public boolean tieneBeneficio(Beneficio beneficioAVerificar) {
-        //Beneficio beneficio = null;
         boolean tiene = false;
         for (Beneficio beneficio : beneficios) {
             if (beneficio == beneficioAVerificar){
                 tiene = true;
             }
         }
-        /*
-        if (tarjeta.equals(Tarjeta.CLASSIC) && tipoDeBeneficio.equals(TipoDeBeneficio.DESCUENTO)) {
-            for (int i = 0; i < this.CLASSICbeneficiosDescuento.size() && !tiene; i++) {
-                beneficio = this.CLASSICbeneficiosDescuento.get(i);
-                tiene = beneficio.getTarjeta().equals(tarjeta);
-            }
-        }*/
         return tiene;
     }
 
