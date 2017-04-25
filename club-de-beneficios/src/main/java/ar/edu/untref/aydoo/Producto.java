@@ -14,7 +14,7 @@ public class Producto {
             return nombre;
     }
 
-    public Double getPrecio() {
+    public double getPrecio() {
             return precio;
     }
 
