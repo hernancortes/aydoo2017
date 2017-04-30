@@ -4,7 +4,7 @@ import java.util.List;
 
 public abstract class Beneficio {
 
-    private Tarjeta tarjeta;
+    private final Tarjeta tarjeta;
     
     public Beneficio(Tarjeta tarjeta) {
         this.tarjeta = tarjeta;

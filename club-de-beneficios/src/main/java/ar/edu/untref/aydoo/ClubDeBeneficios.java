@@ -5,9 +5,9 @@ import java.util.List;
 
 public class ClubDeBeneficios {
 
-    private List<Cliente> clientes = new ArrayList<>();
-    private List<Establecimiento> establecimientos = new ArrayList<>();
-    private List<Sucursal> sucursales = new ArrayList<>();
+    private final List<Cliente> clientes = new ArrayList<>();
+    private final List<Establecimiento> establecimientos = new ArrayList<>();
+    private final List<Sucursal> sucursales = new ArrayList<>();
 
     public void agregarCliente(Cliente cliente) {
         this.clientes.add(cliente);
@@ -22,7 +22,7 @@ public class ClubDeBeneficios {
         establecimiento.agregarSucursal(sucursal);
     }
     
-    public List<String> obtenerReporteDeAhorros(int mes, int anio) throws Exception {
+    public List<String> obtenerReporteDeAhorros(int mes, int anio)  {
         List<String> reporte = new ArrayList<>();
         for (Cliente cliente : this.clientes) {
             if (cliente.getAhorro(mes, anio) != "") {
@@ -32,7 +32,7 @@ public class ClubDeBeneficios {
         return reporte;
     }
     
-    public List<Establecimiento> obtenerEstablecimientoAFelicitar(int mes, int anio) throws Exception {
+    public List<Establecimiento> obtenerEstablecimientoAFelicitar(int mes, int anio) {
         List<Establecimiento> reporte = new ArrayList<>();
         int cantidadMaximaDeBeneficiosOtorgadaEnElMes = 0;
         //con este FOR verifico cual es la cantidad maxima de beneficios otorgada en el mes solicitado

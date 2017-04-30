@@ -5,9 +5,9 @@ import java.util.List;
 
 public class Sucursal {
 
-    private String nombre;
+    private final String nombre;
     private Establecimiento establecimiento;
-    private List<Operacion> operaciones = new ArrayList<>();
+    private final List<Operacion> operaciones = new ArrayList<>();
 
     public Sucursal(String nombre, Establecimiento establecimiento) {
         this.nombre = nombre;

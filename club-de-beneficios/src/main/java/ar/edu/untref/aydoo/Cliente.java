@@ -5,10 +5,10 @@ import java.util.List;
 
 public class Cliente {
 
-    private String nombreYApellido;
-    private String email;
-    private Tarjeta tarjeta;
-    private List<Operacion> operaciones = new ArrayList<>();
+    private final String nombreYApellido;
+    private final String email;
+    private final Tarjeta tarjeta;
+    private final List<Operacion> operaciones = new ArrayList<>();
 
     public Cliente(String nombreYApellido, String email, Tarjeta tarjeta) {
         this.nombreYApellido = nombreYApellido;
@@ -25,10 +25,10 @@ public class Cliente {
         return this.tarjeta;
     }
     
-    public String getAhorro(int mes, int anio){
+    public String getAhorro(int mes, int anio) {
         String ahorro = "";
         for (Operacion operacion : operaciones) {
-            if (operacion.getMes() == mes && operacion.getAnio() == anio){
+            if (operacion.getMes() == mes && operacion.getAnio() == anio) {
                 if ("".equals(ahorro)) {
                     ahorro = "*** Resumen de Ahorro Mensual Para " + this.getNombreYApellido() + " *** ";
                 }

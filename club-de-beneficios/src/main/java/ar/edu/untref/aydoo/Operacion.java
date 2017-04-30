@@ -17,7 +17,7 @@ public class Operacion {
     private final double precioFinal;
     private final double montoAhorrado;
     
-    public Operacion(Cliente cliente, Tarjeta tarjeta, Beneficio beneficio, Sucursal sucursal, List<Producto> productos,  int mes, int anio) throws Exception {
+    public Operacion(Cliente cliente, Tarjeta tarjeta, Beneficio beneficio, Sucursal sucursal, List<Producto> productos,  int mes, int anio) {
         if (!cliente.getTarjeta().equals(beneficio.getTarjeta())) {
             throw new Error ("El cliente no posee la tarjeta necesaria para este beneficio");
         }
@@ -60,15 +60,15 @@ public class Operacion {
         return productos;
     }
     
-    public int getMes(){
+    public int getMes() {
         return this.mes;
     }
     
-    public int getAnio(){
+    public int getAnio() {
         return this.anio;
     }
     
-    public String getNombreDeEstablecimiento(){
+    public String getNombreDeEstablecimiento() {
         return this.establecimiento.getNombre();
     }
     
@@ -80,7 +80,7 @@ public class Operacion {
         return listaDeProductosConFormatoParaReporteMensual;
     }
     
-    public double getMontoTotalConDescuentos() throws Exception {
+    public double getMontoTotalConDescuentos() {
             return this.getMontoTotalSinDescuentos() - this.getMontoAhorrado();
     }
     

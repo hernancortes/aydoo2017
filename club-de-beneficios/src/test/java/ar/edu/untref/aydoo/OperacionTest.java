@@ -2,7 +2,6 @@ package ar.edu.untref.aydoo;
 
 import java.util.ArrayList;
 import java.util.List;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -16,7 +15,7 @@ public class OperacionTest {
     private BeneficioDescuento beneficioClassicDescuento10PorCiento;
     private BeneficioDescuento beneficioNoAgregado;
     private Producto kiloDeHelado;
-    private List<Producto> productosAComprar = new ArrayList<>();
+    private final List<Producto> productosAComprar = new ArrayList<>();
 
     @Before
     public void inicializar() {
@@ -36,22 +35,22 @@ public class OperacionTest {
     }
 
     @Test (expected = Error.class)
-    public void intentoUnaOperacionConCarlosQueTieneTarjetaClassicPeroElBeneficioEsParaTarjetaPremium() throws Exception {
+    public void intentoUnaOperacionConCarlosQueTieneTarjetaClassicPeroElBeneficioEsParaTarjetaPremium() {
         Operacion nuevaOperacion = new Operacion (carlos, Tarjeta.CLASSIC, beneficioPremiumDescuento10PorCiento, sucursalHeladeriaA_S1, productosAComprar, 4, 2017);
     }
     
     @Test (expected = Error.class)
-    public void intentoUnaOperacionIngresandoMesNumero15DebeDevolverError() throws Exception {
+    public void intentoUnaOperacionIngresandoMesNumero15DebeDevolverError() {
         Operacion nuevaOperacion = new Operacion (carlos, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalHeladeriaA_S1, productosAComprar, 15, 2017);
     }
     
     @Test (expected = Error.class)
-    public void intentoUnaOperacionIngresandoAnio2020DebeDevolverError() throws Exception {
+    public void intentoUnaOperacionIngresandoAnio2020DebeDevolverError() {
         Operacion nuevaOperacion = new Operacion (carlos, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalHeladeriaA_S1, productosAComprar, 4, 2020);
     }
     
     @Test (expected = Error.class)
-    public void intentoComprarConUnBeneficioQueNoEstaAgregadoEnElEstablecimientoEntoncesDevuelveError() throws Exception {
+    public void intentoComprarConUnBeneficioQueNoEstaAgregadoEnElEstablecimientoEntoncesDevuelveError() {
         Operacion nuevaOperacion = new Operacion (carlos, Tarjeta.CLASSIC, beneficioNoAgregado, sucursalHeladeriaA_S1, productosAComprar, 4, 2017);
     }
 }

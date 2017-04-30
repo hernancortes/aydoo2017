@@ -5,9 +5,9 @@ import java.util.List;
 
 public class Establecimiento {
 
-    private String nombre;
-    private List<Sucursal> sucursales = new ArrayList<>();
-    private List<Beneficio> beneficios = new ArrayList<>();
+    private final String nombre;
+    private final List<Sucursal> sucursales = new ArrayList<>();
+    private final List<Beneficio> beneficios = new ArrayList<>();
     
     public Establecimiento(String nombre) {
         this.nombre = nombre;
@@ -22,7 +22,7 @@ public class Establecimiento {
         sucursal.setEstablecimiento(this);
     }
 
-    public int getCantidadMaximaDeBeneficiosOtorgadaEnElMes(int mes, int anio) throws Exception {
+    public int getCantidadMaximaDeBeneficiosOtorgadaEnElMes(int mes, int anio) {
         int cantidadDeBeneficiosDeEstablecimiento = 0;
         for (Sucursal sucursal : sucursales) {
             cantidadDeBeneficiosDeEstablecimiento = cantidadDeBeneficiosDeEstablecimiento + sucursal.getCantidadDeClientesAtendidosPorSucursal(mes, anio);
@@ -30,7 +30,7 @@ public class Establecimiento {
         return cantidadDeBeneficiosDeEstablecimiento;
     }
     
-    public Establecimiento getEstablecimientosConSiguienteCantidadDeBeneficiosOtorgada(int mes, int anio, int cantDeBeneficiosRequerida) throws Exception {
+    public Establecimiento getEstablecimientosConSiguienteCantidadDeBeneficiosOtorgada(int mes, int anio, int cantDeBeneficiosRequerida) {
         int cantidadDeBeneficiosRequerida = cantDeBeneficiosRequerida;
         int cantidadDeBeneficiosDeEstablecimiento = 0;
         Establecimiento establecimiento = null;
