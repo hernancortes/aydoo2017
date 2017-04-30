@@ -13,7 +13,7 @@ public class BeneficioDosPorUno extends Beneficio {
     public double calcularAhorro(List<Producto> productos) {
         double menorPrecioEntreDosProductos = 0.0;
         if (productos.size() != 2) {
-                throw new ErrorCantidadInvalidaDeProductos();
+                throw new ErrorCantidadInvalidaDeProductosParaDescuentoDosPorUno();
             }
             menorPrecioEntreDosProductos = productos.get(0).getPrecio();
             if (menorPrecioEntreDosProductos > productos.get(1).getPrecio()) {

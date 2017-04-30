@@ -100,7 +100,7 @@ public class TestIntegracion {
     }
     
     @Test
-    public void realizoSieteComprasEnHeladeriaAYSeisEnRestoranBEntoncesEstablecimientoAFelicitarDebeSerHeladeriaA() throws Exception {
+    public void realizoSieteComprasEnHeladeriaAYSeisEnRestoranBEntoncesEstablecimientoAFelicitarDebeSerHeladeriaA() {
         productosAComprarEnHeladeria.add(kiloDeHelado);
         productosAComprarEnRestoran.add(menuEjecutivo);
         Operacion nuevaOperacionClassicEnHeladeria1 = new Operacion (carlos, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalHeladeriaA_S1, productosAComprarEnHeladeria, 1, 2017);
@@ -124,7 +124,7 @@ public class TestIntegracion {
     }
     
     @Test
-    public void realizoSieteComprasEnHeladeriaASucursal1YSeisEnRestoranBSucursal3EntoncesSucursalQueMasClientesAtendioEsSucursal1() throws Exception {
+    public void realizoSieteComprasEnHeladeriaASucursal1YSeisEnRestoranBSucursal3EntoncesSucursalQueMasClientesAtendioEsSucursal1() {
         productosAComprarEnHeladeria.add(kiloDeHelado);
         productosAComprarEnRestoran.add(menuEjecutivo);
         Operacion nuevaOperacionClassicEnHeladeria1 = new Operacion (carlos, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalHeladeriaA_S1, productosAComprarEnHeladeria, 1, 2017);
@@ -148,7 +148,7 @@ public class TestIntegracion {
     }
     
     @Test
-    public void carlosRealizaCompraEnHeladeriaYRestoranEntoncesDebeRecibirReporteDeAhorrosDeHeladeriaYRestoran() throws Exception {
+    public void carlosRealizaCompraEnHeladeriaYRestoranEntoncesDebeRecibirReporteDeAhorrosDeHeladeriaYRestoran() {
         productosAComprarEnHeladeria.add(kiloDeHelado);
         productosAComprarEnRestoran.add(menuEjecutivo);
         Operacion nuevaOperacionClassicEnHeladeria1 = new Operacion (carlos, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalHeladeriaA_S1, productosAComprarEnHeladeria, 1, 2017);
@@ -171,7 +171,7 @@ public class TestIntegracion {
     }
     
     @Test
-    public void juanRealizaCompraEnHeladeriaYEntoncesDebeRecibirReporteDeAhorrosDeHeladeria() throws Exception {
+    public void juanRealizaCompraEnHeladeriaYEntoncesDebeRecibirReporteDeAhorrosDeHeladeria() {
         productosAComprarEnHeladeria.add(kiloDeHelado);
         productosAComprarEnRestoran.add(menuEjecutivo);
         Operacion nuevaOperacionClassicEnHeladeria1 = new Operacion (carlos, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalHeladeriaA_S1, productosAComprarEnHeladeria, 1, 2017);
@@ -194,12 +194,12 @@ public class TestIntegracion {
     }
         
     @Test (expected = ErrorPorcentajeDeDescuentoInvalido.class)
-    public void intentoCrearUnBeneficioConUnDescuentoMenorAlMinimoEstipuladoDevuelveError() throws Exception {
+    public void intentoCrearUnBeneficioConUnDescuentoMenorAlMinimoEstipuladoDevuelveError() {
         BeneficioDescuento beneficioDeDosPorciento = new BeneficioDescuento(Tarjeta.CLASSIC, 2);
     }
     
     @Test
-    public void mateoCompraDosPorUnoEnLibreriaEntoncesObtieneReporteMensualConEsaCompra() throws Exception {
+    public void mateoCompraDosPorUnoEnLibreriaEntoncesObtieneReporteMensualConEsaCompra() {
         productosAComprarEnLibreria.add(libroMartinFierro);
         productosAComprarEnLibreria.add(libroElCantarDelCid);
         Operacion nuevaOperacionDosPorUno = new Operacion (mateo, Tarjeta.CLASSIC, beneficioDosPorUnoClassic, sucursalLibreriaElAltillo_S4, productosAComprarEnLibreria, 3, 2017);
@@ -210,22 +210,22 @@ public class TestIntegracion {
         Assert.assertEquals(resultadoEsperado, resultado);
     }
     
-    @Test (expected = ErrorCantidadInvalidaDeProductos.class)
-    public void intentoComprarConDescuentoDeDosPorUnoIngresandoUnSoloProductoEntoncesObtengoError() throws Exception {
+    @Test (expected = ErrorCantidadInvalidaDeProductosParaDescuentoDosPorUno.class)
+    public void intentoComprarConDescuentoDeDosPorUnoIngresandoUnSoloProductoEntoncesObtengoError() {
         productosAComprarEnLibreria.add(libroMartinFierro);
         Operacion nuevaOperacionDosPorUno = new Operacion (mateo, Tarjeta.CLASSIC, beneficioDosPorUnoClassic, sucursalLibreriaElAltillo_S4, productosAComprarEnLibreria, 3, 2017);
     }
     
-    @Test (expected = ErrorCantidadInvalidaDeProductos.class)
-    public void intentoComprarConDescuentoDeDosPorUnoIngresandoTresProductosEntoncesObtengoError() throws Exception {
+    @Test (expected = ErrorCantidadInvalidaDeProductosParaDescuentoDosPorUno.class)
+    public void intentoComprarConDescuentoDeDosPorUnoIngresandoTresProductosEntoncesObtengoError() {
         productosAComprarEnLibreria.add(libroMartinFierro);
         productosAComprarEnLibreria.add(libroElCantarDelCid);
         productosAComprarEnLibreria.add(libroLaSantaBiblia);
         Operacion nuevaOperacionDosPorUno = new Operacion (mateo, Tarjeta.CLASSIC, beneficioDosPorUnoClassic, sucursalLibreriaElAltillo_S4, productosAComprarEnLibreria, 3, 2017);
     }
     
-    @Test (expected = ErrorCantidadInvalidaDeProductos.class)
-    public void intentoComprarConDescuentoDeDosPorUnoSinIngresarNingunProductoEntoncesObtengoError() throws Exception {
+    @Test (expected = Error.class)
+    public void intentoComprarConDescuentoDeDosPorUnoSinIngresarNingunProductoEntoncesObtengoError() {
         Operacion nuevaOperacionDosPorUno = new Operacion (mateo, Tarjeta.CLASSIC, beneficioDosPorUnoClassic, sucursalLibreriaElAltillo_S4, productosAComprarEnLibreria, 3, 2017);
     }
         
