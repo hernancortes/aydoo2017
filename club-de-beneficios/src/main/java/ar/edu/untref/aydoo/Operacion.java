@@ -22,7 +22,7 @@ public class Operacion {
             throw new ErrorElClienteNoPoseeLaTarjeta();
         }
         if (!sucursal.getEstablecimiento().tieneBeneficio(beneficio)) {
-            throw new Error ("El establecimiento no posee el beneficio requerido");
+            throw new ErrorEstablecimientoNoPoseeElBeneficio();
         }
         if (mes < Calendar.JANUARY || mes > Calendar.DECEMBER) {
             throw new Error ("El mes ingresado es inexistente");

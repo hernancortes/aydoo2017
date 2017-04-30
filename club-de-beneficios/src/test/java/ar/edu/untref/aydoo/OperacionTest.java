@@ -49,7 +49,7 @@ public class OperacionTest {
         Operacion nuevaOperacion = new Operacion (carlos, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalHeladeriaA_S1, productosAComprar, 4, 2020);
     }
     
-    @Test (expected = Error.class)
+    @Test (expected = ErrorEstablecimientoNoPoseeElBeneficio.class)
     public void intentoComprarConUnBeneficioQueNoEstaAgregadoEnElEstablecimientoEntoncesDevuelveError() {
         Operacion nuevaOperacion = new Operacion (carlos, Tarjeta.CLASSIC, beneficioNoAgregado, sucursalHeladeriaA_S1, productosAComprar, 4, 2017);
     }
