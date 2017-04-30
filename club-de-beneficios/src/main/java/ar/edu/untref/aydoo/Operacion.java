@@ -28,7 +28,7 @@ public class Operacion {
             throw new ErrorMesIngresadoInexistente();
         }
         if (anio != Calendar.getInstance().get(Calendar.YEAR)) {
-            throw new Error ("El anio ingresado debe ser el anio actual");
+            throw new ErrorAnioIngresadoInexistente();
         }
         if (productos.size() < 1) {
             throw new ErrorCantidadMinimaInvalidaDeProductosAComprar();

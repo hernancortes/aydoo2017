@@ -44,7 +44,7 @@ public class OperacionTest {
         Operacion nuevaOperacion = new Operacion (carlos, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalHeladeriaA_S1, productosAComprar, 15, 2017);
     }
     
-    @Test (expected = Error.class)
+    @Test (expected = ErrorAnioIngresadoInexistente.class)
     public void intentoUnaOperacionIngresandoAnio2020DebeDevolverError() {
         Operacion nuevaOperacion = new Operacion (carlos, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalHeladeriaA_S1, productosAComprar, 4, 2020);
     }
