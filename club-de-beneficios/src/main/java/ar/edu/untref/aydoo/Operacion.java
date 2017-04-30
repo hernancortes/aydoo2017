@@ -84,7 +84,7 @@ public class Operacion {
             return this.getMontoTotalSinDescuentos() - this.getMontoAhorrado();
     }
     
-    public double getMontoAhorrado() throws Exception {
+    public double getMontoAhorrado() {
         double montoAhorrado = 0.0;
         montoAhorrado = this.beneficio.calcularAhorro(this.productos);
         return montoAhorrado;

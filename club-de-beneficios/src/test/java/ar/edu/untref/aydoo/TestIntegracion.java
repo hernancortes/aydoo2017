@@ -193,7 +193,7 @@ public class TestIntegracion {
         Assert.assertEquals(resultadoEsperado, resultado);    
     }
         
-    @Test (expected = Error.class)
+    @Test (expected = ErrorPorcentajeDeDescuentoInvalido.class)
     public void intentoCrearUnBeneficioConUnDescuentoMenorAlMinimoEstipuladoDevuelveError() throws Exception {
         BeneficioDescuento beneficioDeDosPorciento = new BeneficioDescuento(Tarjeta.CLASSIC, 2);
     }

@@ -25,7 +25,7 @@ public class Cliente {
         return this.tarjeta;
     }
     
-    public String getAhorro(int mes, int anio) throws Exception {
+    public String getAhorro(int mes, int anio){
         String ahorro = "";
         for (Operacion operacion : operaciones) {
             if (operacion.getMes() == mes && operacion.getAnio() == anio){

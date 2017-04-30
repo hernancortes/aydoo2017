@@ -1,7 +1,6 @@
 package ar.edu.untref.aydoo;
 
 import java.util.List;
-import java.util.ArrayList;
 
 public abstract class Beneficio {
 
@@ -15,6 +14,6 @@ public abstract class Beneficio {
         return this.tarjeta;
     }
 
-    public abstract double calcularAhorro(List<Producto> productos) throws Exception;
+    public abstract double calcularAhorro(List<Producto> productos);
 
 }

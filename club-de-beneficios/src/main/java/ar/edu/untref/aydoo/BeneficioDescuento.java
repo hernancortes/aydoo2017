@@ -13,7 +13,7 @@ public class BeneficioDescuento extends Beneficio {
         if (porcentajeDeDescuento >= PORCENTAJE_DE_DESCUENTO_MINIMO) {
             this.porcentajeDeDescuento = porcentajeDeDescuento;
         } else {
-            throw new Error ("El porcentaje de descuento ingresado debe ser superior al minimo");
+            throw new ErrorPorcentajeDeDescuentoInvalido();
         }
     }
     
