@@ -19,7 +19,7 @@ public class Operacion {
     
     public Operacion(Cliente cliente, Tarjeta tarjeta, Beneficio beneficio, Sucursal sucursal, List<Producto> productos,  int mes, int anio) {
         if (!cliente.getTarjeta().equals(beneficio.getTarjeta())) {
-            throw new Error ("El cliente no posee la tarjeta necesaria para este beneficio");
+            throw new ErrorElClienteNoPoseeLaTarjeta();
         }
         if (!sucursal.getEstablecimiento().tieneBeneficio(beneficio)) {
             throw new Error ("El establecimiento no posee el beneficio requerido");

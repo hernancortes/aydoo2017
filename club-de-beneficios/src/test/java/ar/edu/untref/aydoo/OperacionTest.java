@@ -34,7 +34,7 @@ public class OperacionTest {
         productosAComprar.add(kiloDeHelado);
     }
 
-    @Test (expected = Error.class)
+    @Test (expected = ErrorElClienteNoPoseeLaTarjeta.class)
     public void intentoUnaOperacionConCarlosQueTieneTarjetaClassicPeroElBeneficioEsParaTarjetaPremium() {
         Operacion nuevaOperacion = new Operacion (carlos, Tarjeta.CLASSIC, beneficioPremiumDescuento10PorCiento, sucursalHeladeriaA_S1, productosAComprar, 4, 2017);
     }

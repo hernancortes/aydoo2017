@@ -210,13 +210,13 @@ public class TestIntegracion {
         Assert.assertEquals(resultadoEsperado, resultado);
     }
     
-    @Test (expected = Error.class)
+    @Test (expected = ErrorCantidadInvalidaDeProductos.class)
     public void intentoComprarConDescuentoDeDosPorUnoIngresandoUnSoloProductoEntoncesObtengoError() throws Exception {
         productosAComprarEnLibreria.add(libroMartinFierro);
         Operacion nuevaOperacionDosPorUno = new Operacion (mateo, Tarjeta.CLASSIC, beneficioDosPorUnoClassic, sucursalLibreriaElAltillo_S4, productosAComprarEnLibreria, 3, 2017);
     }
     
-    @Test (expected = Error.class)
+    @Test (expected = ErrorCantidadInvalidaDeProductos.class)
     public void intentoComprarConDescuentoDeDosPorUnoIngresandoTresProductosEntoncesObtengoError() throws Exception {
         productosAComprarEnLibreria.add(libroMartinFierro);
         productosAComprarEnLibreria.add(libroElCantarDelCid);
@@ -224,7 +224,7 @@ public class TestIntegracion {
         Operacion nuevaOperacionDosPorUno = new Operacion (mateo, Tarjeta.CLASSIC, beneficioDosPorUnoClassic, sucursalLibreriaElAltillo_S4, productosAComprarEnLibreria, 3, 2017);
     }
     
-    @Test (expected = Error.class)
+    @Test (expected = ErrorCantidadInvalidaDeProductos.class)
     public void intentoComprarConDescuentoDeDosPorUnoSinIngresarNingunProductoEntoncesObtengoError() throws Exception {
         Operacion nuevaOperacionDosPorUno = new Operacion (mateo, Tarjeta.CLASSIC, beneficioDosPorUnoClassic, sucursalLibreriaElAltillo_S4, productosAComprarEnLibreria, 3, 2017);
     }
