@@ -39,7 +39,7 @@ public class OperacionTest {
         Operacion nuevaOperacion = new Operacion (carlos, Tarjeta.CLASSIC, beneficioPremiumDescuento10PorCiento, sucursalHeladeriaA_S1, productosAComprar, 4, 2017);
     }
     
-    @Test (expected = Error.class)
+    @Test (expected = ErrorMesIngresadoInexistente.class)
     public void intentoUnaOperacionIngresandoMesNumero15DebeDevolverError() {
         Operacion nuevaOperacion = new Operacion (carlos, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalHeladeriaA_S1, productosAComprar, 15, 2017);
     }

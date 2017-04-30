@@ -25,7 +25,7 @@ public class Operacion {
             throw new ErrorEstablecimientoNoPoseeElBeneficio();
         }
         if (mes < Calendar.JANUARY || mes > Calendar.DECEMBER) {
-            throw new Error ("El mes ingresado es inexistente");
+            throw new ErrorMesIngresadoInexistente();
         }
         if (anio != Calendar.getInstance().get(Calendar.YEAR)) {
             throw new Error ("El anio ingresado debe ser el anio actual");
