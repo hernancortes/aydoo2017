@@ -224,7 +224,7 @@ public class TestIntegracion {
         Operacion nuevaOperacionDosPorUno = new Operacion (mateo, Tarjeta.CLASSIC, beneficioDosPorUnoClassic, sucursalLibreriaElAltillo_S4, productosAComprarEnLibreria, 3, 2017);
     }
     
-    @Test (expected = Error.class)
+    @Test (expected = ErrorCantidadMinimaInvalidaDeProductosAComprar.class)
     public void intentoComprarConDescuentoDeDosPorUnoSinIngresarNingunProductoEntoncesObtengoError() {
         Operacion nuevaOperacionDosPorUno = new Operacion (mateo, Tarjeta.CLASSIC, beneficioDosPorUnoClassic, sucursalLibreriaElAltillo_S4, productosAComprarEnLibreria, 3, 2017);
     }

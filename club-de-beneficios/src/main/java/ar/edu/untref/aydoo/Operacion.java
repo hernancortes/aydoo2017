@@ -31,7 +31,7 @@ public class Operacion {
             throw new Error ("El anio ingresado debe ser el anio actual");
         }
         if (productos.size() < 1) {
-            throw new Error ("Debe ingresar al menos 1 producto");
+            throw new ErrorCantidadMinimaInvalidaDeProductosAComprar();
         }
         this.cliente = cliente;
         this.tarjeta = tarjeta;
