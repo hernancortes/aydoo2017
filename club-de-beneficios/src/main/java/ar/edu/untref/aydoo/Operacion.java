@@ -86,18 +86,7 @@ public class Operacion {
     
     public double getMontoAhorrado() throws Exception {
         double montoAhorrado = 0.0;
-        if (beneficio.getTipoDeBeneficio().equals(TipoDeBeneficio.DESCUENTO)) {
-            montoAhorrado = this.beneficio.calcularAhorro(this.precioFinal);
-        }
-        if (beneficio.getTipoDeBeneficio().equals(TipoDeBeneficio.DOSPORUNO)) {
-            if (productos.size() != 2) {
-                throw new Error ("Debe ingresar 2 productos para poder realizar este descuento");
-            }
-            montoAhorrado = productos.get(0).getPrecio();
-            if (montoAhorrado > productos.get(1).getPrecio()) {
-                montoAhorrado = productos.get(1).getPrecio();
-            }
-        }
+        montoAhorrado = this.beneficio.calcularAhorro(this.productos);
         return montoAhorrado;
     }
         

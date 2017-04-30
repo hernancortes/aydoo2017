@@ -88,13 +88,14 @@ public class TestIntegracion {
         nuevoClub.agregarSucursal(sucursalHeladeriaA_S2, heladeriaA);
         nuevoClub.agregarSucursal(sucursalRestoranB_S3, restoranB);
         nuevoClub.agregarSucursal(sucursalLibreriaElAltillo_S4, libreriaElAltillo);
-        beneficioClassicDescuento10PorCiento = new BeneficioDescuento(Tarjeta.CLASSIC, TipoDeBeneficio.DESCUENTO, 10);
-        beneficioClassicDescuento20PorCiento = new BeneficioDescuento(Tarjeta.CLASSIC, TipoDeBeneficio.DESCUENTO, 20);
-        beneficioPremiumDescuento20PorCiento = new BeneficioDescuento(Tarjeta.PREMIUM, TipoDeBeneficio.DESCUENTO, 20);
+        beneficioClassicDescuento10PorCiento = new BeneficioDescuento(Tarjeta.CLASSIC, 10);
+        beneficioClassicDescuento20PorCiento = new BeneficioDescuento(Tarjeta.CLASSIC, 20);
+        beneficioPremiumDescuento20PorCiento = new BeneficioDescuento(Tarjeta.PREMIUM, 20);
         heladeriaA.agregarBeneficio(beneficioClassicDescuento10PorCiento);
         heladeriaA.agregarBeneficio(beneficioPremiumDescuento20PorCiento);
         restoranB.agregarBeneficio(beneficioClassicDescuento10PorCiento);
-        beneficioDosPorUnoClassic = new BeneficioDosPorUno(Tarjeta.CLASSIC, TipoDeBeneficio.DOSPORUNO);
+        //beneficioDosPorUnoClassic = new BeneficioDosPorUno(Tarjeta.CLASSIC, TipoDeBeneficio.DOSPORUNO);
+        beneficioDosPorUnoClassic = new BeneficioDosPorUno(Tarjeta.CLASSIC);
         libreriaElAltillo.agregarBeneficio(beneficioDosPorUnoClassic);
     }
     
@@ -194,7 +195,7 @@ public class TestIntegracion {
         
     @Test (expected = Error.class)
     public void intentoCrearUnBeneficioConUnDescuentoMenorAlMinimoEstipuladoDevuelveError() throws Exception {
-        BeneficioDescuento beneficioDeDosPorciento = new BeneficioDescuento(Tarjeta.CLASSIC, TipoDeBeneficio.DESCUENTO, 2);
+        BeneficioDescuento beneficioDeDosPorciento = new BeneficioDescuento(Tarjeta.CLASSIC, 2);
     }
     
     @Test

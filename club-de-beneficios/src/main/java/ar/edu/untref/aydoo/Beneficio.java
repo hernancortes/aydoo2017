@@ -5,26 +5,16 @@ import java.util.ArrayList;
 
 public abstract class Beneficio {
 
-    private TipoDeBeneficio tipoDeBeneficio;
     private Tarjeta tarjeta;
     
-    public Beneficio(Tarjeta tarjeta, TipoDeBeneficio tipoDeBeneficio) {
+    public Beneficio(Tarjeta tarjeta) {
         this.tarjeta = tarjeta;
-        this.tipoDeBeneficio = tipoDeBeneficio;
-    }
-    
-    public TipoDeBeneficio getTipoDeBeneficio() {
-        return tipoDeBeneficio;
-    }
-
-    public void setTipoDeBeneficio(TipoDeBeneficio tipoDeBeneficio) {
-        this.tipoDeBeneficio = tipoDeBeneficio;
     }
 
     public Tarjeta getTarjeta() {
         return this.tarjeta;
     }
 
-    public abstract double calcularAhorro(double precio) throws Exception;
+    public abstract double calcularAhorro(List<Producto> productos) throws Exception;
 
 }

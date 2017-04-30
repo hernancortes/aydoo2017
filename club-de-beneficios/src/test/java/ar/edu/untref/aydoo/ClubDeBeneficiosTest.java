@@ -25,7 +25,7 @@ public class ClubDeBeneficiosTest {
         nuevoClub.agregarCliente(carlos);
         nuevoClub.agregarEstablecimiento(heladeriaA);
         nuevoClub.agregarSucursal(sucursalHeladeriaA_S1, heladeriaA);
-        beneficioClassicDescuento10PorCiento = new BeneficioDescuento(Tarjeta.CLASSIC, TipoDeBeneficio.DESCUENTO, 10);
+        beneficioClassicDescuento10PorCiento = new BeneficioDescuento(Tarjeta.CLASSIC, 10);
         heladeriaA.agregarBeneficio(beneficioClassicDescuento10PorCiento);
         kiloDeHelado = new Producto("1 kilo de helado", 100);
         productosAComprar.add(kiloDeHelado);
