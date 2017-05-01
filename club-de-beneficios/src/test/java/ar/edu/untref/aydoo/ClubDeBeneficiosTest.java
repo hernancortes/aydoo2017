@@ -14,7 +14,7 @@ public class ClubDeBeneficiosTest {
     private Sucursal sucursalHeladeriaA_S1;
     private BeneficioDescuento beneficioClassicDescuento10PorCiento;
     private Producto kiloDeHelado;
-    private List<Producto> productosAComprar = new ArrayList<>();
+    private final List<Producto> productosAComprar = new ArrayList<>();
 
     @Before
     public void inicializar() {

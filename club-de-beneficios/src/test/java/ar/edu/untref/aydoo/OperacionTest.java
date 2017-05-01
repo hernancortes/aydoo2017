@@ -19,7 +19,7 @@ public class OperacionTest {
 
     @Before
     public void inicializar() {
-        nuevoClub = new ClubDeBeneficios ();
+        nuevoClub = new ClubDeBeneficios();
         carlos = new Cliente("Carlos", "carlos@gmail.com", Tarjeta.CLASSIC);
         heladeriaA = new Establecimiento("Heladeria A");
         sucursalHeladeriaA_S1 = new Sucursal("Heladeria A - Sucursal S1", heladeriaA);

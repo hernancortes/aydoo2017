@@ -37,9 +37,9 @@ public class TestIntegracion {
     private BeneficioDescuento beneficioClassicDescuento10PorCiento;
     private BeneficioDescuento beneficioClassicDescuento20PorCiento;
     private BeneficioDescuento beneficioPremiumDescuento20PorCiento;
-    private List<Producto> productosAComprarEnHeladeria = new ArrayList<>();
-    private List<Producto> productosAComprarEnRestoran = new ArrayList<>();
-    private List<Producto> productosAComprarEnLibreria = new ArrayList<>();
+    private final List<Producto> productosAComprarEnHeladeria = new ArrayList<>();
+    private final List<Producto> productosAComprarEnRestoran = new ArrayList<>();
+    private final List<Producto> productosAComprarEnLibreria = new ArrayList<>();
     private BeneficioDosPorUno beneficioDosPorUnoClassic;
 
     @Before
@@ -94,7 +94,6 @@ public class TestIntegracion {
         heladeriaA.agregarBeneficio(beneficioClassicDescuento10PorCiento);
         heladeriaA.agregarBeneficio(beneficioPremiumDescuento20PorCiento);
         restoranB.agregarBeneficio(beneficioClassicDescuento10PorCiento);
-        //beneficioDosPorUnoClassic = new BeneficioDosPorUno(Tarjeta.CLASSIC, TipoDeBeneficio.DOSPORUNO);
         beneficioDosPorUnoClassic = new BeneficioDosPorUno(Tarjeta.CLASSIC);
         libreriaElAltillo.agregarBeneficio(beneficioDosPorUnoClassic);
     }
