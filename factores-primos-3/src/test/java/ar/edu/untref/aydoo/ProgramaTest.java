@@ -6,10 +6,10 @@ import org.junit.Test;
 import org.junit.Assert;
 
 
-public class ProgramTest 
-{
+public class ProgramaTest {
+    
     @Test
-    public void ingresoNumeroOchoyPrueboQueNoEsPrimo(){
+    public void ingresoNumeroOchoyPrueboQueNoEsPrimo() {
         //Program nuevoProg = new Program();
         BuscadorDePrimos buscaPrimos = new BuscadorDePrimos();
         boolean resultado = buscaPrimos.esPrimo(8);
@@ -18,7 +18,7 @@ public class ProgramTest
     }
     
     @Test
-    public void ingresoNumeroDosYPrueboQueSiEsPrimo(){
+    public void ingresoNumeroDosYPrueboQueSiEsPrimo() {
         //Program nuevoProg = new Program();
         BuscadorDePrimos buscaPrimos = new BuscadorDePrimos();
         boolean resultado = buscaPrimos.esPrimo(2);
@@ -27,7 +27,7 @@ public class ProgramTest
     }
     
     @Test
-    public void ingresoListaTestConNumeroDosYComparoConBuscarPrimosDeNumeroDos(){
+    public void ingresoListaTestConNumeroDosYComparoConBuscarPrimosDeNumeroDos() {
         //Program nuevoProg = new Program();
         BuscadorDePrimos buscaPrimos = new BuscadorDePrimos();
         ArrayList<Integer> listaTest = new ArrayList<>();
@@ -36,7 +36,7 @@ public class ProgramTest
     }
     
     @Test
-    public void ingresoListaTestConNumeroDosYTresYComparoConBuscarPrimosDeNumeroDos(){
+    public void ingresoListaTestConNumeroDosYTresYComparoConBuscarPrimosDeNumeroDos() {
         //Program nuevoProg = new Program();
         BuscadorDePrimos buscaPrimos = new BuscadorDePrimos();
         ArrayList<Integer> listaTest = new ArrayList<>();
@@ -46,7 +46,7 @@ public class ProgramTest
     }
     
     @Test
-    public void ingresoListaTestConNumerosPrimosDe360YComparoConBuscarPrimosDe360(){
+    public void ingresoListaTestConNumerosPrimosDe360YComparoConBuscarPrimosDe360() {
         //Program nuevoProg = new Program();
         BuscadorDePrimos buscaPrimos = new BuscadorDePrimos();
         ArrayList<Integer> listaTest = new ArrayList<>();
@@ -60,7 +60,7 @@ public class ProgramTest
     }
     
     @Test
-    public void ingresoListaTestConNumerosPrimosDe360YUnoDeEllosErroneoYComparoConBuscarPrimosDe360(){
+    public void ingresoListaTestConNumerosPrimosDe360YUnoDeEllosErroneoYComparoConBuscarPrimosDe360() {
         //Program nuevoProg = new Program();
         BuscadorDePrimos buscaPrimos = new BuscadorDePrimos();
         ArrayList<Integer> listaTest = new ArrayList<>();
@@ -74,7 +74,7 @@ public class ProgramTest
     }
     
     @Test
-    public void ingresoFormatoQuietEnMayusculasYLuegoDeValidarSeraConvertidoAMinusculas(){
+    public void ingresoFormatoQuietEnMayusculasYLuegoDeValidarSeraConvertidoAMinusculas() {
         //Program nuevoProg = new Program();
         Validador validador = new Validador();
         String[] listaArgumentosTest = new String[2];
@@ -86,7 +86,7 @@ public class ProgramTest
     }
     
     @Test
-    public void ingresoFormatoPrettyEnMayusculasYMinusculasYLuegoDeValidarSeraConvertidoAMinusculas(){
+    public void ingresoFormatoPrettyEnMayusculasYMinusculasYLuegoDeValidarSeraConvertidoAMinusculas() {
         //Program nuevoProg = new Program();
         Validador validador = new Validador();
         String[] listaArgumentosTest = new String[2];
@@ -98,7 +98,7 @@ public class ProgramTest
     }
         
     @Test
-    public void noIngresoFormatoEntoncesLuegoDeValidarDevolveraFormatoPretty(){
+    public void noIngresoFormatoEntoncesLuegoDeValidarDevolveraFormatoPretty() {
         //Program nuevoProg = new Program();
         Validador validador = new Validador();
         String[] listaArgumentosTest = new String[1];
@@ -109,7 +109,7 @@ public class ProgramTest
     }
     
     @Test
-    public void ingresoArgumentosYNoEspecificoElOrdenEntoncesLuegoDeValidarDevolveraOrdenAscPredeterminado(){
+    public void ingresoArgumentosYNoEspecificoElOrdenEntoncesLuegoDeValidarDevolveraOrdenAscPredeterminado() {
         //Program nuevoProg = new Program();
         Validador validador = new Validador();
         String[] listaArgumentosTest = new String[1];
@@ -120,7 +120,7 @@ public class ProgramTest
     }
     
     @Test
-    public void ingresoArgumentosYEspecificoElOrdenDescendenteEntoncesLuegoDeValidarDevolveraOrdenDescendente(){
+    public void ingresoArgumentosYEspecificoElOrdenDescendenteEntoncesLuegoDeValidarDevolveraOrdenDescendente() {
         //Program nuevoProg = new Program();
         Validador validador = new Validador();
         String[] listaArgumentosTest = new String[3];
@@ -133,7 +133,7 @@ public class ProgramTest
     }
     
     @Test
-    public void ingresoArgumentosYEspecificoSalidaAArchivoConMayusculasYMinusculasEntoncesLuegoDeValidarDevolveraElArgumentoDeSalidaIngresadoEnMinusculas(){
+    public void ingresoArgumentosYEspecificoSalidaAArchivoConMayusculasYMinusculasEntoncesLuegoDeValidarDevolveraElArgumentoDeSalidaIngresadoEnMinusculas() {
         //Program nuevoProg = new Program();
         Validador validador = new Validador();
         String[] listaArgumentosTest = new String[3];
@@ -146,7 +146,7 @@ public class ProgramTest
     }
     
     @Test
-    public void ingresoArgumentosYEspecificoSalidaAArchivoSinNombreEntoncesLuegoDeValidarDevolveraElArgumentoDeSalidaSinNombre(){
+    public void ingresoArgumentosYEspecificoSalidaAArchivoSinNombreEntoncesLuegoDeValidarDevolveraElArgumentoDeSalidaSinNombre() {
         //Program nuevoProg = new Program();
         Validador validador = new Validador();
         String[] listaArgumentosTest = new String[3];
@@ -159,7 +159,7 @@ public class ProgramTest
     }
     
     @Test
-    public void ingresoArgumentosYEspecificoOutputSinElSignoIgualEntoncesLuegoDeValidarDevolveraSalidaAArchivoVacio(){
+    public void ingresoArgumentosYEspecificoOutputSinElSignoIgualEntoncesLuegoDeValidarDevolveraSalidaAArchivoVacio() {
         //Program nuevoProg = new Program();
         Validador validador = new Validador();
         String[] listaArgumentosTest = new String[3];
@@ -172,7 +172,7 @@ public class ProgramTest
     }
     
     @Test
-    public void ingresoArgumentosYNoEspecificoSalidaAArchivoEntoncesLuegoDeValidarDevolveraStringSalidaAArchivoVacio(){
+    public void ingresoArgumentosYNoEspecificoSalidaAArchivoEntoncesLuegoDeValidarDevolveraStringSalidaAArchivoVacio() {
         //Program nuevoProg = new Program();
         Validador validador = new Validador();
         String[] listaArgumentosTest = new String[3];
@@ -185,8 +185,8 @@ public class ProgramTest
     }
     
     @Test
-    public void ingresoNumeroYResultadoConFormatoPrettyDebeDevolverStringCorrecto(){
-        Program nuevoProg = new Program();
+    public void ingresoNumeroYResultadoConFormatoPrettyDebeDevolverStringCorrecto() {
+        Programa nuevoProg = new Programa();
         BuscadorDePrimos buscaPrimos = new BuscadorDePrimos();
         Formateador formateador = new Formateador();
         String[] listaArgumentosTest = new String[2];
@@ -198,8 +198,8 @@ public class ProgramTest
     }
     
     @Test
-    public void ingresoNumeroYNoIngresoTipoDeOrdenamientoResultadoConFormatoQuietDebeDevolverStringCorrectoYOrdenamientoAscPredeterminado(){
-        Program nuevoProg = new Program();
+    public void ingresoNumeroYNoIngresoTipoDeOrdenamientoResultadoConFormatoQuietDebeDevolverStringCorrectoYOrdenamientoAscPredeterminado() {
+        Programa nuevoProg = new Programa();
         BuscadorDePrimos buscaPrimos = new BuscadorDePrimos();
         Validador validador = new Validador();
         Formateador formateador = new Formateador();
@@ -212,8 +212,8 @@ public class ProgramTest
     }
     
     @Test
-    public void ingresoNumeroYEIngresoTipoDeOrdenamientoDescResultadoConFormatoQuietDebeDevolverStringCorrectoYOrdenamientoDescendente(){
-        Program nuevoProg = new Program();
+    public void ingresoNumeroYEIngresoTipoDeOrdenamientoDescResultadoConFormatoQuietDebeDevolverStringCorrectoYOrdenamientoDescendente() {
+        Programa nuevoProg = new Programa();
         BuscadorDePrimos buscaPrimos = new BuscadorDePrimos();
         Validador validador = new Validador();
         Formateador formateador = new Formateador();

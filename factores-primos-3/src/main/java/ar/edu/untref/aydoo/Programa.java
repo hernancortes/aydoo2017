@@ -1,9 +1,8 @@
 package ar.edu.untref.aydoo;
 
-public class Program{
+public class Programa {
 
     public static final void main(String[] arg) {
-        Program programa = new Program();
         BuscadorDePrimos buscaPrimos = new BuscadorDePrimos();
         Validador validador = new Validador();
         Presentador presentador = new Presentador();

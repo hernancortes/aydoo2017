@@ -11,7 +11,7 @@ public class Presentador {
     public final static char LF  = (char) 0x0A; 
     public final static String CRLF  = "" + CR + LF;
     
-    public static void impresionAPantalla(String textoAImprimir){
+    public void impresionAPantalla(String textoAImprimir){
         System.out.print(textoAImprimir);
     }
     
