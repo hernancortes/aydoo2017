@@ -6,12 +6,15 @@ public class Programa {
         BuscadorDePrimos buscaPrimos = new BuscadorDePrimos();
         Validador validador = new Validador();
         Presentador presentador = new Presentador();
-        
-    	try{
-            presentador.imprimirResultadoConFormato(Integer.parseInt(arg[0]), buscaPrimos.buscar(Integer.parseInt(arg[0])), validador.validarTipoDeFormato(arg), validador.validarTipoDeOrdenamiento(arg), validador.validarTipoDeSalidaPorPantallaOArchivo(arg));
-        } catch (Exception e) {
+        if (validador.hayArgumentosIngresadosPorUsuario(arg) && validador.elPrimerArgumentoIngresadosPorUsuarioEsUnNumero(arg)) {
+            presentador.imprimirResultadoConFormato(Integer.parseInt(arg[0]),
+                    buscaPrimos.buscar(Integer.parseInt(arg[0])),
+                    validador.validarTipoDeFormato(arg),
+                    validador.validarTipoDeOrdenamiento(arg),
+                    validador.validarTipoDeSalidaPorPantallaOArchivo(arg));
+        } else {
             presentador.impresionAPantalla("El numero ingresado no es valido");
-        }
+        } 
     }
 
 }

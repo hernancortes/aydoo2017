@@ -2,6 +2,24 @@ package ar.edu.untref.aydoo;
 
 public class Validador {
     
+    public boolean hayArgumentosIngresadosPorUsuario(String[] arg) {
+        boolean elArrayDeArgumentosNoEstaVacio = true;
+        if (arg.length == 0) {
+            elArrayDeArgumentosNoEstaVacio = false;
+        }
+        return elArrayDeArgumentosNoEstaVacio;
+    }
+    
+    public boolean elPrimerArgumentoIngresadosPorUsuarioEsUnNumero(String[] arg) {
+        boolean elPrimerArgumentoIngresadosPorUsuarioEsUnNumero = true;
+        try {
+            Integer.parseInt(arg[0]);
+        } catch (NumberFormatException e) {
+            elPrimerArgumentoIngresadosPorUsuarioEsUnNumero = false;
+        }  
+        return elPrimerArgumentoIngresadosPorUsuarioEsUnNumero;
+    }
+    
     public String validarTipoDeFormato(String[] arg) {
         String formatoParaImprimir = "--format=pretty";
         //busca si entre los parametros ingresados se pide formatQuiet, caso contrario mostrara formatPretty

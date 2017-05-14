@@ -31,7 +31,7 @@ public class BuscadorDePrimos {
             } else {
                 double maximoAprox = Math.round(Math.sqrt(numeroIngresado));
                 int maximo = (int) maximoAprox;
-                for (int i=3; i<=maximo; i++) {
+                for (int i = 3; i <= maximo; i++) {
                     if (numeroIngresado % i == 0) {
                         return false;
                     }
