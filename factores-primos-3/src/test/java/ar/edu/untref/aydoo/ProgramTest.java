@@ -1,6 +1,6 @@
 package ar.edu.untref.aydoo;
 
-import static ar.edu.untref.aydoo.Program.CRLF;
+import static ar.edu.untref.aydoo.Presentador.CRLF;
 import java.util.ArrayList;
 import org.junit.Test;
 import org.junit.Assert;
