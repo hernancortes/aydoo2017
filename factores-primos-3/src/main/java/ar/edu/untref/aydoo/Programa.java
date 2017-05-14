@@ -7,8 +7,9 @@ public class Programa {
         Validador validador = new Validador();
         Presentador presentador = new Presentador();
         if (validador.hayArgumentosIngresadosPorUsuario(arg) && validador.elPrimerArgumentoIngresadosPorUsuarioEsUnNumero(arg)) {
-            presentador.imprimirResultadoConFormato(Integer.parseInt(arg[0]),
-                    buscaPrimos.buscar(Integer.parseInt(arg[0])),
+            int numeroAFactorizar = Integer.parseInt(arg[0]);
+            presentador.imprimirResultadoConFormato(numeroAFactorizar,
+                    buscaPrimos.buscar(numeroAFactorizar),
                     validador.validarTipoDeFormato(arg),
                     validador.validarTipoDeOrdenamiento(arg),
                     validador.validarTipoDeSalidaPorPantallaOArchivo(arg));
