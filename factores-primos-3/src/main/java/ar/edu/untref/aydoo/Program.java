@@ -28,39 +28,17 @@ public class Program{
     }
     
     public void imprimirResultadoConFormato(int numeroIngresado, ArrayList<Integer> listaDeDivisoresPrimos, String formatoDeImpresionIngresado, String tipoDeOrdenamientoElegido, String salidaPorArchivo){
+        Formateador formateador = new Formateador();
         switch (formatoDeImpresionIngresado){
             case "--format=pretty":
-                imprimirPorPantallaOArchivo(resultadoConFormatoPretty(numeroIngresado, listaDeDivisoresPrimos), salidaPorArchivo);
+                imprimirPorPantallaOArchivo(formateador.resultadoConFormatoPretty(numeroIngresado, listaDeDivisoresPrimos), salidaPorArchivo);
                 break;
             case "--format=quiet":
-                imprimirPorPantallaOArchivo(resultadoConFormatoQuiet(listaDeDivisoresPrimos, tipoDeOrdenamientoElegido), salidaPorArchivo);
+                imprimirPorPantallaOArchivo(formateador.resultadoConFormatoQuiet(listaDeDivisoresPrimos, tipoDeOrdenamientoElegido), salidaPorArchivo);
                 break;
             default:
                 impresionAPantalla("Formato no aceptado. Las opciones posibles son: pretty o quiet.");
         }
-    }
-    
-    public String resultadoConFormatoPretty(int numeroIngresado, ArrayList<Integer> listaDeDivisoresPrimos){
-        String textoAImprimir = "Factores primos " + numeroIngresado + ": ";
-        Iterator<Integer> iterador = listaDeDivisoresPrimos.iterator();
-        while(iterador.hasNext()){
-            textoAImprimir = textoAImprimir + (String.valueOf(iterador.next()) + " ");
-        }
-        return textoAImprimir;
-    }
-    
-    public String resultadoConFormatoQuiet(ArrayList<Integer> listaDeDivisoresPrimos, String tipoDeOrdenamientoElegido){
-        String textoAImprimir = "";    
-        if ("--sort=asc".equals(tipoDeOrdenamientoElegido)){
-            //imprime en orden ascendente
-            ListIterator iterador = listaDeDivisoresPrimos.listIterator(0);
-            while(iterador.hasNext()) textoAImprimir = textoAImprimir + (String.valueOf(iterador.next()) + CRLF);
-        } else {
-            //imprime en orden descendente
-            ListIterator iterador = listaDeDivisoresPrimos.listIterator(listaDeDivisoresPrimos.size());
-            while(iterador.hasPrevious()) textoAImprimir = textoAImprimir + (String.valueOf(iterador.previous()) + CRLF);
-        }
-        return textoAImprimir;
     }
     
     public void imprimirPorPantallaOArchivo(String textoAImprimir, String salidaPorArchivo){

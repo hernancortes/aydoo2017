@@ -188,11 +188,12 @@ public class ProgramTest
     public void ingresoNumeroYResultadoConFormatoPrettyDebeDevolverStringCorrecto(){
         Program nuevoProg = new Program();
         BuscadorDePrimos buscaPrimos = new BuscadorDePrimos();
+        Formateador formateador = new Formateador();
         String[] listaArgumentosTest = new String[2];
         listaArgumentosTest[0] = "360";
         listaArgumentosTest[1] = "--format=pretty";
         String resultadoEsperado = "Factores primos 360: 2 2 2 3 3 5 ";
-        String resultado = nuevoProg.resultadoConFormatoPretty(Integer.parseInt(listaArgumentosTest[0]), buscaPrimos.buscar(Integer.parseInt(listaArgumentosTest[0])));
+        String resultado = formateador.resultadoConFormatoPretty(Integer.parseInt(listaArgumentosTest[0]), buscaPrimos.buscar(Integer.parseInt(listaArgumentosTest[0])));
         Assert.assertEquals(resultadoEsperado, resultado);
     }
     
@@ -201,11 +202,12 @@ public class ProgramTest
         Program nuevoProg = new Program();
         BuscadorDePrimos buscaPrimos = new BuscadorDePrimos();
         Validador validador = new Validador();
+        Formateador formateador = new Formateador();
         String[] listaArgumentosTest = new String[2];
         listaArgumentosTest[0] = "360";
         listaArgumentosTest[1] = "--format=quiet";
         String resultadoEsperado = "2"+ CRLF + "2" + CRLF + "2" + CRLF + "3" + CRLF + "3" + CRLF + "5" + CRLF;
-        String resultado = nuevoProg.resultadoConFormatoQuiet(buscaPrimos.buscar(Integer.parseInt(listaArgumentosTest[0])), validador.validarTipoDeOrdenamiento(listaArgumentosTest));
+        String resultado = formateador.resultadoConFormatoQuiet(buscaPrimos.buscar(Integer.parseInt(listaArgumentosTest[0])), validador.validarTipoDeOrdenamiento(listaArgumentosTest));
         Assert.assertEquals(resultadoEsperado, resultado);
     }
     
@@ -214,12 +216,13 @@ public class ProgramTest
         Program nuevoProg = new Program();
         BuscadorDePrimos buscaPrimos = new BuscadorDePrimos();
         Validador validador = new Validador();
+        Formateador formateador = new Formateador();
         String[] listaArgumentosTest = new String[2];
         listaArgumentosTest[0] = "360";
         listaArgumentosTest[1] = "--format=qUiet";
         listaArgumentosTest[1] = "--sort=Des";
         String resultadoEsperado = "5"+ CRLF + "3" + CRLF + "3" + CRLF + "2" + CRLF + "2" + CRLF + "2" + CRLF;
-        String resultado = nuevoProg.resultadoConFormatoQuiet(buscaPrimos.buscar(Integer.parseInt(listaArgumentosTest[0])), validador.validarTipoDeOrdenamiento(listaArgumentosTest));
+        String resultado = formateador.resultadoConFormatoQuiet(buscaPrimos.buscar(Integer.parseInt(listaArgumentosTest[0])), validador.validarTipoDeOrdenamiento(listaArgumentosTest));
         Assert.assertEquals(resultadoEsperado, resultado);
     }
     
