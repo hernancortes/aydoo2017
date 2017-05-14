@@ -4,12 +4,17 @@ import java.util.ArrayList;
 
 public class BuscadorDePrimos {
     
+    private static final int RESTOCERO = 0;
+    private static final int NUMEROUNO = 1;
+    private static final int NUMERODOS = 2;
+    private static final int NUMEROTRES = 3;
+    
     public ArrayList<Integer> buscar(int numeroIngresado) {
-    	int divisorCandidato = 2;
+    	int divisorCandidato = NUMERODOS;
         ArrayList<Integer> listaDeDivisoresPrimos = new ArrayList<>();
     	while (!esPrimo(numeroIngresado)) {
-            if (numeroIngresado % divisorCandidato == 0) {
-    		numeroIngresado = numeroIngresado/divisorCandidato;
+            if (numeroIngresado % divisorCandidato == RESTOCERO) {
+    		numeroIngresado = numeroIngresado / divisorCandidato;
                 listaDeDivisoresPrimos.add(divisorCandidato);
             } else {
     		divisorCandidato++;
@@ -23,16 +28,16 @@ public class BuscadorDePrimos {
     }
     
     public boolean esPrimo(int numeroIngresado) {
-    	if (numeroIngresado == 1 || numeroIngresado == 2 || numeroIngresado == 3) {
+    	if (numeroIngresado == NUMEROUNO || numeroIngresado == NUMERODOS || numeroIngresado == NUMEROTRES) {
             return true;
     	} else {
-            if (numeroIngresado % 2 == 0) {
+            if (numeroIngresado % NUMERODOS == RESTOCERO) {
                 return false;
             } else {
                 double maximoAprox = Math.round(Math.sqrt(numeroIngresado));
                 int maximo = (int) maximoAprox;
-                for (int i = 3; i <= maximo; i++) {
-                    if (numeroIngresado % i == 0) {
+                for (int i = NUMEROTRES; i <= maximo; i++) {
+                    if (numeroIngresado % i == RESTOCERO) {
                         return false;
                     }
                     i++;
