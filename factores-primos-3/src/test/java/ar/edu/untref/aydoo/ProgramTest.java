@@ -10,40 +10,45 @@ public class ProgramTest
 {
     @Test
     public void ingresoNumeroOchoyPrueboQueNoEsPrimo(){
-        Program nuevoProg = new Program();
-        boolean resultado = nuevoProg.esPrimo(8);
+        //Program nuevoProg = new Program();
+        BuscadorDePrimos buscaPrimos = new BuscadorDePrimos();
+        boolean resultado = buscaPrimos.esPrimo(8);
         boolean resultadoEsperado = false;
         Assert.assertEquals(resultadoEsperado, resultado);
     }
     
     @Test
     public void ingresoNumeroDosYPrueboQueSiEsPrimo(){
-        Program nuevoProg = new Program();
-        boolean resultado = nuevoProg.esPrimo(2);
+        //Program nuevoProg = new Program();
+        BuscadorDePrimos buscaPrimos = new BuscadorDePrimos();
+        boolean resultado = buscaPrimos.esPrimo(2);
         boolean resultadoEsperado = true;
         Assert.assertEquals(resultadoEsperado, resultado);
     }
     
     @Test
     public void ingresoListaTestConNumeroDosYComparoConBuscarPrimosDeNumeroDos(){
-        Program nuevoProg = new Program();
+        //Program nuevoProg = new Program();
+        BuscadorDePrimos buscaPrimos = new BuscadorDePrimos();
         ArrayList<Integer> listaTest = new ArrayList<>();
         listaTest.add(2);
-        Assert.assertEquals(listaTest,nuevoProg.buscarPrimos(2));
+        Assert.assertEquals(listaTest, buscaPrimos.buscar(2));
     }
     
     @Test
     public void ingresoListaTestConNumeroDosYTresYComparoConBuscarPrimosDeNumeroDos(){
-        Program nuevoProg = new Program();
+        //Program nuevoProg = new Program();
+        BuscadorDePrimos buscaPrimos = new BuscadorDePrimos();
         ArrayList<Integer> listaTest = new ArrayList<>();
         listaTest.add(2);
         listaTest.add(2);
-        Assert.assertNotEquals(listaTest,nuevoProg.buscarPrimos(2));
+        Assert.assertNotEquals(listaTest, buscaPrimos.buscar(2));
     }
     
     @Test
     public void ingresoListaTestConNumerosPrimosDe360YComparoConBuscarPrimosDe360(){
-        Program nuevoProg = new Program();
+        //Program nuevoProg = new Program();
+        BuscadorDePrimos buscaPrimos = new BuscadorDePrimos();
         ArrayList<Integer> listaTest = new ArrayList<>();
         listaTest.add(2);
         listaTest.add(2);
@@ -51,12 +56,13 @@ public class ProgramTest
         listaTest.add(3);
         listaTest.add(3);
         listaTest.add(5);
-        Assert.assertEquals(listaTest,nuevoProg.buscarPrimos(360));
+        Assert.assertEquals(listaTest, buscaPrimos.buscar(360));
     }
     
     @Test
     public void ingresoListaTestConNumerosPrimosDe360YUnoDeEllosErroneoYComparoConBuscarPrimosDe360(){
-        Program nuevoProg = new Program();
+        //Program nuevoProg = new Program();
+        BuscadorDePrimos buscaPrimos = new BuscadorDePrimos();
         ArrayList<Integer> listaTest = new ArrayList<>();
         listaTest.add(2);
         listaTest.add(2);
@@ -64,7 +70,7 @@ public class ProgramTest
         listaTest.add(4);
         listaTest.add(3);
         listaTest.add(5);
-        Assert.assertNotEquals(listaTest,nuevoProg.buscarPrimos(360));
+        Assert.assertNotEquals(listaTest, buscaPrimos.buscar(360));
     }
     
     @Test
@@ -172,34 +178,37 @@ public class ProgramTest
     @Test
     public void ingresoNumeroYResultadoConFormatoPrettyDebeDevolverStringCorrecto(){
         Program nuevoProg = new Program();
+        BuscadorDePrimos buscaPrimos = new BuscadorDePrimos();
         String[] listaArgumentosTest = new String[2];
         listaArgumentosTest[0] = "360";
         listaArgumentosTest[1] = "--format=pretty";
         String resultadoEsperado = "Factores primos 360: 2 2 2 3 3 5 ";
-        String resultado = nuevoProg.resultadoConFormatoPretty(Integer.parseInt(listaArgumentosTest[0]), nuevoProg.buscarPrimos(Integer.parseInt(listaArgumentosTest[0])));
+        String resultado = nuevoProg.resultadoConFormatoPretty(Integer.parseInt(listaArgumentosTest[0]), buscaPrimos.buscar(Integer.parseInt(listaArgumentosTest[0])));
         Assert.assertEquals(resultadoEsperado, resultado);
     }
     
     @Test
     public void ingresoNumeroYNoIngresoTipoDeOrdenamientoResultadoConFormatoQuietDebeDevolverStringCorrectoYOrdenamientoAscPredeterminado(){
         Program nuevoProg = new Program();
+        BuscadorDePrimos buscaPrimos = new BuscadorDePrimos();
         String[] listaArgumentosTest = new String[2];
         listaArgumentosTest[0] = "360";
         listaArgumentosTest[1] = "--format=quiet";
         String resultadoEsperado = "2"+ CRLF + "2" + CRLF + "2" + CRLF + "3" + CRLF + "3" + CRLF + "5" + CRLF;
-        String resultado = nuevoProg.resultadoConFormatoQuiet(nuevoProg.buscarPrimos(Integer.parseInt(listaArgumentosTest[0])), nuevoProg.validarTipoDeOrdenamiento(listaArgumentosTest));
+        String resultado = nuevoProg.resultadoConFormatoQuiet(buscaPrimos.buscar(Integer.parseInt(listaArgumentosTest[0])), nuevoProg.validarTipoDeOrdenamiento(listaArgumentosTest));
         Assert.assertEquals(resultadoEsperado, resultado);
     }
     
     @Test
     public void ingresoNumeroYEIngresoTipoDeOrdenamientoDescResultadoConFormatoQuietDebeDevolverStringCorrectoYOrdenamientoDescendente(){
         Program nuevoProg = new Program();
+        BuscadorDePrimos buscaPrimos = new BuscadorDePrimos();
         String[] listaArgumentosTest = new String[2];
         listaArgumentosTest[0] = "360";
         listaArgumentosTest[1] = "--format=qUiet";
         listaArgumentosTest[1] = "--sort=Des";
         String resultadoEsperado = "5"+ CRLF + "3" + CRLF + "3" + CRLF + "2" + CRLF + "2" + CRLF + "2" + CRLF;
-        String resultado = nuevoProg.resultadoConFormatoQuiet(nuevoProg.buscarPrimos(Integer.parseInt(listaArgumentosTest[0])), nuevoProg.validarTipoDeOrdenamiento(listaArgumentosTest));
+        String resultado = nuevoProg.resultadoConFormatoQuiet(buscaPrimos.buscar(Integer.parseInt(listaArgumentosTest[0])), nuevoProg.validarTipoDeOrdenamiento(listaArgumentosTest));
         Assert.assertEquals(resultadoEsperado, resultado);
     }
     
