@@ -11,13 +11,13 @@ public class Presentador {
     public final static char LF  = (char) 0x0A; 
     public final static String CRLF  = "" + CR + LF;
     
-    public void impresionAPantalla(String textoAImprimir){
+    public void impresionAPantalla(String textoAImprimir) {
         System.out.print(textoAImprimir);
     }
     
-    public void imprimirResultadoConFormato(int numeroIngresado, ArrayList<Integer> listaDeDivisoresPrimos, String formatoDeImpresionIngresado, String tipoDeOrdenamientoElegido, String salidaPorArchivo){
+    public void imprimirResultadoConFormato(int numeroIngresado, ArrayList<Integer> listaDeDivisoresPrimos, String formatoDeImpresionIngresado, String tipoDeOrdenamientoElegido, String salidaPorArchivo) {
         Formateador formateador = new Formateador();
-        switch (formatoDeImpresionIngresado){
+        switch (formatoDeImpresionIngresado) {
             case "--format=pretty":
                 imprimirPorPantallaOArchivo(formateador.resultadoConFormatoPretty(numeroIngresado, listaDeDivisoresPrimos), salidaPorArchivo);
                 break;
@@ -29,25 +29,25 @@ public class Presentador {
         }
     }
     
-    public void imprimirPorPantallaOArchivo(String textoAImprimir, String salidaPorArchivo){
-        if ("".equals(salidaPorArchivo)){
+    public void imprimirPorPantallaOArchivo(String textoAImprimir, String salidaPorArchivo) {
+        if ("".equals(salidaPorArchivo)) {
             impresionAPantalla(textoAImprimir);
         } else {
             impresionAArchivo(textoAImprimir, salidaPorArchivo);
         }
     }
     
-    public void impresionAArchivo(String textoAImprimir, String salidaPorArchivo){
+    public void impresionAArchivo(String textoAImprimir, String salidaPorArchivo) {
         FileWriter archivo = null;
         PrintWriter pw = null;
         String nombreDeArchivo;
         //si solo fue ingresado argumento "--output-file=" el archivo se llamara "salida.txt"
-        if (salidaPorArchivo.length()>14){
+        if (salidaPorArchivo.length()>14) {
             nombreDeArchivo = salidaPorArchivo.substring(14, salidaPorArchivo.length());
         } else {
             nombreDeArchivo = "salida.txt";
         }
-        try{
+        try {
             archivo = new FileWriter(nombreDeArchivo);
             pw = new PrintWriter(archivo);
             pw.println(textoAImprimir);
@@ -56,7 +56,9 @@ public class Presentador {
             e.printStackTrace();
         } finally {
            try {
-               if (null != archivo) archivo.close();
+               if (null != archivo) {
+                   archivo.close();
+               }
            } catch (Exception e2) {
               e2.printStackTrace();
            }
