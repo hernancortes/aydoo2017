@@ -75,103 +75,112 @@ public class ProgramTest
     
     @Test
     public void ingresoFormatoQuietEnMayusculasYLuegoDeValidarSeraConvertidoAMinusculas(){
-        Program nuevoProg = new Program();
+        //Program nuevoProg = new Program();
+        Validador validador = new Validador();
         String[] listaArgumentosTest = new String[2];
         listaArgumentosTest[0] = "360";
         listaArgumentosTest[1] = "--format=QUIET";
         String resultadoEsperado = "--format=quiet";
-        String resultado = nuevoProg.validarTipoDeFormato(listaArgumentosTest);
+        String resultado = validador.validarTipoDeFormato(listaArgumentosTest);
         Assert.assertEquals(resultadoEsperado, resultado);
     }
     
     @Test
     public void ingresoFormatoPrettyEnMayusculasYMinusculasYLuegoDeValidarSeraConvertidoAMinusculas(){
-        Program nuevoProg = new Program();
+        //Program nuevoProg = new Program();
+        Validador validador = new Validador();
         String[] listaArgumentosTest = new String[2];
         listaArgumentosTest[0] = "360";
         listaArgumentosTest[1] = "--format=PreTTy";
         String resultadoEsperado = "--format=pretty";
-        String resultado = nuevoProg.validarTipoDeFormato(listaArgumentosTest);
+        String resultado = validador.validarTipoDeFormato(listaArgumentosTest);
         Assert.assertEquals(resultadoEsperado, resultado);
     }
         
     @Test
     public void noIngresoFormatoEntoncesLuegoDeValidarDevolveraFormatoPretty(){
-        Program nuevoProg = new Program();
+        //Program nuevoProg = new Program();
+        Validador validador = new Validador();
         String[] listaArgumentosTest = new String[1];
         listaArgumentosTest[0] = "360";
         String resultadoEsperado = "--format=pretty";
-        String resultado = nuevoProg.validarTipoDeFormato(listaArgumentosTest);
+        String resultado = validador.validarTipoDeFormato(listaArgumentosTest);
         Assert.assertEquals(resultadoEsperado, resultado);
     }
     
     @Test
     public void ingresoArgumentosYNoEspecificoElOrdenEntoncesLuegoDeValidarDevolveraOrdenAscPredeterminado(){
-        Program nuevoProg = new Program();
+        //Program nuevoProg = new Program();
+        Validador validador = new Validador();
         String[] listaArgumentosTest = new String[1];
         listaArgumentosTest[0] = "360";
         String resultadoEsperado = "--sort=asc";
-        String resultado = nuevoProg.validarTipoDeOrdenamiento(listaArgumentosTest);
+        String resultado = validador.validarTipoDeOrdenamiento(listaArgumentosTest);
         Assert.assertEquals(resultadoEsperado, resultado);
     }
     
     @Test
     public void ingresoArgumentosYEspecificoElOrdenDescendenteEntoncesLuegoDeValidarDevolveraOrdenDescendente(){
-        Program nuevoProg = new Program();
+        //Program nuevoProg = new Program();
+        Validador validador = new Validador();
         String[] listaArgumentosTest = new String[3];
         listaArgumentosTest[0] = "360";
         listaArgumentosTest[1] = "--format=quiet";
         listaArgumentosTest[2] = "--sort=des";
         String resultadoEsperado = "--sort=des";
-        String resultado = nuevoProg.validarTipoDeOrdenamiento(listaArgumentosTest);
+        String resultado = validador.validarTipoDeOrdenamiento(listaArgumentosTest);
         Assert.assertEquals(resultadoEsperado, resultado);
     }
     
     @Test
     public void ingresoArgumentosYEspecificoSalidaAArchivoConMayusculasYMinusculasEntoncesLuegoDeValidarDevolveraElArgumentoDeSalidaIngresadoEnMinusculas(){
-        Program nuevoProg = new Program();
+        //Program nuevoProg = new Program();
+        Validador validador = new Validador();
         String[] listaArgumentosTest = new String[3];
         listaArgumentosTest[0] = "360";
         listaArgumentosTest[1] = "--format=quiet";
         listaArgumentosTest[2] = "--outPUT-fiLe=1.txt";
         String resultadoEsperado = "--output-file=1.txt";
-        String resultado = nuevoProg.validarTipoDeSalidaPorPantallaOArchivo(listaArgumentosTest);
+        String resultado = validador.validarTipoDeSalidaPorPantallaOArchivo(listaArgumentosTest);
         Assert.assertEquals(resultadoEsperado, resultado);
     }
     
     @Test
     public void ingresoArgumentosYEspecificoSalidaAArchivoSinNombreEntoncesLuegoDeValidarDevolveraElArgumentoDeSalidaSinNombre(){
-        Program nuevoProg = new Program();
+        //Program nuevoProg = new Program();
+        Validador validador = new Validador();
         String[] listaArgumentosTest = new String[3];
         listaArgumentosTest[0] = "360";
         listaArgumentosTest[1] = "--format=quiet";
         listaArgumentosTest[2] = "--output-file=";
         String resultadoEsperado = "--output-file=";
-        String resultado = nuevoProg.validarTipoDeSalidaPorPantallaOArchivo(listaArgumentosTest);
+        String resultado = validador.validarTipoDeSalidaPorPantallaOArchivo(listaArgumentosTest);
         Assert.assertEquals(resultadoEsperado, resultado);
     }
     
     @Test
     public void ingresoArgumentosYEspecificoOutputSinElSignoIgualEntoncesLuegoDeValidarDevolveraSalidaAArchivoVacio(){
-        Program nuevoProg = new Program();
+        //Program nuevoProg = new Program();
+        Validador validador = new Validador();
         String[] listaArgumentosTest = new String[3];
         listaArgumentosTest[0] = "360";
         listaArgumentosTest[1] = "--format=quiet";
         listaArgumentosTest[2] = "--output-file";
         String resultadoEsperado = "";
-        String resultado = nuevoProg.validarTipoDeSalidaPorPantallaOArchivo(listaArgumentosTest);
+        String resultado = validador.validarTipoDeSalidaPorPantallaOArchivo(listaArgumentosTest);
         Assert.assertEquals(resultadoEsperado, resultado);
     }
     
     @Test
     public void ingresoArgumentosYNoEspecificoSalidaAArchivoEntoncesLuegoDeValidarDevolveraStringSalidaAArchivoVacio(){
-        Program nuevoProg = new Program();
+        //Program nuevoProg = new Program();
+        Validador validador = new Validador();
         String[] listaArgumentosTest = new String[3];
         listaArgumentosTest[0] = "360";
         listaArgumentosTest[1] = "--format=quiet";
         listaArgumentosTest[2] = "--sort=des";
         String resultadoEsperado = "";
-        String resultado = nuevoProg.validarTipoDeSalidaPorPantallaOArchivo(listaArgumentosTest);
+        String resultado = validador.validarTipoDeSalidaPorPantallaOArchivo(listaArgumentosTest);
         Assert.assertEquals(resultadoEsperado, resultado);
     }
     
@@ -191,11 +200,12 @@ public class ProgramTest
     public void ingresoNumeroYNoIngresoTipoDeOrdenamientoResultadoConFormatoQuietDebeDevolverStringCorrectoYOrdenamientoAscPredeterminado(){
         Program nuevoProg = new Program();
         BuscadorDePrimos buscaPrimos = new BuscadorDePrimos();
+        Validador validador = new Validador();
         String[] listaArgumentosTest = new String[2];
         listaArgumentosTest[0] = "360";
         listaArgumentosTest[1] = "--format=quiet";
         String resultadoEsperado = "2"+ CRLF + "2" + CRLF + "2" + CRLF + "3" + CRLF + "3" + CRLF + "5" + CRLF;
-        String resultado = nuevoProg.resultadoConFormatoQuiet(buscaPrimos.buscar(Integer.parseInt(listaArgumentosTest[0])), nuevoProg.validarTipoDeOrdenamiento(listaArgumentosTest));
+        String resultado = nuevoProg.resultadoConFormatoQuiet(buscaPrimos.buscar(Integer.parseInt(listaArgumentosTest[0])), validador.validarTipoDeOrdenamiento(listaArgumentosTest));
         Assert.assertEquals(resultadoEsperado, resultado);
     }
     
@@ -203,12 +213,13 @@ public class ProgramTest
     public void ingresoNumeroYEIngresoTipoDeOrdenamientoDescResultadoConFormatoQuietDebeDevolverStringCorrectoYOrdenamientoDescendente(){
         Program nuevoProg = new Program();
         BuscadorDePrimos buscaPrimos = new BuscadorDePrimos();
+        Validador validador = new Validador();
         String[] listaArgumentosTest = new String[2];
         listaArgumentosTest[0] = "360";
         listaArgumentosTest[1] = "--format=qUiet";
         listaArgumentosTest[1] = "--sort=Des";
         String resultadoEsperado = "5"+ CRLF + "3" + CRLF + "3" + CRLF + "2" + CRLF + "2" + CRLF + "2" + CRLF;
-        String resultado = nuevoProg.resultadoConFormatoQuiet(buscaPrimos.buscar(Integer.parseInt(listaArgumentosTest[0])), nuevoProg.validarTipoDeOrdenamiento(listaArgumentosTest));
+        String resultado = nuevoProg.resultadoConFormatoQuiet(buscaPrimos.buscar(Integer.parseInt(listaArgumentosTest[0])), validador.validarTipoDeOrdenamiento(listaArgumentosTest));
         Assert.assertEquals(resultadoEsperado, resultado);
     }
     

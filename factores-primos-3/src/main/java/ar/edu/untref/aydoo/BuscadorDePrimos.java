@@ -13,7 +13,9 @@ public class BuscadorDePrimos {
                 listaDeDivisoresPrimos.add(divisorCandidato);
             } else {
     		divisorCandidato++;
-    		while (!esPrimo(divisorCandidato)) divisorCandidato++;
+    		while (!esPrimo(divisorCandidato)) {
+                    divisorCandidato++;
+                }
             }
     	}
         listaDeDivisoresPrimos.add(numeroIngresado);
