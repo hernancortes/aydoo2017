@@ -6,8 +6,8 @@ import java.util.List;
 public class Operacion {
 
     private final Cliente cliente;
-    private final Tarjeta tarjeta;
-    private final Beneficio beneficio;
+    //private final Tarjeta tarjeta;
+    //private final Beneficio beneficio;
     private final Sucursal sucursal;
     private final Establecimiento establecimiento;
     private final List<Producto> productos;
@@ -17,13 +17,14 @@ public class Operacion {
     private final double precioFinal;
     private final double montoAhorrado;
     
-    public Operacion(Cliente cliente, Tarjeta tarjeta, Beneficio beneficio, Sucursal sucursal, List<Producto> productos,  int mes, int anio) {
+    public Operacion(Cliente cliente, Sucursal sucursal, List<Producto> productos,  int mes, int anio) {
+        /*
         if (!cliente.getTarjeta().equals(beneficio.getTarjeta())) {
             throw new ErrorElClienteNoPoseeLaTarjeta();
         }
         if (!sucursal.getEstablecimiento().tieneBeneficio(beneficio)) {
             throw new ErrorEstablecimientoNoPoseeElBeneficio();
-        }
+        }*/
         if (mes < Calendar.JANUARY || mes > Calendar.DECEMBER) {
             throw new ErrorMesIngresadoInexistente();
         }
@@ -34,8 +35,8 @@ public class Operacion {
             throw new ErrorCantidadMinimaInvalidaDeProductosAComprar();
         }
         this.cliente = cliente;
-        this.tarjeta = tarjeta;
-        this.beneficio = beneficio;
+        //this.tarjeta = tarjeta;
+        //this.beneficio = beneficio;
         this.sucursal = sucursal;
         this.productos = productos;
         this.mes = mes;
@@ -86,7 +87,8 @@ public class Operacion {
     
     public double getMontoAhorrado() {
         double montoAhorrado = 0.0;
-        montoAhorrado = this.beneficio.calcularAhorro(this.productos);
+        //montoAhorrado = this.beneficio.calcularAhorro(this.productos);
+        montoAhorrado = this.establecimiento.getMejorBeneficio(this.productos).calcularAhorro(this.productos);
         return montoAhorrado;
     }
         

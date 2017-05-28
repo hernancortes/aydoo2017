@@ -8,6 +8,7 @@ public class Establecimiento {
     private final String nombre;
     private final List<Sucursal> sucursales = new ArrayList<>();
     private final List<Beneficio> beneficios = new ArrayList<>();
+    //private final List<Beneficio> beneficiosPremium = new ArrayList<>();
     
     public Establecimiento(String nombre) {
         this.nombre = nombre;
@@ -46,7 +47,17 @@ public class Establecimiento {
     public void agregarBeneficio(Beneficio beneficio) {
             this.beneficios.add(beneficio);
     }
+    
+    public Beneficio getMejorBeneficio(List<Producto> Productos) {
+        
+        return this.beneficios.get(0);
+    }
+    /*
+    public void agregarBeneficioPremium(Beneficio beneficio) {
+            this.beneficiosPremium.add(beneficio);
+    }*/
 
+    /*
     public boolean tieneBeneficio(Beneficio beneficioAVerificar) {
         boolean tiene = false;
         for (Beneficio beneficio : beneficios) {
@@ -55,6 +66,6 @@ public class Establecimiento {
             }
         }
         return tiene;
-    }
+    }*/
 
 }

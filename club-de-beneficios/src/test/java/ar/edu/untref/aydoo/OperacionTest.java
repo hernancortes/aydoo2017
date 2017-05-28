@@ -33,24 +33,28 @@ public class OperacionTest {
         kiloDeHelado = new Producto("1 kilo de helado", 100);
         productosAComprar.add(kiloDeHelado);
     }
-
+/*
     @Test (expected = ErrorElClienteNoPoseeLaTarjeta.class)
     public void intentoUnaOperacionConCarlosQueTieneTarjetaClassicPeroElBeneficioEsParaTarjetaPremium() {
-        Operacion nuevaOperacion = new Operacion (carlos, Tarjeta.CLASSIC, beneficioPremiumDescuento10PorCiento, sucursalHeladeriaA_S1, productosAComprar, 4, 2017);
-    }
+        //Operacion nuevaOperacion = new Operacion (carlos, Tarjeta.CLASSIC, beneficioPremiumDescuento10PorCiento, sucursalHeladeriaA_S1, productosAComprar, 4, 2017);
+        Operacion nuevaOperacion = new Operacion (carlos, sucursalHeladeriaA_S1, productosAComprar, 4, 2017);
+    }*/
     
     @Test (expected = ErrorMesIngresadoInexistente.class)
     public void intentoUnaOperacionIngresandoMesNumero15DebeDevolverError() {
-        Operacion nuevaOperacion = new Operacion (carlos, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalHeladeriaA_S1, productosAComprar, 15, 2017);
+        //Operacion nuevaOperacion = new Operacion (carlos, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalHeladeriaA_S1, productosAComprar, 15, 2017);
+        Operacion nuevaOperacion = new Operacion (carlos,sucursalHeladeriaA_S1, productosAComprar, 15, 2017);
     }
     
     @Test (expected = ErrorAnioIngresadoInexistente.class)
     public void intentoUnaOperacionIngresandoAnio2020DebeDevolverError() {
-        Operacion nuevaOperacion = new Operacion (carlos, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalHeladeriaA_S1, productosAComprar, 4, 2020);
+        //Operacion nuevaOperacion = new Operacion (carlos, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalHeladeriaA_S1, productosAComprar, 4, 2020);
+        Operacion nuevaOperacion = new Operacion (carlos, sucursalHeladeriaA_S1, productosAComprar, 4, 2020);
     }
-    
+    /*
     @Test (expected = ErrorEstablecimientoNoPoseeElBeneficio.class)
     public void intentoComprarConUnBeneficioQueNoEstaAgregadoEnElEstablecimientoEntoncesDevuelveError() {
-        Operacion nuevaOperacion = new Operacion (carlos, Tarjeta.CLASSIC, beneficioNoAgregado, sucursalHeladeriaA_S1, productosAComprar, 4, 2017);
-    }
+        //Operacion nuevaOperacion = new Operacion (carlos, Tarjeta.CLASSIC, beneficioNoAgregado, sucursalHeladeriaA_S1, productosAComprar, 4, 2017);
+        Operacion nuevaOperacion = new Operacion (carlos, Tarjeta.CLASSIC, sucursalHeladeriaA_S1, productosAComprar, 4, 2017);
+    }*/
 }
