@@ -25,7 +25,7 @@ public class ClubDeBeneficios {
     public List<String> obtenerReporteDeAhorros(int mes, int anio)  {
         List<String> reporte = new ArrayList<>();
         for (Cliente cliente : this.clientes) {
-            if (cliente.getAhorro(mes, anio) != "") {
+            if (!cliente.getAhorro(mes, anio).equals("")) {
                 reporte.add(cliente.getAhorro(mes, anio));
             }
         }
@@ -75,4 +75,5 @@ public class ClubDeBeneficios {
         }
         return reporte;
     }
+    
 }

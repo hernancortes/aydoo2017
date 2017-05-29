@@ -28,6 +28,7 @@ public class TestIntegracion {
     private Sucursal sucursalRestoranB_S3;
     private Sucursal sucursalLibreriaElAltillo_S4;
     private Producto kiloDeHelado;
+    private Producto senialadoresParaLibros;
     private Producto menuEjecutivo;
     private Producto libroMartinFierro;
     private Producto libroElCantarDelCid;
@@ -40,6 +41,7 @@ public class TestIntegracion {
     private final List<Producto> productosAComprarEnHeladeria = new ArrayList<>();
     private final List<Producto> productosAComprarEnRestoran = new ArrayList<>();
     private final List<Producto> productosAComprarEnLibreria = new ArrayList<>();
+    private final List<Producto> compraDe2PaquetesDeSenialadores = new ArrayList<>();
     private BeneficioDosPorUno beneficioDosPorUnoClassic;
 
     @Before
@@ -63,11 +65,12 @@ public class TestIntegracion {
         sucursalHeladeriaA_S2 = new Sucursal("Heladeria A - Sucursal S2", heladeriaA);
         sucursalRestoranB_S3 = new Sucursal("Restoran B - Sucursal S3", restoranB);
         sucursalLibreriaElAltillo_S4 = new Sucursal("Libreria El Altillo - Sucursal S4", libreriaElAltillo);
-        kiloDeHelado = new Producto("1 kilo de helado", 100);
-        menuEjecutivo = new Producto("1 menu ejecutivo", 200);
-        libroMartinFierro = new Producto("1 libro Martin Fierro", 100);
-        libroElCantarDelCid = new Producto("1 libro El Cantar del Cid", 80);
-        libroLaSantaBiblia = new Producto("1 libro La Santa Biblia", 2);
+        kiloDeHelado = new Producto("1 kilo de helado", 100, "helado");
+        senialadoresParaLibros = new Producto("10 senialadores para libros", 10, "senialadores");
+        menuEjecutivo = new Producto("1 menu ejecutivo", 200, "menu");
+        libroMartinFierro = new Producto("1 libro Martin Fierro", 100, "libro");
+        libroElCantarDelCid = new Producto("1 libro El Cantar del Cid", 80, "libro");
+        libroLaSantaBiblia = new Producto("1 libro La Santa Biblia", 2, "libro");
         mes = 4;
         anio = 2017;
         nuevoClub.agregarCliente(carlos);
@@ -207,7 +210,7 @@ public class TestIntegracion {
         
         Assert.assertEquals(resultadoEsperado, resultado);    
     }
-    /* VOLVER A HABILITAR ESTE TEST
+
     @Test
     public void juanRealizaCompraEnHeladeriaYEntoncesDebeRecibirReporteDeAhorrosDeHeladeria() {
         productosAComprarEnHeladeria.add(kiloDeHelado);
@@ -247,7 +250,7 @@ public class TestIntegracion {
     @Test (expected = ErrorPorcentajeDeDescuentoInvalido.class)
     public void intentoCrearUnBeneficioConUnDescuentoMenorAlMinimoEstipuladoDevuelveError() {
         BeneficioDescuento beneficioDeDosPorciento = new BeneficioDescuento(Tarjeta.CLASSIC, 2);
-    }*/
+    }
     
     @Test
     public void mateoCompraDosPorUnoEnLibreriaEntoncesObtieneReporteMensualConEsaCompra() {
@@ -258,6 +261,18 @@ public class TestIntegracion {
         List<String> resultadoEsperado = new ArrayList<>();
         resultadoEsperado.add("*** Resumen de Ahorro Mensual Para Mateo *** Libreria El Altillo | 1 libro Martin Fierro | 1 libro El Cantar del Cid | 180.0 | 80.0 ||| ");
         List<String> resultado = nuevoClub.obtenerReporteDeAhorros(3, 2017);
+        
+        Assert.assertEquals(resultadoEsperado, resultado);
+    }
+    
+    @Test
+    public void mateoCompraDosProductosDelMismoPrecioConBeneficioDosPorUnoEntoncesObtieneReporteMensualConEsaCompra() {
+        compraDe2PaquetesDeSenialadores.add(senialadoresParaLibros);
+        compraDe2PaquetesDeSenialadores.add(senialadoresParaLibros);
+        Operacion nuevaOperacionDosPorUno = new Operacion (mateo, sucursalLibreriaElAltillo_S4, compraDe2PaquetesDeSenialadores, 5, 2017);
+        List<String> resultadoEsperado = new ArrayList<>();
+        resultadoEsperado.add("*** Resumen de Ahorro Mensual Para Mateo *** Libreria El Altillo | 10 senialadores para libros | 10 senialadores para libros | 20.0 | 10.0 ||| ");
+        List<String> resultado = nuevoClub.obtenerReporteDeAhorros(5, 2017);
         
         Assert.assertEquals(resultadoEsperado, resultado);
     }

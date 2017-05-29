@@ -2,7 +2,6 @@ package ar.edu.untref.aydoo;
 
 import java.util.List;
 
-
 public class BeneficioDosPorUno extends Beneficio {
 
     public BeneficioDosPorUno(Tarjeta tarjeta) {

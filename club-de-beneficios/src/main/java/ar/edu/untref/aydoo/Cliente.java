@@ -16,7 +16,6 @@ public class Cliente {
         this.tarjeta = tarjeta;
     }
 
-    
     public String getNombreYApellido() {
         return this.nombreYApellido;
     }

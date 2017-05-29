@@ -6,8 +6,7 @@ import java.util.List;
 public class Operacion {
 
     private final Cliente cliente;
-    //private final Tarjeta tarjeta;
-    //private final Beneficio beneficio;
+    private final Tarjeta tarjeta;
     private final Sucursal sucursal;
     private final Establecimiento establecimiento;
     private final List<Producto> productos;
@@ -18,13 +17,6 @@ public class Operacion {
     private final double montoAhorrado;
     
     public Operacion(Cliente cliente, Sucursal sucursal, List<Producto> productos,  int mes, int anio) {
-        /*
-        if (!cliente.getTarjeta().equals(beneficio.getTarjeta())) {
-            throw new ErrorElClienteNoPoseeLaTarjeta();
-        }
-        if (!sucursal.getEstablecimiento().tieneBeneficio(beneficio)) {
-            throw new ErrorEstablecimientoNoPoseeElBeneficio();
-        }*/
         if (mes < Calendar.JANUARY || mes > Calendar.DECEMBER) {
             throw new ErrorMesIngresadoInexistente();
         }
@@ -35,14 +27,13 @@ public class Operacion {
             throw new ErrorCantidadMinimaInvalidaDeProductosAComprar();
         }
         this.cliente = cliente;
-        //this.tarjeta = tarjeta;
-        //this.beneficio = beneficio;
+        this.tarjeta = cliente.getTarjeta();
         this.sucursal = sucursal;
         this.productos = productos;
         this.mes = mes;
         this.anio = anio;
-        cliente.setOperacion(this);
-        sucursal.setOperacion(this);
+        this.cliente.setOperacion(this);
+        this.sucursal.setOperacion(this);
         this.establecimiento = sucursal.getEstablecimiento();
         this.precioOriginal = this.getMontoTotalSinDescuentos();
         this.precioFinal = this.getMontoTotalConDescuentos();
@@ -86,9 +77,7 @@ public class Operacion {
     }
     
     public double getMontoAhorrado() {
-        double montoAhorrado = 0.0;
-        //montoAhorrado = this.beneficio.calcularAhorro(this.productos);
-        montoAhorrado = this.establecimiento.getMejorBeneficio(this.productos).calcularAhorro(this.productos);
+        double montoAhorrado = this.establecimiento.getMejorBeneficio(this.productos, this.tarjeta).calcularAhorro(this.productos);
         return montoAhorrado;
     }
         

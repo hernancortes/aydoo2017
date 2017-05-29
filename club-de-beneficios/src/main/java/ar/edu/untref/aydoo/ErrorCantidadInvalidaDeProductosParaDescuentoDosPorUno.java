@@ -5,4 +5,5 @@ public class ErrorCantidadInvalidaDeProductosParaDescuentoDosPorUno extends Erro
     public ErrorCantidadInvalidaDeProductosParaDescuentoDosPorUno() {
         super("Debe ingresar 2 productos para poder realizar este descuento");
     }
+    
 }
