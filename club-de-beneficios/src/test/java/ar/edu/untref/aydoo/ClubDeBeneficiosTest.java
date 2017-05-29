@@ -53,8 +53,7 @@ public class ClubDeBeneficiosTest {
     }
     
     @Test
-    public void hagoUnaOperacionConDescuentoYPidoReporteDeClientesQueObtuvieronAhorroEntoncesObtengoUnSoloElementoEnLaListaDeReporte() { 
-        //Operacion nuevaOperacion = new Operacion (carlos, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalHeladeriaA_S1, productosAComprar, 4, 2017);
+    public void hagoUnaOperacionConDescuentoYPidoReporteDeClientesQueObtuvieronAhorroEntoncesObtengoUnSoloElementoEnLaListaDeReporte() {
         Operacion nuevaOperacion = new Operacion (carlos, sucursalHeladeriaA_S1, productosAComprar, 4, 2017);
         List<String> resultadoEsperado = new ArrayList<>();
         resultadoEsperado.add("*** Resumen de Ahorro Mensual Para Carlos *** Heladeria A | 1 kilo de helado | 100.0 | 10.0 ||| ");
@@ -64,8 +63,7 @@ public class ClubDeBeneficiosTest {
     }
     
     @Test
-    public void pidoReporteDeClientesQueObtuvieronAhorroDeUnADondeNoHayClientesConAhorroEntoncesObtengoListaDeReporteVacia() {               
-        //Operacion nuevaOperacion = new Operacion (carlos, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalHeladeriaA_S1, productosAComprar, 4, 2017);
+    public void pidoReporteDeClientesQueObtuvieronAhorroDeUnADondeNoHayClientesConAhorroEntoncesObtengoListaDeReporteVacia() {
         Operacion nuevaOperacion = new Operacion (carlos, sucursalHeladeriaA_S1, productosAComprar, 4, 2017);
         List<String> resultadoEsperado = new ArrayList<>();
         List<String> resultado = nuevoClub.obtenerReporteDeAhorros(4, 2010);
@@ -74,8 +72,7 @@ public class ClubDeBeneficiosTest {
     }
     
     @Test
-    public void hagoUnaCompraEnHeladeriaYPidoSucursalQueMasVendioEntoncesReporteDevuelveListaConSucursalDeLaHeladeria() {               
-        //Operacion nuevaOperacion = new Operacion (carlos, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalHeladeriaA_S1, productosAComprar, 4, 2017);
+    public void hagoUnaCompraEnHeladeriaYPidoSucursalQueMasVendioEntoncesReporteDevuelveListaConSucursalDeLaHeladeria() {
         Operacion nuevaOperacion = new Operacion (carlos, sucursalHeladeriaA_S1, productosAComprar, 4, 2017);
         List<Sucursal> resultadoEsperado = new ArrayList<>();
         resultadoEsperado.add(sucursalHeladeriaA_S1);
@@ -85,8 +82,7 @@ public class ClubDeBeneficiosTest {
     }
 
     @Test
-    public void hagoUnaCompraEnHeladeriaYPidoSucursalQueMasVendioEnUnAnioDondeNoHayComprasEntoncesReporteDevuelveListaVacia() {               
-        //Operacion nuevaOperacion = new Operacion (carlos, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalHeladeriaA_S1, productosAComprar, 4, 2017);
+    public void hagoUnaCompraEnHeladeriaYPidoSucursalQueMasVendioEnUnAnioDondeNoHayComprasEntoncesReporteDevuelveListaVacia() {
         Operacion nuevaOperacion = new Operacion (carlos, sucursalHeladeriaA_S1, productosAComprar, 4, 2017);
         List<Sucursal> resultadoEsperado = new ArrayList<>();
         List<Sucursal> resultado = nuevoClub.obtenerSucursalQueMasClientesAtendio(4, 2010);
@@ -95,8 +91,7 @@ public class ClubDeBeneficiosTest {
     }
     
     @Test
-    public void hagoUnaCompraEnHeladeriaYPidoEstablecimientoAFelicitarEntoncesReporteDevuelveHeladeria() {               
-        //Operacion nuevaOperacion = new Operacion (carlos, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalHeladeriaA_S1, productosAComprar, 4, 2017);
+    public void hagoUnaCompraEnHeladeriaYPidoEstablecimientoAFelicitarEntoncesReporteDevuelveHeladeria() {
         Operacion nuevaOperacion = new Operacion (carlos, sucursalHeladeriaA_S1, productosAComprar, 4, 2017);
         List<Establecimiento> resultadoEsperado = new ArrayList<>();
         resultadoEsperado.add(heladeriaA);

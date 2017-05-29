@@ -105,19 +105,6 @@ public class TestIntegracion {
     public void realizoSieteComprasEnHeladeriaAYSeisEnRestoranBEntoncesEstablecimientoAFelicitarDebeSerHeladeriaA() {
         productosAComprarEnHeladeria.add(kiloDeHelado);
         productosAComprarEnRestoran.add(menuEjecutivo);
-        //Operacion nuevaOperacionClassicEnHeladeria1 = new Operacion (carlos, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalHeladeriaA_S1, productosAComprarEnHeladeria, 1, 2017);
-        //Operacion nuevaOperacionClassicEnHeladeria2 = new Operacion (nuevoCliente1, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalHeladeriaA_S1, productosAComprarEnHeladeria, 1, 2017);
-        //Operacion nuevaOperacionClassicEnHeladeria3 = new Operacion (nuevoCliente2, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalHeladeriaA_S1, productosAComprarEnHeladeria, 1, 2017);
-        //Operacion nuevaOperacionClassicEnHeladeria4 = new Operacion (nuevoCliente3, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalHeladeriaA_S1, productosAComprarEnHeladeria, 1, 2017);
-        //Operacion nuevaOperacionPremiumEnHeladeria1 = new Operacion (juan, Tarjeta.PREMIUM, beneficioPremiumDescuento20PorCiento, sucursalHeladeriaA_S1, productosAComprarEnHeladeria, 1, 2017);
-        //Operacion nuevaOperacionPremiumEnHeladeria2 = new Operacion (nuevoCliente5, Tarjeta.PREMIUM, beneficioPremiumDescuento20PorCiento, sucursalHeladeriaA_S1, productosAComprarEnHeladeria, 1, 2017);
-        //Operacion nuevaOperacionPremiumEnHeladeria3 = new Operacion (nuevoCliente6, Tarjeta.PREMIUM, beneficioPremiumDescuento20PorCiento, sucursalHeladeriaA_S1, productosAComprarEnHeladeria, 1, 2017);
-        //Operacion nuevaOperacionClassicEnRestoran1 = new Operacion (carlos, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalRestoranB_S3, productosAComprarEnRestoran, 1, 2017);
-        //Operacion nuevaOperacionClassicEnRestoran2 = new Operacion (nuevoCliente1, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalRestoranB_S3, productosAComprarEnRestoran, 1, 2017);
-        //Operacion nuevaOperacionClassicEnRestoran3 = new Operacion (nuevoCliente1, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalRestoranB_S3, productosAComprarEnRestoran, 1, 2017);
-        //Operacion nuevaOperacionClassicEnRestoran4 = new Operacion (nuevoCliente2, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalRestoranB_S3, productosAComprarEnRestoran, 1, 2017);
-        //Operacion nuevaOperacionClassicEnRestoran5 = new Operacion (nuevoCliente3, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalRestoranB_S3, productosAComprarEnRestoran, 1, 2017);
-        //Operacion nuevaOperacionClassicEnRestoran6 = new Operacion (nuevoCliente3, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalRestoranB_S3, productosAComprarEnRestoran, 1, 2017);
         Operacion nuevaOperacionClassicEnHeladeria1 = new Operacion (carlos, sucursalHeladeriaA_S1, productosAComprarEnHeladeria, 1, 2017);
         Operacion nuevaOperacionClassicEnHeladeria2 = new Operacion (nuevoCliente1, sucursalHeladeriaA_S1, productosAComprarEnHeladeria, 1, 2017);
         Operacion nuevaOperacionClassicEnHeladeria3 = new Operacion (nuevoCliente2, sucursalHeladeriaA_S1, productosAComprarEnHeladeria, 1, 2017);
@@ -142,19 +129,6 @@ public class TestIntegracion {
     public void realizoSieteComprasEnHeladeriaASucursal1YSeisEnRestoranBSucursal3EntoncesSucursalQueMasClientesAtendioEsSucursal1() {
         productosAComprarEnHeladeria.add(kiloDeHelado);
         productosAComprarEnRestoran.add(menuEjecutivo);
-        //Operacion nuevaOperacionClassicEnHeladeria1 = new Operacion (carlos, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalHeladeriaA_S1, productosAComprarEnHeladeria, 1, 2017);
-        //Operacion nuevaOperacionClassicEnHeladeria2 = new Operacion (nuevoCliente1, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalHeladeriaA_S1, productosAComprarEnHeladeria, 1, 2017);
-        //Operacion nuevaOperacionClassicEnHeladeria3 = new Operacion (nuevoCliente2, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalHeladeriaA_S1, productosAComprarEnHeladeria, 1, 2017);
-        //Operacion nuevaOperacionClassicEnHeladeria4 = new Operacion (nuevoCliente3, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalHeladeriaA_S1, productosAComprarEnHeladeria, 1, 2017);
-        //Operacion nuevaOperacionPremiumEnHeladeria1 = new Operacion (juan, Tarjeta.PREMIUM, beneficioPremiumDescuento20PorCiento, sucursalHeladeriaA_S1, productosAComprarEnHeladeria, 1, 2017);
-        //Operacion nuevaOperacionPremiumEnHeladeria2 = new Operacion (nuevoCliente5, Tarjeta.PREMIUM, beneficioPremiumDescuento20PorCiento, sucursalHeladeriaA_S1, productosAComprarEnHeladeria, 1, 2017);
-        //Operacion nuevaOperacionPremiumEnHeladeria3 = new Operacion (nuevoCliente6, Tarjeta.PREMIUM, beneficioPremiumDescuento20PorCiento, sucursalHeladeriaA_S1, productosAComprarEnHeladeria, 1, 2017);
-        //Operacion nuevaOperacionClassicEnRestoran1 = new Operacion (carlos, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalRestoranB_S3, productosAComprarEnRestoran, 1, 2017);
-        //Operacion nuevaOperacionClassicEnRestoran2 = new Operacion (nuevoCliente1, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalRestoranB_S3, productosAComprarEnRestoran, 1, 2017);
-        //Operacion nuevaOperacionClassicEnRestoran3 = new Operacion (nuevoCliente1, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalRestoranB_S3, productosAComprarEnRestoran, 1, 2017);
-        //Operacion nuevaOperacionClassicEnRestoran4 = new Operacion (nuevoCliente2, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalRestoranB_S3, productosAComprarEnRestoran, 1, 2017);
-        //Operacion nuevaOperacionClassicEnRestoran5 = new Operacion (nuevoCliente3, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalRestoranB_S3, productosAComprarEnRestoran, 1, 2017);
-        //Operacion nuevaOperacionClassicEnRestoran6 = new Operacion (nuevoCliente3, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalRestoranB_S3, productosAComprarEnRestoran, 1, 2017);
         Operacion nuevaOperacionClassicEnHeladeria1 = new Operacion (carlos, sucursalHeladeriaA_S1, productosAComprarEnHeladeria, 1, 2017);
         Operacion nuevaOperacionClassicEnHeladeria2 = new Operacion (nuevoCliente1, sucursalHeladeriaA_S1, productosAComprarEnHeladeria, 1, 2017);
         Operacion nuevaOperacionClassicEnHeladeria3 = new Operacion (nuevoCliente2, sucursalHeladeriaA_S1, productosAComprarEnHeladeria, 1, 2017);
@@ -179,19 +153,6 @@ public class TestIntegracion {
     public void carlosRealizaCompraEnHeladeriaYRestoranEntoncesDebeRecibirReporteDeAhorrosDeHeladeriaYRestoran() {
         productosAComprarEnHeladeria.add(kiloDeHelado);
         productosAComprarEnRestoran.add(menuEjecutivo);
-        //Operacion nuevaOperacionClassicEnHeladeria1 = new Operacion (carlos, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalHeladeriaA_S1, productosAComprarEnHeladeria, 1, 2017);
-        //Operacion nuevaOperacionClassicEnHeladeria2 = new Operacion (nuevoCliente1, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalHeladeriaA_S1, productosAComprarEnHeladeria, 1, 2017);
-        //Operacion nuevaOperacionClassicEnHeladeria3 = new Operacion (nuevoCliente2, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalHeladeriaA_S1, productosAComprarEnHeladeria, 1, 2017);
-        //Operacion nuevaOperacionClassicEnHeladeria4 = new Operacion (nuevoCliente3, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalHeladeriaA_S1, productosAComprarEnHeladeria, 1, 2017);
-        //Operacion nuevaOperacionPremiumEnHeladeria1 = new Operacion (juan, Tarjeta.PREMIUM, beneficioPremiumDescuento20PorCiento, sucursalHeladeriaA_S1, productosAComprarEnHeladeria, 1, 2017);
-        //Operacion nuevaOperacionPremiumEnHeladeria2 = new Operacion (nuevoCliente5, Tarjeta.PREMIUM, beneficioPremiumDescuento20PorCiento, sucursalHeladeriaA_S1, productosAComprarEnHeladeria, 1, 2017);
-        //Operacion nuevaOperacionPremiumEnHeladeria3 = new Operacion (nuevoCliente6, Tarjeta.PREMIUM, beneficioPremiumDescuento20PorCiento, sucursalHeladeriaA_S1, productosAComprarEnHeladeria, 1, 2017);
-        //Operacion nuevaOperacionClassicEnRestoran1 = new Operacion (carlos, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalRestoranB_S3, productosAComprarEnRestoran, 1, 2017);
-        //Operacion nuevaOperacionClassicEnRestoran2 = new Operacion (nuevoCliente1, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalRestoranB_S3, productosAComprarEnRestoran, 1, 2017);
-        //Operacion nuevaOperacionClassicEnRestoran3 = new Operacion (nuevoCliente1, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalRestoranB_S3, productosAComprarEnRestoran, 1, 2017);
-        //Operacion nuevaOperacionClassicEnRestoran4 = new Operacion (nuevoCliente2, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalRestoranB_S3, productosAComprarEnRestoran, 1, 2017);
-        //Operacion nuevaOperacionClassicEnRestoran5 = new Operacion (nuevoCliente3, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalRestoranB_S3, productosAComprarEnRestoran, 1, 2017);
-        //Operacion nuevaOperacionClassicEnRestoran6 = new Operacion (nuevoCliente3, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalRestoranB_S3, productosAComprarEnRestoran, 1, 2017);
         Operacion nuevaOperacionClassicEnHeladeria1 = new Operacion (carlos, sucursalHeladeriaA_S1, productosAComprarEnHeladeria, 1, 2017);
         Operacion nuevaOperacionClassicEnHeladeria2 = new Operacion (nuevoCliente1, sucursalHeladeriaA_S1, productosAComprarEnHeladeria, 1, 2017);
         Operacion nuevaOperacionClassicEnHeladeria3 = new Operacion (nuevoCliente2, sucursalHeladeriaA_S1, productosAComprarEnHeladeria, 1, 2017);
@@ -215,19 +176,6 @@ public class TestIntegracion {
     public void juanRealizaCompraEnHeladeriaYEntoncesDebeRecibirReporteDeAhorrosDeHeladeria() {
         productosAComprarEnHeladeria.add(kiloDeHelado);
         productosAComprarEnRestoran.add(menuEjecutivo);
-        //Operacion nuevaOperacionClassicEnHeladeria1 = new Operacion (carlos, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalHeladeriaA_S1, productosAComprarEnHeladeria, 1, 2017);
-        //Operacion nuevaOperacionClassicEnHeladeria2 = new Operacion (nuevoCliente1, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalHeladeriaA_S1, productosAComprarEnHeladeria, 1, 2017);
-        //Operacion nuevaOperacionClassicEnHeladeria3 = new Operacion (nuevoCliente2, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalHeladeriaA_S1, productosAComprarEnHeladeria, 1, 2017);
-        //Operacion nuevaOperacionClassicEnHeladeria4 = new Operacion (nuevoCliente3, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalHeladeriaA_S1, productosAComprarEnHeladeria, 1, 2017);
-        //Operacion nuevaOperacionPremiumEnHeladeria1 = new Operacion (juan, Tarjeta.PREMIUM, beneficioPremiumDescuento20PorCiento, sucursalHeladeriaA_S1, productosAComprarEnHeladeria, 1, 2017);
-        //Operacion nuevaOperacionPremiumEnHeladeria2 = new Operacion (nuevoCliente5, Tarjeta.PREMIUM, beneficioPremiumDescuento20PorCiento, sucursalHeladeriaA_S1, productosAComprarEnHeladeria, 1, 2017);
-        //Operacion nuevaOperacionPremiumEnHeladeria3 = new Operacion (nuevoCliente6, Tarjeta.PREMIUM, beneficioPremiumDescuento20PorCiento, sucursalHeladeriaA_S1, productosAComprarEnHeladeria, 1, 2017);
-        //Operacion nuevaOperacionClassicEnRestoran1 = new Operacion (carlos, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalRestoranB_S3, productosAComprarEnRestoran, 1, 2017);
-        //Operacion nuevaOperacionClassicEnRestoran2 = new Operacion (nuevoCliente1, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalRestoranB_S3, productosAComprarEnRestoran, 1, 2017);
-        //Operacion nuevaOperacionClassicEnRestoran3 = new Operacion (nuevoCliente1, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalRestoranB_S3, productosAComprarEnRestoran, 1, 2017);
-        //Operacion nuevaOperacionClassicEnRestoran4 = new Operacion (nuevoCliente2, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalRestoranB_S3, productosAComprarEnRestoran, 1, 2017);
-        //Operacion nuevaOperacionClassicEnRestoran5 = new Operacion (nuevoCliente3, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalRestoranB_S3, productosAComprarEnRestoran, 1, 2017);
-        //Operacion nuevaOperacionClassicEnRestoran6 = new Operacion (nuevoCliente3, Tarjeta.CLASSIC, beneficioClassicDescuento10PorCiento, sucursalRestoranB_S3, productosAComprarEnRestoran, 1, 2017);
         Operacion nuevaOperacionClassicEnHeladeria1 = new Operacion (carlos, sucursalHeladeriaA_S1, productosAComprarEnHeladeria, 1, 2017);
         Operacion nuevaOperacionClassicEnHeladeria2 = new Operacion (nuevoCliente1, sucursalHeladeriaA_S1, productosAComprarEnHeladeria, 1, 2017);
         Operacion nuevaOperacionClassicEnHeladeria3 = new Operacion (nuevoCliente2, sucursalHeladeriaA_S1, productosAComprarEnHeladeria, 1, 2017);
@@ -256,7 +204,6 @@ public class TestIntegracion {
     public void mateoCompraDosPorUnoEnLibreriaEntoncesObtieneReporteMensualConEsaCompra() {
         productosAComprarEnLibreria.add(libroMartinFierro);
         productosAComprarEnLibreria.add(libroElCantarDelCid);
-        //Operacion nuevaOperacionDosPorUno = new Operacion (mateo, Tarjeta.CLASSIC, beneficioDosPorUnoClassic, sucursalLibreriaElAltillo_S4, productosAComprarEnLibreria, 3, 2017);
         Operacion nuevaOperacionDosPorUno = new Operacion (mateo, sucursalLibreriaElAltillo_S4, productosAComprarEnLibreria, 3, 2017);
         List<String> resultadoEsperado = new ArrayList<>();
         resultadoEsperado.add("*** Resumen de Ahorro Mensual Para Mateo *** Libreria El Altillo | 1 libro Martin Fierro | 1 libro El Cantar del Cid | 180.0 | 80.0 ||| ");
@@ -280,7 +227,6 @@ public class TestIntegracion {
     @Test (expected = ErrorCantidadInvalidaDeProductosParaDescuentoDosPorUno.class)
     public void intentoComprarConDescuentoDeDosPorUnoIngresandoUnSoloProductoEntoncesObtengoError() {
         productosAComprarEnLibreria.add(libroMartinFierro);
-        //Operacion nuevaOperacionDosPorUno = new Operacion (mateo, Tarjeta.CLASSIC, beneficioDosPorUnoClassic, sucursalLibreriaElAltillo_S4, productosAComprarEnLibreria, 3, 2017);
         Operacion nuevaOperacionDosPorUno = new Operacion (mateo, sucursalLibreriaElAltillo_S4, productosAComprarEnLibreria, 3, 2017);
     }
     
@@ -289,13 +235,11 @@ public class TestIntegracion {
         productosAComprarEnLibreria.add(libroMartinFierro);
         productosAComprarEnLibreria.add(libroElCantarDelCid);
         productosAComprarEnLibreria.add(libroLaSantaBiblia);
-        //Operacion nuevaOperacionDosPorUno = new Operacion (mateo, Tarjeta.CLASSIC, beneficioDosPorUnoClassic, sucursalLibreriaElAltillo_S4, productosAComprarEnLibreria, 3, 2017);
         Operacion nuevaOperacionDosPorUno = new Operacion (mateo, sucursalLibreriaElAltillo_S4, productosAComprarEnLibreria, 3, 2017);
     }
     
     @Test (expected = ErrorCantidadMinimaInvalidaDeProductosAComprar.class)
     public void intentoComprarConDescuentoDeDosPorUnoSinIngresarNingunProductoEntoncesObtengoError() {
-        //Operacion nuevaOperacionDosPorUno = new Operacion (mateo, Tarjeta.CLASSIC, beneficioDosPorUnoClassic, sucursalLibreriaElAltillo_S4, productosAComprarEnLibreria, 3, 2017);
         Operacion nuevaOperacionDosPorUno = new Operacion (mateo, sucursalLibreriaElAltillo_S4, productosAComprarEnLibreria, 3, 2017);
     }
         
