@@ -1,6 +1,5 @@
 package ar.edu.untref.aydoo;
 
-import java.util.ArrayList;
 import org.junit.Test;
 import org.junit.Assert;
 

@@ -1,12 +1,17 @@
 package ar.edu.untref.aydoo;
 
-import static ar.edu.untref.aydoo.Presentador.CRLF;
+
 import java.util.ArrayList;
 import org.junit.Test;
 import org.junit.Assert;
 
 
 public class TestIntegracion {
+    
+    //para impresion de salto de linea en pantalla o archivo
+    public final static char CR  = (char) 0x0D;
+    public final static char LF  = (char) 0x0A; 
+    public final static String CRLF  = "" + CR + LF;
     
     @Test
     public void ingresoNumeroOchoyPrueboQueNoEsPrimo() {
@@ -212,7 +217,7 @@ public class TestIntegracion {
     }
 
     @Test
-    public void ingresoNumeroYEIngresoTipoDeOrdenamientoDescResultadoConFormatoQuietDebeDevolverStringCorrectoYOrdenamientoDescendente() {
+    public void ingresoNumeroEIngresoTipoDeOrdenamientoDescResultadoConFormatoQuietDebeDevolverStringCorrectoYOrdenamientoDescendente() {
         BuscadorDePrimos buscaPrimos = new BuscadorDePrimos();
         Validador validador = new Validador();
         OrdenadorContext ordenadorContext = new OrdenadorContext();
