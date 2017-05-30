@@ -11,12 +11,11 @@ public class Presentador {
     public final static char LF  = (char) 0x0A; 
     public final static String CRLF  = "" + CR + LF;
     
-    public void impresionAPantalla(String textoAImprimir) {
-        System.out.print(textoAImprimir);
-    }
-    
-    public void imprimirResultadoConFormato(int numeroIngresado, ArrayList<Integer> listaDeDivisoresPrimos, String formatoDeImpresionIngresado, String tipoDeOrdenamientoElegido, String salidaPorArchivo) {
-        Formateador formateador = new Formateador();
+    public void presentarResultado(int numeroIngresado, ArrayList<Integer> listaDeDivisoresPrimos, String formatoDeImpresionIngresado, String tipoDeOrdenamientoElegido, String salidaPorArchivo) {
+        //StrategyFormateador formateador = new StrategyFormateador();
+            //FormateadorContext formateadorContext = new FormateadorContext();
+            //formateadorContext.ejecutarEstrategia(formatoDeImpresionIngresado, numeroIngresado, listaDeDivisoresPrimos);
+        /*
         switch (formatoDeImpresionIngresado) {
             case "--format=pretty":
                 imprimirPorPantallaOArchivo(formateador.resultadoConFormatoPretty(numeroIngresado, listaDeDivisoresPrimos), salidaPorArchivo);
@@ -26,7 +25,11 @@ public class Presentador {
                 break;
             default:
                 impresionAPantalla("Formato no aceptado. Las opciones posibles son: pretty o quiet.");
-        }
+        }*/
+    }
+    
+    public void impresionAPantalla(String textoAImprimir) {
+        System.out.print(textoAImprimir);
     }
     
     public void imprimirPorPantallaOArchivo(String textoAImprimir, String salidaPorArchivo) {

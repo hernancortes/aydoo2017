@@ -168,7 +168,7 @@ public class TestIntegracion {
         String resultado = validador.validarTipoDeSalidaPorPantallaOArchivo(listaArgumentosTest);
         Assert.assertEquals(resultadoEsperado, resultado);
     }
-    
+    /*
     @Test
     public void ingresoNumeroYResultadoConFormatoPrettyDebeDevolverStringCorrecto() {
         BuscadorDePrimos buscaPrimos = new BuscadorDePrimos();
@@ -207,5 +207,5 @@ public class TestIntegracion {
         String resultado = formateador.resultadoConFormatoQuiet(buscaPrimos.buscar(Integer.parseInt(listaArgumentosTest[0])), validador.validarTipoDeOrdenamiento(listaArgumentosTest));
         Assert.assertEquals(resultadoEsperado, resultado);
     }
-    
+    */
 }
