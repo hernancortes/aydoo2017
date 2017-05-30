@@ -8,9 +8,9 @@ public class Programa {
         //Se crean los objetos
         BuscadorDePrimos buscaPrimos = new BuscadorDePrimos();
         Validador validador = new Validador();
-        Presentador presentador = new Presentador();
-        FormateadorContext formateadorContext = new FormateadorContext();
         OrdenadorContext ordenadorContext = new OrdenadorContext();
+        FormateadorContext formateadorContext = new FormateadorContext();
+        Presentador presentador = new Presentador();
         if (validador.hayArgumentosIngresadosPorUsuario(arg) && validador.elPrimerArgumentoIngresadosPorUsuarioEsUnNumero(arg)) {
             //Guardo el numero a factorizar
             int numeroAFactorizar = Integer.parseInt(arg[0]);
@@ -28,12 +28,6 @@ public class Programa {
             String textoADevolver = formateadorContext.ejecutarEstrategia(formatoDeImpresionIngresado, numeroAFactorizar, listaDeDivisoresPrimosOrdenados);
             //Muestro el texto ya ordenado y formateado segun lo requerido por el usuario
             presentador.imprimirPorPantallaOArchivo(textoADevolver, salidaPorArchivo);
-            /*
-            presentador.presentarResultado(numeroAFactorizar,
-                    buscaPrimos.buscar(numeroAFactorizar),
-                    validador.validarTipoDeFormato(arg),
-                    validador.validarTipoDeOrdenamiento(arg),
-                    validador.validarTipoDeSalidaPorPantallaOArchivo(arg));*/
         } else {
             presentador.impresionAPantalla("El numero ingresado no es valido");
         } 

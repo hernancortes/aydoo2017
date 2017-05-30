@@ -168,44 +168,69 @@ public class TestIntegracion {
         String resultado = validador.validarTipoDeSalidaPorPantallaOArchivo(listaArgumentosTest);
         Assert.assertEquals(resultadoEsperado, resultado);
     }
-    /*
+
     @Test
     public void ingresoNumeroYResultadoConFormatoPrettyDebeDevolverStringCorrecto() {
         BuscadorDePrimos buscaPrimos = new BuscadorDePrimos();
-        Formateador formateador = new Formateador();
+        Validador validador = new Validador();
+        OrdenadorContext ordenadorContext = new OrdenadorContext();
+        FormateadorContext formateadorContext = new FormateadorContext();
         String[] listaArgumentosTest = new String[2];
         listaArgumentosTest[0] = "360";
         listaArgumentosTest[1] = "--format=pretty";
         String resultadoEsperado = "Factores primos 360: 2 2 2 3 3 5 ";
-        String resultado = formateador.resultadoConFormatoPretty(Integer.parseInt(listaArgumentosTest[0]), buscaPrimos.buscar(Integer.parseInt(listaArgumentosTest[0])));
+        
+        int numeroAFactorizar = Integer.parseInt(listaArgumentosTest[0]);
+        ArrayList<Integer> listaDeDivisoresPrimos = buscaPrimos.buscar(numeroAFactorizar);
+        String formatoDeImpresionIngresado = validador.validarTipoDeFormato(listaArgumentosTest);
+        String tipoDeOrdenamientoElegido = validador.validarTipoDeOrdenamiento(listaArgumentosTest);
+        ArrayList<Integer> listaDeDivisoresPrimosOrdenados = ordenadorContext.ejecutarEstrategia(tipoDeOrdenamientoElegido, listaDeDivisoresPrimos);
+        String resultado = formateadorContext.ejecutarEstrategia(formatoDeImpresionIngresado, numeroAFactorizar, listaDeDivisoresPrimosOrdenados);
+        
         Assert.assertEquals(resultadoEsperado, resultado);
     }
-    
+
     @Test
     public void ingresoNumeroYNoIngresoTipoDeOrdenamientoResultadoConFormatoQuietDebeDevolverStringCorrectoYOrdenamientoAscPredeterminado() {
         BuscadorDePrimos buscaPrimos = new BuscadorDePrimos();
         Validador validador = new Validador();
-        Formateador formateador = new Formateador();
+        OrdenadorContext ordenadorContext = new OrdenadorContext();
+        FormateadorContext formateadorContext = new FormateadorContext();
         String[] listaArgumentosTest = new String[2];
         listaArgumentosTest[0] = "360";
         listaArgumentosTest[1] = "--format=quiet";
         String resultadoEsperado = "2"+ CRLF + "2" + CRLF + "2" + CRLF + "3" + CRLF + "3" + CRLF + "5" + CRLF;
-        String resultado = formateador.resultadoConFormatoQuiet(buscaPrimos.buscar(Integer.parseInt(listaArgumentosTest[0])), validador.validarTipoDeOrdenamiento(listaArgumentosTest));
+        
+        int numeroAFactorizar = Integer.parseInt(listaArgumentosTest[0]);
+        ArrayList<Integer> listaDeDivisoresPrimos = buscaPrimos.buscar(numeroAFactorizar);
+        String formatoDeImpresionIngresado = validador.validarTipoDeFormato(listaArgumentosTest);
+        String tipoDeOrdenamientoElegido = validador.validarTipoDeOrdenamiento(listaArgumentosTest);
+        ArrayList<Integer> listaDeDivisoresPrimosOrdenados = ordenadorContext.ejecutarEstrategia(tipoDeOrdenamientoElegido, listaDeDivisoresPrimos);
+        String resultado = formateadorContext.ejecutarEstrategia(formatoDeImpresionIngresado, numeroAFactorizar, listaDeDivisoresPrimosOrdenados);
+        
         Assert.assertEquals(resultadoEsperado, resultado);
     }
-    
+
     @Test
     public void ingresoNumeroYEIngresoTipoDeOrdenamientoDescResultadoConFormatoQuietDebeDevolverStringCorrectoYOrdenamientoDescendente() {
         BuscadorDePrimos buscaPrimos = new BuscadorDePrimos();
         Validador validador = new Validador();
-        Formateador formateador = new Formateador();
-        String[] listaArgumentosTest = new String[2];
+        OrdenadorContext ordenadorContext = new OrdenadorContext();
+        FormateadorContext formateadorContext = new FormateadorContext();
+        String[] listaArgumentosTest = new String[3];
         listaArgumentosTest[0] = "360";
         listaArgumentosTest[1] = "--format=qUiet";
-        listaArgumentosTest[1] = "--sort=Des";
+        listaArgumentosTest[2] = "--sort=Des";
         String resultadoEsperado = "5"+ CRLF + "3" + CRLF + "3" + CRLF + "2" + CRLF + "2" + CRLF + "2" + CRLF;
-        String resultado = formateador.resultadoConFormatoQuiet(buscaPrimos.buscar(Integer.parseInt(listaArgumentosTest[0])), validador.validarTipoDeOrdenamiento(listaArgumentosTest));
+        
+        int numeroAFactorizar = Integer.parseInt(listaArgumentosTest[0]);
+        ArrayList<Integer> listaDeDivisoresPrimos = buscaPrimos.buscar(numeroAFactorizar);
+        String formatoDeImpresionIngresado = validador.validarTipoDeFormato(listaArgumentosTest);
+        String tipoDeOrdenamientoElegido = validador.validarTipoDeOrdenamiento(listaArgumentosTest);
+        ArrayList<Integer> listaDeDivisoresPrimosOrdenados = ordenadorContext.ejecutarEstrategia(tipoDeOrdenamientoElegido, listaDeDivisoresPrimos);
+        String resultado = formateadorContext.ejecutarEstrategia(formatoDeImpresionIngresado, numeroAFactorizar, listaDeDivisoresPrimosOrdenados);
+        
         Assert.assertEquals(resultadoEsperado, resultado);
     }
-    */
+
 }
